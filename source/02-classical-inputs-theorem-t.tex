@@ -1,0 +1,1544 @@
+\section{Classical inputs and Theorem 2.8}\label{p1:sec:classical-inputs}
+
+Put $e(t)=\exp(2\pi i t)$. Write $n\sim N$ for $N<n\leq2N$. Unspecified arithmetic indices are positive integers. Norms of sequences are counting-measure $\ell^2$ norms. A star denotes reduced residue classes in residue sums. In character sums it denotes primitive characters. These two uses are distinguished explicitly below. Constants are uniform within each sequence family. Put
+\[
+ \theta_{\mathrm{KS}}=\frac7{32}.
+\tag{2.1}\label{p1:eq:2.1}
+\]
+Thus $\theta_{\mathrm{KS}}=2\cdot7/64$, where $7/64$ is the unramified Ramanujan exponent. This symbol is distinct from the level parameter $\theta$ and the exceptional parameters $\vartheta_j$.
+
+\subsection{Spectral normalization and large sieves}
+
+The spectral large sieves are due to Deshouillers and Iwaniec \cite{DI82}.
+
+Let $q\geq1$. Use Petersson-orthonormal bases at level $\Gamma_0(q)$. The measure is $dx\,dy/y^2$. Take $\sigma_\infty=I$. For a Maass cusp form,
+\[
+ u_j(z)=\sum_{n\ne0}\rho_{j\infty}(n)\sqrt y\,
+ K_{i\kappa_j}(2\pi|n|y)e(nx),\qquad
+ \lambda_j=\tfrac14+\kappa_j^2.
+\tag{2.2}\label{p1:eq:2.2}
+\]
+This is the Fourier expansion of \cite[(1.15)]{DI82}, as printed there.
+It has no factor $2\sqrt{|n|}$; that factor enters only through the dictionary (2.11).
+For a holomorphic form $f$ of even weight $k\geq2$, write
+\[
+ f(z)=\sum_{n\geq1}\psi_f(\infty,n)e(nz).
+\tag{2.3}\label{p1:eq:2.3}
+\]
+The Eisenstein coefficients $\varphi_{\mathfrak c\infty n}(s)$ have the normalization of \cite[(1.17)]{DI82}. Their relation to the Whittaker coefficients $\rho^{\rm Dr}$ of Drappeau, whose full dictionary is (2.11) in \S2.2 below, is
+\[
+ \rho^{\rm Dr}_{\mathfrak c\infty}(n,t)
+ =\frac{\pi^{1/2+it}|n|^{it-1/2}}{\Gamma(1/2+it)}
+   \varphi_{\mathfrak c\infty n}(1/2+it).
+\tag{2.4}\label{p1:eq:2.4}
+\]
+Let $\mathfrak c$ run over inequivalent cusps. Use width-one scaling matrices. The continuous-spectrum measure in the DI large sieve is plain $dt$.
+
+\textbf{Theorem 2.1 (consequence of \cite[Theorem~2]{DI82}).} Let $\epsilon>0$, $q\geq1$, $K\geq1$ and $N\geq\tfrac12$. Let $a_n\in\mathbb C$ be supported on $N<n\leq2N$. Then each of
+\[
+\begin{split}
+ H(K,a)&=\sum_{\substack{2\leq k\leq K\\k\in{\rm even}}}
+ \frac{(k-1)!}{(4\pi)^{k-1}}
+ \sum_{f\in\mathcal B_k(q)}
+ \left|\sum_{n\sim N}a_n n^{-(k-1)/2}\psi_f(\infty,n)\right|^2,\\
+ M(K,a)&=\sum_{|\kappa_j|\leq K}
+ \frac1{\cosh(\pi\kappa_j)}
+ \left|\sum_{n\sim N}a_n\rho_{j\infty}(n)\right|^2,\\
+ E(K,a)&=\sum_{\mathfrak c}\int_{-K}^{K}
+ \left|\sum_{n\sim N}a_n n^{it}
+ \varphi_{\mathfrak c\infty n}(1/2+it)\right|^2dt
+\end{split}
+\tag{2.5}\label{p1:eq:2.5}
+\]
+is at most
+\[
+ C_\epsilon\left(K^2+\frac{N^{1+\epsilon}}q\right)
+ \sum_{n\sim N}|a_n|^2,
+\tag{2.6}\label{p1:eq:2.6}
+\]
+uniformly in $q,K,N,a$. By \cite[Theorem~2, (1.28)--(1.30)]{DI82},
+each expression is bounded by
+$C_\epsilon\{K^2+\mu(\mathfrak a)N^{1+\epsilon}\}\|a_N\|_2^2$,
+with the constant depending only on $\epsilon$. At
+$\mathfrak a=\infty$, $\mu(\infty)=1/q$, giving (2.6); the source includes
+the endpoint $N\geq\tfrac12$. The third line of (2.5) has no factor
+$1/\cosh(\pi t)$. The cusp transport for Theorem 2.8 is in
+\S\ref{p1:sec:t-cusp-transport}.
+
+For an exceptional eigenvalue $0<\lambda_j<\tfrac14$, choose $i\kappa_j>0$, and put
+\[
+ \vartheta_j=2i\kappa_j=2\sqrt{\tfrac14-\lambda_j}.
+\tag{2.7}\label{p1:eq:2.7}
+\]
+
+\textbf{Theorem 2.2 (\cite[Theorem~5]{DI82}, the specialization used here).} Let $\epsilon>0$, $q\geq1$, $N\geq\tfrac12$ and $Y\geq1$. Let $a_n\in\mathbb C$ be supported on $n\sim N$. Then
+\[
+ \sum_{j\ {\rm exceptional}}Y^{\vartheta_j}
+ \left|\sum_{n\sim N}a_n\rho_{j\infty}(n)\right|^2
+ \ll_\epsilon
+ \left(1+\sqrt{\frac{NY}q}\right)
+ \left(1+\sqrt{\frac{N^{1+\epsilon}}q}\right)\|a\|_2^2.
+\tag{2.8}\label{p1:eq:2.8}
+\]
+This is \cite[Theorem~5]{DI82}. It uses the notation of Theorem 2, so $N\geq\tfrac12$ is allowed. The implied constant depends on $\epsilon$ alone.
+
+\textbf{Theorem 2.3 (from \cite[proof of Theorem~7, (8.17)]{DI82}).} Let $\epsilon>0$. Let $a_n$ be the characteristic sequence of an integer interval
+$I\subset(N,2N]$. Then, for some $c_\epsilon$ and uniformly in $Q,N,Y\ge1$ and $I$,
+\[
+\sum_{2\le q\le Q}\ \sum_{j\ {\rm exceptional}}^{(q)}Y^{\vartheta_j}
+\Bigl|\sum_{n\sim N}a_n\rho_{j\infty}(n)\Bigr|^2\le c_\epsilon(QN)^\epsilon\bigl(Q+N+\sqrt{NY}\bigr)N.
+\tag{2.9}\label{p1:eq:2.9}
+\]
+The range starts at $q=2$ because Theorem 2.8 uses level $q=rs$ with $r>R\ge1$, so $q\ge2$ there.
+
+\emph{Proof.} By \cite[(8.17) and (8.4)]{DI82},
+\[
+\begin{aligned}
+&\sum_{Q_0<q\le16Q_0}\sum_{\rm exc}Y^{\vartheta_j}
+ \left|\sum_{N<n\le2N}a_n\rho_{j\infty}(n)\right|^2\\
+&\qquad\le c^{\rm DI}_{\epsilon'}(Q_0N)^{5\epsilon'}
+                  (Q_0+N+\sqrt{NY})N
+\end{aligned}
+\]
+for $Q_0\ge1$. In \cite{DI82} the interval is printed as $[N,N_1]$, $N\le N_1\le2N$. The sum runs over $N<n\le2N$, so $a_n$ is the characteristic sequence of the initial interval
+$(N,N_1]\cap\mathbb Z$. The source estimate (8.17) is uniform for
+$Q_0,N,Y\ge1$ and every real $N_1\in[N,2N]$; its final statement imposes
+no relation between $Y$ and $Q_0,N$. In the proof, the induction first treats
+$1\le N\le Q_0$ at $Y_*=Q_0^{2-2\epsilon'}/N$, while (8.18) handles the
+remaining large-$N$ range, and the final comparison extends the result to
+every $Y\ge1$. We write all intervals in this half-open form.
+
+(i) \emph{$q$-blocks.} Let $I_Q=\max\{i\ge0:16^{-i}Q\ge1\}$. The blocks $(16^{-i}Q,16^{1-i}Q]$,
+$1\le i\le I_Q$, together with $(1,16]$, cover $2\le q\le Q$. There are at most $2+\log_{16}Q$ of
+them. Every summand is nonnegative. So each block may be enlarged to its full DI range. Each block has
+$Q_0\le Q$.
+
+(ii) \emph{Intervals.} Write $I=(u,v]\cap\mathbb Z$ with $N\le u\le v\le2N$. Then
+$\mathbf1_I=\mathbf1_{(N,v]}-\mathbf1_{(N,u]}$, both initial intervals in DI's sense, and
+$|A-B|^2\le2|A|^2+2|B|^2$. This costs a factor 4.
+
+Hence the left side of (2.9) is at most
+$4c^{\rm DI}_{\epsilon'}(2+\log_{16}Q)(QN)^{5\epsilon'}(Q+N+\sqrt{NY})N$. Take $\epsilon'=\epsilon/10$
+and $c_\epsilon:=4c^{\rm DI}_{\epsilon/10}\sup_{Q\ge1}(2+\log_{16}Q)Q^{-\epsilon/2}<\infty$. \hfill$\square$
+
+The interval hypothesis is the one in \cite[(8.17)]{DI82}, and the induction closes in the proof of Theorem~7. Theorem 2.3 comes from this step of that proof. \cite[Theorem~7]{DI82} treats $a_n=1$ on $n\le N$. Theorem 2.3 needs $N\ge1$. The one-integer block $N=\tfrac12$ is
+treated in \S\ref{p1:sec:t-exceptional}.
+
+\subsection{Hecke exponents and the adopted trace normalization}
+
+\textbf{Kim--Sarnak input.} The bound $7/64$ at an unramified place is \cite[Appendix~2, Proposition~2]{KS03}; the Satake normalization is stated in \cite[p.~175]{KS03}. Independently, the archimedean input
+$\lambda_j\geq975/4096$ is the lower bound in \cite[Appendix~2]{KS03}; it is not a consequence of the finite-place estimate below. Let $f$ be a weight-zero Maass newform of congruence level. Each exceptional parameter of $f$ satisfies $0\leq i\kappa\leq7/64$. For a prime $p$ not dividing the level,
+% Locator retained: the Satake normalization passage on printed p. 175 has no theorem or equation number.
+\[
+ |\alpha_p|,|\beta_p|\leq p^{7/64},\qquad
+ |\lambda_f(p^\nu)|\leq(\nu+1)p^{7\nu/64}
+ \quad(\nu\geq0).
+\tag{2.10}\label{p1:eq:2.10}
+\]
+Thus the preceding archimedean input gives $\vartheta_j\leq\theta_{\mathrm{KS}}$, equivalently $\lambda_j\geq975/4096$ by (2.7). At the finite places, (2.10) gives $|\lambda_f(k)|\leq\tau(k)k^{\theta_{\mathrm{KS}}/2}$ for $k$ coprime to the level. We use these bounds for newforms of level dividing $q$. These newforms diagonalize the unramified Hecke operators on the full level-$q$ space. For holomorphic newforms we use Deligne's $ |\lambda_f(k)|\leq\tau(k)$, again for $k$ coprime to the level. Both factorizations use primes coprime to the level.
+
+\textbf{Deligne input.} The holomorphic bound is \cite[Th\'eor\`eme~8.2]{Deligne74}. Both inputs enter at primes coprime to the level, through the prime-power recurrences and multiplicativity above.
+
+Bruggeman and Kuznetsov independently introduced the relevant trace
+formulas; see \cite[p.~220]{DI82} and their original papers
+\cite{Bruggeman78,Kuznetsov81}. For the normalization and formulas used
+here, see \cite[(4.7), (4.9)--(4.19), Lemma~4.5]{Drappeau}, in the PLMS version.
+% Locator retained: DI82's historical attribution on printed p. 220 has no theorem or equation number.
+The coefficient dictionary is
+\[
+\begin{aligned}
+ \rho^{\rm Dr}_{f\mathfrak a}(n)&=\frac{\rho^{\rm DI}_{f\mathfrak a}(n)}{2\sqrt{|n|}}
+ &&\hbox{(Maass)},\\
+ \rho^{\rm Dr}_{f\mathfrak a}(n)&=(4\pi n)^{-k/2}\psi_f(\mathfrak a,n)
+ &&\hbox{(holomorphic)},
+\end{aligned}
+\tag{2.11}\label{p1:eq:2.11}
+\]
+with (2.4) for Eisenstein series. The Maass identity follows from $W_{0,it}(4\pi|n|y)=2\sqrt{|n|y}K_{it}(2\pi|n|y)$.
+
+For $\phi\in C_c^\infty((0,\infty))$, define the DI transforms
+\[
+\begin{split}
+ \widehat\phi(t)&=\frac\pi{\sinh\pi t}
+ \int_0^\infty\frac{J_{2it}(x)-J_{-2it}(x)}{2i}\phi(x)\frac{dx}x,\\
+ \check\phi(t)&=\frac4\pi\cosh\pi t
+ \int_0^\infty K_{2it}(x)\phi(x)\frac{dx}x,\\
+ \widetilde\phi(k-1)&=\int_0^\infty J_{k-1}(x)\phi(x)\frac{dx}x.
+\end{split}
+\tag{2.12}\label{p1:eq:2.12}
+\]
+Values at removable singularities are limits. In Drappeau's notation the corresponding transforms are $-4\widehat\phi$, $2\pi\check\phi$, and $4i^k\widetilde\phi(k-1)$.
+
+Theorem 2.8 and Section~3 use the following identity. Let $q=rs$, $(r,s)=1$, and $r>1$; take
+\[
+ \sigma_{1/s}=\begin{pmatrix}\sqrt r&0\\s\sqrt r&1/\sqrt r\end{pmatrix},
+ \qquad
+ \mathcal C(\infty,1/s)=\{\gamma=cs\sqrt r:c\geq1, (c,r)=1\}.
+\tag{2.13}\label{p1:eq:2.13}
+\]
+The scaling matrix and admissible moduli in (2.13) are also given in
+\cite[(1.6) and (2.4)]{DI82} and \cite[Lemma~4.3]{Drappeau}.
+Since $r>1$, the cusps $\infty$ and $1/s$ are inequivalent. Hence the same-sign identity has no diagonal term. If a matrix in $\Gamma_0(rs)$ maps $\infty$ to the reduced fraction $1/s$, its lower-left entry is $\pm s$. Then $rs\mid s$, so $r=1$. Every application here has $r>R\geq1$. For $m,n\geq1$, put $\mathcal K_\pm(m,n)=\sum_{\gamma\in\mathcal C}\gamma^{-1}S_{\infty,1/s}(m,\pm n;\gamma)\phi(4\pi\sqrt{mn}/\gamma)$. In the DI coefficients, Drappeau's formulas read
+\[
+\begin{split}
+ \mathcal K_+(m,n)
+ &=\frac1\pi\sum_{\substack{k\geq2\\k\ {\rm even}}}
+ i^k(k-1)!(4\pi\sqrt{mn})^{1-k}\widetilde\phi(k-1)
+ \sum_f\overline{\psi_f(\infty,m)}\psi_f(1/s,n)\\
+ &\quad-\sum_j\frac{\widehat\phi(\kappa_j)}{\cosh\pi\kappa_j}
+ \overline{\rho_{j\infty}(m)}\rho_{j,1/s}(n)\\
+ &\quad-\frac1\pi\sum_{\mathfrak c}\int_{\mathbb R}
+ \widehat\phi(t)(n/m)^{it}
+ \overline{\varphi_{\mathfrak c\infty m}(1/2+it)}
+ \varphi_{\mathfrak c,1/s,n}(1/2+it)\,dt,\\[2mm]
+ \mathcal K_-(m,n)
+ &=\frac\pi2\sum_j\frac{\check\phi(\kappa_j)}{\cosh\pi\kappa_j}
+ \overline{\rho_{j\infty}(m)}\rho_{j,1/s}(-n)\\
+ &\quad+\frac12\sum_{\mathfrak c}\int_{\mathbb R}
+ \check\phi(t)(n/m)^{it}
+ \overline{\varphi_{\mathfrak c\infty m}(1/2+it)}
+ \varphi_{\mathfrak c,1/s,-n}(1/2+it)\,dt.
+\end{split}
+\tag{2.14}\label{p1:eq:2.14}
+\]
+The proof uses only the identities (2.7.T16)--(2.7.T18), derived in \S\ref{p1:sec:t-cusp-pair}. The continuous integrals carry plain $dt$. Let $\alpha_m,\beta_n$ be finite sequences. Multiply (2.14) by $\alpha_m\beta_n$, sum in $(m,n)$, then take spectral absolute values and apply Cauchy--Schwarz. The first functional is $L_1(u)=\sum_m\overline{\alpha_m}\rho_{u\infty}(m)$. The spectral product is $\overline{L_1(u)}\sum_n\beta_n\rho_{u,1/s}(\pm n)$.
+
+\subsection{BFI and the classical progression estimates}
+
+For a finitely supported sequence $f$, define
+\[
+ \Delta_f(q,a)=\sum_{n\equiv a\ (q)}f(n)
+ -\frac1{\varphi(q)}\sum_{(n,q)=1}f(n),\qquad (a,q)=1.
+\tag{2.15}\label{p1:eq:2.15}
+\]
+The notation of \cite[(1.1)]{BFI86} writes $\Delta_f(x;q,a)$ for (2.15) with both sums cut at $n\le x$.
+
+The progression estimates are from Bombieri, Friedlander and Iwaniec
+\cite{BFI86}. We use \cite[(A2), Theorem~0(a), and proof of Theorem~0(a)]{BFI86}.
+
+\textbf{BFI hypothesis (A2) \cite[(A2)]{BFI86}.} Fix $B_\beta>0$ for the sequence family. Let $\beta$ be in the family, with support parameter $N\geq2$. For every $d,k\geq1$ and integer $\ell\ne0$ with $(\ell,k)=1$, and for every $A>0$, there is $C_A$ with
+\[
+ \left|\sum_{\substack{n\equiv\ell\ (k)\\(n,d)=1}}\beta_n
+ -\frac1{\varphi(k)}\sum_{(n,dk)=1}\beta_n\right|
+ \leq C_A\|\beta\|_2N^{1/2}\tau(d)^{B_\beta}(\log(2N))^{-A}.
+\tag{2.16}\label{p1:eq:2.16}
+\]
+The $C_A$ are independent of $N,d,k,\ell$ and of $\beta$ in the family. As in \cite{BFI86}, $d$ and $k$ run over all positive integers. If $\|\beta\|_2^2\geq N(\log 2N)^{-B'}$ for a fixed $B'$, then a bound $C_AN\tau(d)^{B_\beta}(\log 2N)^{-(A+B'/2)}$ implies (2.16), after adjusting the constant.
+
+\textbf{Theorem 2.4 (\cite[Theorem~0(a), (2.2)]{BFI86}).} Let $\beta_n$ be supported on $n\leq N$, $N\geq2$, and satisfy (2.16). For every $A>0$, there is $B_1>0$ such that, uniformly for $Q\leq N(\log N)^{-B_1}$,
+\[
+ \sum_{q\leq Q}\ \sum_{\substack{a\bmod q\\(a,q)=1}}
+ |\Delta_\beta(q,a)|^2
+ \ll \|\beta\|_2^2N(\log N)^{-A}.
+\tag{2.17}\label{p1:eq:2.17}
+\]
+The constants depend on $A,B_\beta$ and the constants in (2.16). For a sequence on $N<n\leq2N$, replace $N$ by $2N$ in (2.17).
+
+\cite[Theorem~0(b)]{BFI86} is not used; its discrepancy has the cutoff $n\leq x$ of \cite[(1.1)]{BFI86}, while (2.15) is a full-support discrepancy. The switched bilinear form uses the full-support bound (3.49), proved from (3.25), (3.48) and Theorem 2.4.
+
+That bound uses \cite[(1.6)]{BFI86}. Let $c_h\in\mathbb C$ be supported on $1\leq h\leq H$. The large sieve gives
+\[
+ \sum_{q\leq Q}
+ \sum_{\chi\bmod q}^{\rm primitive}
+ \left|\sum_hc_h\chi(h)\right|^2
+ \ll(Q^2+H)\|c\|_2^2.
+\tag{2.19}\label{p1:eq:2.19}
+\]
+We use this initial-interval form with $H$ the upper support bound.
+
+\textbf{Bombieri--Vinogradov input.} Write $\psi(y;q,a)=\sum_{n\leq y,n\equiv a\ (q)}\Lambda(n)$. For every $A>0$ there is $B=B(A)>0$ such that, for $y\geq3$ and $Q\leq y^{1/2}(\log y)^{-B}$,
+\[
+ \sum_{q\leq Q}\max_{(a,q)=1}
+ \left|\psi(y;q,a)-\frac y{\varphi(q)}\right|
+ \ll_A y(\log y)^{-A}.
+\tag{2.20}\label{p1:eq:2.20}
+\]
+This is BFI's formulation of the Bombieri--Vinogradov theorem
+\cite[(1.4)]{BFI86}; compare the original results
+\cite{Bombieri65,Vinogradov65}. The maximum allows the varying reduced
+residue $a=N\bmod q$. We apply (2.20) at each endpoint separately, with
+its own level inequality. Thus (2.20) is used at fixed $y$ only.
+
+\textbf{Siegel--Walfisz input.} We use the power-log form of
+\cite[Corollary~5.29]{IK04}. Remove prime powers and sum by parts.
+Let $C>0$ and $A>0$ be fixed. For $y\geq3$, $q\leq(\log y)^C$
+and $(a,q)=1$,
+\[
+ \pi(y;q,a)=\frac{\operatorname{Li}(y)}{\varphi(q)}
+ +O_{A,C}\bigl(y(\log y)^{-A}\bigr).
+\tag{2.21}\label{p1:eq:2.21}
+\]
+The constant is uniform in reduced $a$ and is ineffective. Subtraction at two comparable endpoints keeps any fixed logarithmic saving. We use (2.21) with this power-log error. Three further forms need their own proofs. The first saves a power of the interval length. The second keeps the tensor and coprimality structure of the structured sequences. The third is localized to one dyadic box of the Heath--Brown decomposition. Section~3 proves the short-interval estimates and those for its structured sequences.
+
+\subsection{The linear sieve and its structured remainder}
+
+Let $\mathcal A$ be a finite integer sequence with nonnegative multiplicities. Let $\mathcal P$ be a prime set. Put
+\[
+ P(z)=\prod_{\substack{p<z\\p\in\mathcal P}}p,\quad
+ S(\mathcal A,\mathcal P,z)=\sum_{a\in\mathcal A}1_{(a,P(z))=1},
+ \quad |\mathcal A_d|=\frac{\omega(d)}dX+r(\mathcal A,d).
+\tag{2.22}\label{p1:eq:2.22}
+\]
+Here $X>0$ and $\omega$ is multiplicative. Require $0<\omega(p)<p$ for $p\in\mathcal P$. Set $\omega(p)=0$ for excluded primes. Set $V(z)=\prod_{p<z,p\in\mathcal P}(1-\omega(p)/p)$. Use the continuous linear-sieve solutions
+\[
+\begin{gathered}
+ sF(s)=2e^\gamma\quad(0<s\leq3),\qquad
+ sf(s)=0\quad(0<s\leq2),\\
+ (sF(s))'=f(s-1)\quad(s>3),\qquad
+ (sf(s))'=F(s-1)\quad(s>2).
+\end{gathered}
+\tag{2.23}\label{p1:eq:2.23}
+\]
+On $s\geq1$, $F$ decreases to 1. Also $f$ increases to 1, with $f=0$ through $s=2$. In particular $F(1)=2e^\gamma$. We use this endpoint when the level is at least the sifting limit.
+
+Let $K_{\mathrm M}\geq2$ be one fixed absolute constant such that, for all
+$z>w\geq2$,
+\[
+ \prod_{w\leq p<z}\left(1-\frac1p\right)^{-1}
+ \leq\frac{\log z}{\log w}\left(1+\frac{K_{\mathrm M}}{\log w}\right).
+\]
+Such a constant exists by Mertens' product estimate, after increasing it
+to cover bounded $w$.
+
+\textbf{Theorem 2.5 (\cite[Theorem~1]{AA36}, dimension one).} Suppose, for some fixed $K\geq2$ and every $z>w\geq2$,
+\[
+ \prod_{\substack{w\leq p<z\\p\in\mathcal P}}
+ (1-\omega(p)/p)^{-1}
+ \leq\frac{\log z}{\log w}\left(1+\frac K{\log w}\right).
+\tag{2.24}\label{p1:eq:2.24}
+\]
+Let $y\geq z\geq2$ and $s=\log y/\log z$. Then
+\[
+\begin{split}
+ S(\mathcal A,\mathcal P,z)
+ &\leq XV(z)\{F(s)+e^{\sqrt K}Q_1(s)(\log y)^{-1/3}\}
+ +\sum_{\substack{d<y\\d\mid P(z)}}|r(\mathcal A,d)|,\\
+ S(\mathcal A,\mathcal P,z)
+ &\geq XV(z)\{f(s)-e^{\sqrt K}Q_1(s)(\log y)^{-1/3}\}
+ -\sum_{\substack{d<y\\d\mid P(z)}}|r(\mathcal A,d)|,
+\end{split}
+\tag{2.25}\label{p1:eq:2.25}
+\]
+where, for $s\geq1$,
+\[
+ Q_1(s)\leq\exp\{-s\log s+s\log\log(3s)+O(s)\}.
+\tag{2.26}\label{p1:eq:2.26}
+\]
+See \cite{AA36}. The hypotheses are (1.1)--(1.3), and Theorem 1 is (1.4)--(1.6). The dimension-one constants $\beta=2$ and $A=2e^\gamma$ appear in \cite[p.~176]{AA36}; the source states $B=0$ in \cite[p.~173]{AA36}. For $s\leq2$ the lower main function in (2.25) vanishes. Hence its lower main term is nonpositive.
+% Locators retained: the dimension-one table on p. 176 and the B=0 statement on p. 173 are unnumbered.
+
+For the later prime set $\mathcal P_N=\{p:p\nmid2N\}$, take the
+multiplicative function with $\omega(p)=1$ on $\mathcal P_N$,
+$\omega(p)=0$ off it, and $\omega(p^a)=0$ for $a\geq2$. Its product
+in (2.24) is over a subset of all primes in $[w,z)$, so (2.24) holds
+uniformly in $N$ with the fixed value $K=K_{\mathrm M}$. The same data
+satisfy (2.27) with $L_\omega=2$. Thus, whenever (2.25) is specialized
+to this set, its factor is $e^{\sqrt{K_{\mathrm M}}}$. This is fixed;
+combining it with (2.26) changes only the absolute constant in the
+$O(s)$ term there.
+This $\omega$ is a nominal sieve density: by Theorem~2.6 the constructed
+coefficients are independent of $\mathcal A$, $X$, and $\omega$.
+
+The structured remainder is from \cite[Theorem~4]{AA37}.
+
+Assume (2.24) and nonnegativity of $\omega$ on prime powers. Fix $L_\omega>1$. Assume, for all $z>w\geq2$,
+\[
+ \sum_{\substack{w\leq p<z\\p\in\mathcal P}}
+       \sum_{a\geq2}\frac{\omega(p^a)}{p^a}
+ \leq\frac{L_\omega}{\log(3w)}.
+\tag{2.27}\label{p1:eq:2.27}
+\]
+These are \cite[(1)--(2)]{AA37} in dimension one, with $L=L_\omega$.
+
+Fix $0<\epsilon_s<1/3$ and $D\geq2$. Put $\delta_s=\epsilon_s^9$ and
+\[
+ \mathcal G(D)=\{D^{\epsilon_s^2(1+\delta_s)^n}:n\geq0\}.
+\tag{2.28}\label{p1:eq:2.28}
+\]
+Let $\mathcal H(D)$ consist of tuples $\mathbf D=(D_1,\ldots,D_\rho)$ from this grid with $D_\rho\leq\cdots\leq D_1<D^{1/2}$. Define
+\[
+\begin{split}
+ \mathcal D^+(D)&=\{\mathbf D\in\mathcal H(D):
+ D_1\cdots D_{2l}D_{2l+1}^3<D
+ \quad(0\leq l\leq(\rho-1)/2)\},\\
+ \mathcal D^-(D)&=\{\mathbf D\in\mathcal H(D):
+ D_1\cdots D_{2l-1}D_{2l}^3<D
+ \quad(1\leq l\leq\rho/2)\}.
+\end{split}
+\tag{2.29}\label{p1:eq:2.29}
+\]
+\cite[Theorem~4]{AA37} gives $|\mathcal D^+|,|\mathcal D^-|<\exp(8\epsilon_s^{-3})$. This bound follows the definitions of $\mathcal D^+$ and $\mathcal D^-$. The grid is built from the relative level of each application.
+
+\textbf{Theorem 2.6 (from \cite[Theorem~4]{AA37}, with $R=1$).} Assume (2.22), (2.24), (2.27), with the parameters above. Then there are coefficients $\phi_d^\pm$ and $\lambda_d^\pm(\mathbf D)$ of modulus at most 1. They are independent of $\mathcal A,X,\omega$. They satisfy
+\[
+\begin{aligned}
+ S(\mathcal A,\mathcal P,z)&\leq XV(z)(F(s)+E_s)+R_1^++R^+
+ &&(2\leq z\leq D),\\
+ S(\mathcal A,\mathcal P,z)&\geq XV(z)(f(s)-E_s)-R_1^--R^-
+ &&(2\leq z\leq D^{1/2}),
+\end{aligned}
+\tag{2.30}\label{p1:eq:2.30}
+\]
+where $s=\log D/\log z$ and
+\[
+ E_s\ll\epsilon_s+\epsilon_s^{-8}e^{K+L_\omega}(\log D)^{-1/3},
+\tag{2.31}\label{p1:eq:2.31}
+\]
+with an absolute implied constant. \cite[Theorem~4]{AA37} contains $e^{K+L}$. For the coefficient construction used here, the prime set and multiplicative function just specified give $K=K_{\mathrm M}$ and $L_\omega=2$. Hence (2.31) has the fixed factor $e^{K_{\mathrm M}+2}$; it is retained in the formula and may be absorbed into the implied constant. The prime-power dependence comes from its (2), namely (2.27). In its estimate (31), put $u=D^{\epsilon_s^2}$. Then
+\[
+ U=\sum_{\substack{u\leq p<z\\p\in\mathcal P}}
+       \sum_{a\geq2}\frac{\omega(p^a)}{p^a}\leq L_\omega,
+ \qquad
+ \prod_{\substack{u\leq p<z\\p\in\mathcal P}}
+ \left\{\left(1-\frac{\omega(p)}p\right)
+ \sum_{a\geq0}\frac{\omega(p^a)}{p^a}\right\}\leq e^U.
+\]
+For the first bound use $\max\{2,u\}$ in (2.27). An empty prime interval contributes zero. The second bound follows factor by factor. Thus $e^U\leq e^{L_\omega}$ bounds the extra prime-power factors in the nonsquarefree terms. Formula (2.31) keeps the factor $e^{K+L_\omega}$ of the source. The signed remainders are
+\[
+ R_1^\nu=\sum_{\substack{d<D^{\epsilon_s}\\d\mid P(D^{\epsilon_s^2})}}
+ \phi_d^\nu r(\mathcal A,d),
+\tag{2.32}\label{p1:eq:2.32}
+\]
+\[
+ R^\nu=\sum_{\mathbf D\in\mathcal D^\nu(D)}
+ \sum_{\substack{d<D^{\epsilon_s}\\d\mid P(D^{\epsilon_s^2})}}
+ \lambda_d^\nu(\mathbf D)
+ \sum_{\substack{D_i\leq p_i<D_i^{1+\delta_s}\\p_i\mid P(z)\\
+                         p_i\ne p_j\ ((i,j)\in I(\mathbf D))}}
+ r(\mathcal A,dp_1\cdots p_\rho).
+\tag{2.33}\label{p1:eq:2.33}
+\]
+The sets $I(\mathbf D)$ impose distinctness on equal-label tail positions. Unequal grid intervals are disjoint. Coefficients may be zero on unused tuples. They depend only on $\mathcal P,D,z,\epsilon_s,\mathbf D$ and the distinctness conditions. In particular they are independent of $\mathcal A,X,\omega$. They may change with the level or the cutoff.
+
+\cite[Theorem~4]{AA37} holds for general $R\geq1$, $0<\epsilon_s<3^{-R}$, with the respective ranges in (2.30). Its preceding combinatorial identities give $S\leq W_R^+$ and $S\geq W_R^-$. The coefficients come from \cite[(23)--(25), (26), and Lemma~4]{AA37}; these formulas also show their independence of the sequence.
+
+\textbf{Relative-level grid.} Choose $0<\sigma\leq10^{-10}$ first, and put $\tau=\sigma^9$. For any level $L_c\ge2$, substitute
+\[
+ \epsilon_s=\sigma,\qquad D=L_c,\qquad
+ \delta_s=\epsilon_s^9=\sigma^9=\tau.
+\tag{2.33a}\label{p1:eq:2.33a}
+\]
+Then, term for term,
+\[
+ \mathcal G(D)
+ =\{L_c^{\sigma^2(1+\tau)^n}:n\geq0\},\qquad
+ D^{\epsilon_s^2}=L_c^{\sigma^2},\qquad
+ D^{\epsilon_s}=L_c^\sigma.
+\tag{2.33b}\label{p1:eq:2.33b}
+\]
+Thus the labels, half-open prime intervals, smooth-prime cutoff, and smooth-divisor support agree term by term with (2.32)--(2.33). These are the Iwaniec parameters at level $L_c$, and the tuple conditions (2.29) are unchanged. With this $\tau$, Theorem 2.6 applies as stated. In the application to (W), Section~5 takes $L_c=D=N^\theta$, so the grid there is exactly the global grid in Theorem~1.2. The coefficients are the values supplied by Iwaniec's construction for $(\mathcal P,L_c,\sigma,\mathbf D)$ at the cutoff $z$ of the application, here $z=N^u$. The cutoff also restricts the prime variables in (2.33). The proof uses only the bound $|\cdot|\le1$ and the support of these coefficients. It never compares coefficient values at different cutoffs.
+
+\cite[Lemma~3]{AA37} gives $(F,f)$ with error
+$O(e^{\sqrt K-s}(\log D)^{-1/3})$. In its use here the sieve
+constant is $K=K_{\mathrm M}$, fixed independently of $N,D,z$.
+Therefore $e^{\sqrt{K_{\mathrm M}}}$ is absorbed into the implied
+constant, and the error is $O(e^{-s}(\log D)^{-1/3})$ with that fixed
+constant. Likewise, in the profile (2.26), this multiplier changes only
+its absolute $O(s)$ constant. The lemma cites
+\cite[Lemmas~18 and 20]{AA36}. Theorem 4 includes the
+closed endpoints $z=D$ and $z=D^{1/2}$ of (2.30), although
+\cite[Lemma~20]{AA36} has strict inequalities.
+
+\subsection{The fundamental lemma, Weil bound, and Heath--Brown identity}
+
+\textbf{Fundamental lemma (cf. \cite[Lemma~4]{BFI86}; the
+prime-support condition is explicit in
+\cite[Lemma~5]{FI78}).} Let $D\geq2$, $s\geq3$ and
+$z=D^{1/s}$. Let $P(z)$ be the product of all primes below $z$.
+There are $\lambda_d^\pm$, supported on $d\leq D$, $d\mid P(z)$,
+with $\lambda_1^\pm=1$, $|\lambda_d^\pm|\leq1$ and
+\[
+ (\lambda^-*1)(n)=(\lambda^+*1)(n)=1
+ \quad\text{if }(n,P(z))=1,
+\]
+\[
+ (\lambda^-*1)(n)\leq0\leq(\lambda^+*1)(n)
+ \quad\text{otherwise},
+\]
+\[
+\begin{aligned}
+ \sum_{d\leq D}\frac{\lambda_d^\pm}d
+ &=\prod_{p<z}(1-1/p)\\
+ &\quad{}\times\{1+O(e^{-s})\}.
+\end{aligned}
+\tag{2.34}\label{p1:eq:2.34}
+\]
+The support $d\mid P(z)$ means that every supported $d$ is squarefree
+and uses only primes below $z$. In (2.34), this makes
+$(\lambda^\pm*1)(n)=\sum_{d\mid(n,P(z))}\lambda_d^\pm$ a sum over
+exactly the sieving divisors: if $(n,P(z))=1$, only $d=1$ contributes,
+and otherwise FI78's divisor-sum signs apply to $g=(n,P(z))$. The
+support is also used in the remainder sum in (2.25). The explicit
+Bonferroni weights in (3.102)--(3.104) use the same support to sieve
+only primes in $\mathcal P$ below $z$ and to obtain the stated divisor
+count. For the AA37 weights in (W), the corresponding condition
+$d\mid P_N(Y)$ separates the smooth divisor, whose primes are below
+$Y$, from tail primes $p_i\geq D_i\geq Y$. This is used in the unique
+recovery of $d$ in the proof of the slot identity (4.13) and in
+Appendix~\ref{app:proof-aa37}, Lemma~\ref{lem:aa37-support}.
+
+The error $O(e^{-s})$ suffices below. Removing the primes of an auxiliary modulus changes the local Euler product and needs its own argument. The rough-integer estimates below use explicit Brun--Bonferroni weights; see also \cite{OperaCribro}. The Iwaniec endpoint $s=1$ follows from Theorem 2.6.
+
+\textbf{Weil input.} For every $c\geq1$ and $u,v\in\mathbb Z$, define
+\[
+ S(u,v;c)=\sum_{x\bmod c,(x,c)=1}e((ux+v\bar x)/c).
+\]
+The required bound is
+\[
+ |S(u,v;c)|\leq\tau(c)(u,v,c)^{1/2}c^{1/2}.
+\tag{2.35}\label{p1:eq:2.35}
+\]
+This is the Weil--Estermann bound with full gcd. Its gcd factor covers nonprimitive indices; see \cite[Corollary~11.12]{IK04}. In (2.14), (2.35) serves for absolute convergence. Each quantitative application keeps the gcd and modulus factors in its sums. For prime moduli this is Weil's bound; prime powers use Estermann's bound, and the general modulus follows by the Chinese remainder theorem.
+
+\textbf{Lemma 2.7 (the exact Heath--Brown identity used here).} Let $X\geq2$, $K\geq1$ be an integer, and let $z\geq1$ satisfy $z^K>X$. Then for every integer $1\leq n\leq X$,
+\[
+ \Lambda(n)=\sum_{j=1}^{K}(-1)^{j-1}\binom Kj
+ \sum_{\substack{m_1\cdots m_jn_1\cdots n_j=n\\m_i\leq z}}
+ \mu(m_1)\cdots\mu(m_j)\log n_1.
+\tag{2.36}\label{p1:eq:2.36}
+\]
+The identity is \cite[Lemma~1, (6)]{HB82}.
+
+Equation (2.36) is algebraic. For $\Re s>1$, set $M_z(s)=\sum_{m\leq z}\mu(m)m^{-s}$, $Y(s)=\zeta(s)M_z(s)$. The coefficients of $Y-1$ vanish at indices $1\leq n\leq z$. The polynomial identity $1-(1-Y)^K=\sum_{j=1}^K(-1)^{j-1}\binom KjY^j$ gives
+\[
+ -\frac{\zeta'}\zeta
+ =\sum_{j=1}^K(-1)^{j-1}\binom Kj
+       (-\zeta')\zeta^{j-1}M_z^j
+   +\left(-\frac{\zeta'}\zeta\right)(1-Y)^K.
+\tag{2.37}\label{p1:eq:2.37}
+\]
+Each nonzero factor from $Y-1$ has index $>z$. Hence the last term has no coefficient of index $n\leq X$. Coefficient extraction proves (2.36). For the order-three decomposition on $n\leq2X_m$, take $K=3$, $z=2X_m^{1/3}$. Then $z^3=8X_m>2X_m$. The Möbius variables have support $m_i\leq2X_m^{1/3}$. Dyadic restrictions are imposed after this identity. Coefficient extraction preserves both product constraints and prime ordering.
+
+\subsection{Theorem 2.8}
+
+Theorem 2.8 belongs to the line of incomplete-Kloosterman estimates of
+\cite[Theorem~12]{DI82} and
+\cite[Theorem~2.1]{Drappeau}; Drappeau states that his theorem extends
+DI82 Theorem~12. The closest refined quintilinear estimate is
+\cite[Theorem~1.8, (1.8)--(1.9)]{Lichtman23}. Lichtman identifies
+\cite{DPR23,ABL21} as antecedents for the exceptional-spectrum and
+residue-dependence refinements. The statements are not identical: the
+hypotheses (2.38)--(2.40) and bound (2.42) are the variant proved here
+from (2.14) in \S\ref{p1:sec:theorem-2-8-proof}. Section~3 uses the full
+bound (2.42) in (3.14)--(3.15).
+
+\textbf{Theorem 2.8.}\label{p1:thm:T} Let $C,D,N,R,S\geq1$, $A\geq1$, and $0<\epsilon_0<1/100$. Let $b_{n,r,s}\in\mathbb C$ be supported on
+\[
+ 0<n\leq N,\qquad R<r\leq2R,\qquad S<s\leq2S.
+\tag{2.38}\label{p1:eq:2.38}
+\]
+Let $g:\mathbb R_{>0}^5\longrightarrow\mathbb C$ be smooth, supported in
+\[
+ (C,2C]\times(D,2D]\times\mathbb R_{>0}^3.
+\]
+For each multi-index $\nu=(\nu_1,\ldots,\nu_5)\in\mathbb Z_{\geq0}^5$, assume
+\[
+ |\partial^\nu g(c,d,n,r,s)|
+ \leq G_\nu
+ \bigl(c^{-\nu_1}d^{-\nu_2}n^{-\nu_3}r^{-\nu_4}s^{-\nu_5}\bigr)^{1-\epsilon_0}.
+\tag{2.39}\label{p1:eq:2.39}
+\]
+The $G_\nu$ are uniform in the family. Let $a\in\mathbb Z$ satisfy $0<|a|\leq A$, and require
+\[
+ b_{n,r,s}=0\quad\text{unless }(a,rs)=1.
+\tag{2.40}\label{p1:eq:2.40}
+\]
+Set $\mathcal X=2+ACDNRS$. For every $\epsilon>0$,
+\[
+\begin{split}
+ &\left|\sum_{(r,s)=1}\sum_{0<n\leq N}b_{n,r,s}
+ \sum_{\substack{c,d\geq1\\(rd,sc)=1}}
+ g(c,d,n,r,s)e\!\left(\frac{an\overline{rd}}{sc}\right)\right|\\
+ &\qquad\ll_{\epsilon,\epsilon_0,\{G_\nu\}}
+ \mathcal X^{\epsilon+18\epsilon_0}J_*(a),
+\end{split}
+\tag{2.41}\label{p1:eq:2.41}
+\]
+where the inverse is modulo $sc$, and
+\[
+\begin{aligned}
+ J_*(a)^2={}&
+ \sum_{\substack{n''\mid a^\infty\\n''\leq2N}}
+ A^{\theta_{\mathrm{KS}}}(n'')^{\theta_{\mathrm{KS}}}\\
+ &\quad\times\Bigl[CS\Bigl(\frac N{n''}+RS\Bigr)(C+DR)
+ +|a|NRS\Bigr]\|\widetilde b(n'')\|_2^2\\
+ &+\Bigl[CS(CD\sqrt R)^{2\theta_{\mathrm{KS}}}
+ (N+RS)^{1-\theta_{\mathrm{KS}}}\\
+ &\qquad\times(C+DR)^{1-2\theta_{\mathrm{KS}}}
+ +D^2NR\Bigr]\|b\|_2^2.
+\end{aligned}
+\tag{2.42}\label{p1:eq:2.42}
+\]
+Here $n''\mid a^\infty$ if each prime factor of $n''$ divides $a$. This includes $n''=1$. Also
+\[
+ \|b\|_2^2=\sum_{n,r,s}|b_{n,r,s}|^2,\qquad
+ \|\widetilde b(n'')\|_2^2
+ =\sum_{\substack{n',r,s\\(n',a)=1}}|b_{n'n'',r,s}|^2,
+\tag{2.43}\label{p1:eq:2.43}
+\]
+with $b$ extended by zero outside (2.38). When $a=\pm1$, only $n''=1$ occurs in (2.42). The implied constant depends only on the displayed parameters and the seminorm bounds $G_\nu$. It is uniform in $(a,A,C,D,N,R,S,b)$.
+
+For $(r,s)=1$, the condition $(rd,sc)=1$ means $(c,r)=1$ and $(d,sc)=1$. Pairs with $(c,s)>1$ are included, as are both signs of $a$. The sequences and weights may be complex.
+
+\subsection{Proof of Theorem 2.8}\label{p1:sec:theorem-2-8-proof}
+
+The proof uses the large-sieve bounds above, the Hecke bounds of Kim--Sarnak and Deligne, and the trace formula (2.14). We derive the opposite-sign trace formula below.
+
+In this subsection $C,D,N_T,R_T,S_T,A$ are the parameters of Theorem 2.8. Write $R,S,N_1$ for $R_T,S_T,N_T$; Section~3 uses $R,S$ for other scales. Put
+\[
+\begin{aligned}
+&\mathcal X=2+ACDN_1RS,\quad A_a=|a_T|,\quad q=rs,\\
+&\quad(r,s)=1,
+\quad\theta_{\mathrm{KS}}=7/32,\quad\vartheta_j=2i\kappa_j\in(0,\theta_{\mathrm{KS}}]
+\end{aligned}
+\tag{2.7.T1}\label{p1:eq:2.7.T1}
+\]
+on an exceptional eigenspace. All norms below use counting measure. Spectral bases are Petersson-orthonormal.
+
+\subsubsection{Completion and separation}
+
+Fix $n,r,s,c$, put $k=sc$, and define
+$\widehat g_c(\xi)=\int g(c,t,n,r,s)e(-\xi t)\,dt$.
+Group $d$ in reduced classes modulo $k$ and apply Poisson summation.
+This gives the exact identity
+\[
+\sum_{(d,k)=1}g(c,d,n,r,s)e(a_Tn\overline{rd}/k)
+ =k^{-1}\sum_{h\in\mathbb Z}\widehat g_c(h/k)
+                       S(h\bar r,a_Tn;k).
+\tag{2.7.T2}\label{p1:eq:2.7.T2}
+\]
+The zero frequency is bounded using
+$|c_k(a_Tn)|\le(a_Tn,s)(a_Tn,c)$. Since
+$\sum_{c\le2C}(u,c)\le2C\tau(u)$ and
+$\sum_{s\le2S}(u,s)^2\le4S^2\tau(u)$, Cauchy--Schwarz gives its
+absolute contribution
+\[
+\ll_\epsilon\mathcal X^\epsilon D(N_1R)^{1/2}\|b\|_2.
+\tag{2.7.T3}\label{p1:eq:2.7.T3}
+\]
+This is the fourth term of (2.42).
+
+Choose a small auxiliary exponent $\epsilon_1>0$. Set
+\[
+H=4SC D^{\epsilon_0-1}\mathcal X^{\epsilon_1},
+\qquad\epsilon_2=\epsilon_1+\epsilon_0.
+\tag{2.7.T4}\label{p1:eq:2.7.T4}
+\]
+Integrate by parts in $d$. Use (2.39) in $d$ on $d\in(D,2D]$. For every $\xi\ne0$ and $j\ge0$, this gives
+$|\widehat g_c(\xi)|\ll_jD(|\xi|D^{1-\epsilon_0})^{-j}$. Every $h\ne0$ has $|h|/k\ge|h|/(4SC)$,
+because $k=sc\le4SC$. By (2.7.T4) this gives $(|h|/k)D^{1-\epsilon_0}\ge(|h|/H)\mathcal X^{\epsilon_1}$.
+Hence, for every $h$ with $|h|>H$,
+\[
+|\widehat g_c(h/k)|\ll_jD\,\mathcal X^{-j\epsilon_1}(H/|h|)^j .
+\tag{2.7.T5}\label{p1:eq:2.7.T5}
+\]
+For $j\ge2$ and every $H>0$,
+$\sum_{|h|>H}(H/|h|)^j\le2+2H$. If $H<1$, the sum runs over all $h\ne0$ and is at most
+$2\zeta(2)H^2\le2+2H$. If $H\ge1$ it is at most $2(1+H/(j-1))$. With $|S(h\bar r,a_Tn;k)|\le k$,
+the tail $|h|>H$ of (2.7.T2) is $\ll_j(1+H)D\mathcal X^{-j\epsilon_1}$ for each $(c,n,r,s)$. Summing
+against $|b_{n,r,s}|$ over $c\le2C$ gives $\ll_j\mathcal X^{7-j\epsilon_1}\|b\|_2$, using
+$\sum|b|\le(N_1RS)^{1/2}\|b\|_2$, $C,D,N_1,R,S\le\mathcal X$ and $1+H\le5\mathcal X^{1+\epsilon_1}$. Taking $j>20/\epsilon_1$ makes it smaller than (2.7.T3). If $H<1$, the retained
+range $1\le|h|\le\lfloor H\rfloor$ is empty. Every nonzero frequency lies in this tail, including $h=\pm1$. Thus (2.7.T2) contains only the zero frequency and this tail. Equation (2.7.T3) completes this case.
+
+For $1\le|h|\le\lfloor H\rfloor$, write
+$h=\varsigma_hm$ and
+$\varsigma=\varsigma_h\operatorname{sgn}(a_T)$, with signs
+$\varsigma_h,\varsigma\in\{\pm1\}$.
+The identity $S(-u,v;k)=S(u,-v;k)$ makes the second Kloosterman
+argument $\varsigma A_an$. Partition the integers $m$ into
+\[
+\mathcal I_j=(M_j,\min(2M_j,\lfloor H\rfloor)]\cap\mathbb Z,
+\qquad M_j=2^j/2.
+\tag{2.7.T6}\label{p1:eq:2.7.T6}
+\]
+Thus the first nonempty block is exactly $\{1\}$, with $M=1/2$.
+Partition $n$ into $(N',2N']$, $N'\ge1/2$. Shortened final
+blocks remain integer intervals. There are $O(\log^2\mathcal X)$
+pairs of blocks; each restricted coefficient norm is bounded by the
+original norm.
+For the current block define
+\[
+ b^\flat(n'')_{n',r,s}
+ =b_{n'n'',r,s}\,1_{\{N'<n'n''\leq2N'\}}\,
+  1_{\{(n',a_T)=1\}}.
+\]
+The slice satisfies $\|b^\flat(n'')\|_2\leq\|\widetilde b(n'')\|_2$.
+Restrict $b$ to the current block. By support, $b^\flat(n'')=\widetilde b(n'')$ term by term. Thus the block estimate is exactly (2.42)--(2.43).
+
+For one block write
+\[
+\begin{aligned}
+\frac{\widehat g_c(\varsigma_hm/(sc))}{sc}
+ &=\frac D{SC}W_0(c,m,n,r,s),\\
+\gamma&=cs\sqrt r,\qquad W_1=W_0\gamma/(CS\sqrt R).
+\end{aligned}
+\tag{2.7.T7}\label{p1:eq:2.7.T7}
+\]
+Differentiate under the integral and use (2.7.T4). Then
+\[
+|\partial^\nu W_1|
+ \ll_\nu\mathcal X^{|\nu|\epsilon_2}
+            c^{-\nu_1}m^{-\nu_2}n^{-\nu_3}r^{-\nu_4}s^{-\nu_5}.
+\tag{2.7.T8}\label{p1:eq:2.7.T8}
+\]
+The block sum is $D\sqrt R$ times a sum with weight
+$\gamma^{-1}W_1S(m\bar r,\varsigma A_an;sc)$.
+Put
+\[
+Z=\frac{4\pi\sqrt{A_aMN'}}{CS\sqrt R},
+\qquad x=\frac{4\pi\sqrt{A_amn}}{cs\sqrt r}.
+\tag{2.7.T9}\label{p1:eq:2.7.T9}
+\]
+Invert $c=4\pi\sqrt{A_amn}/(xs\sqrt r)$ and multiply by fixed smooth
+cutoffs in $m,n,r,s$, each equal to 1 on that variable's range
+$(y,2y]$ ($y=M,N',R,S$) and supported in $[y/2,3y]$. Since
+$x/Z=\sqrt{(m/M)(n/N')(R/r)}\,(C/c)(S/s)$ and $C<c\le2C$, the
+resulting smooth function $F(x,m,n,r,s)$ is supported on
+$1/(12\sqrt3)\le x/Z\le6\sqrt2$, hence on $Z/21\le x\le9Z$.
+Mellin inversion in its four log coordinates gives
+\[
+W_1=(2\pi)^{-4}\int_{\mathbb R^4}\phi_{\mathbf t}(x)
+ m^{it_1}n^{it_2}r^{it_3}s^{it_4}\,d\mathbf t,
+\tag{2.7.T10}\label{p1:eq:2.7.T10}
+\]
+\[
+\max_{j\le5}\sup_x|x^j\phi_{\mathbf t}^{(j)}(x)|
+ \ll\mathcal X^{17\epsilon_2}
+                  \prod_{\nu=1}^4(1+|t_\nu|)^{-3}
+ =:\mathfrak B(\mathbf t).
+\tag{2.7.T11}\label{p1:eq:2.7.T11}
+\]
+For (2.7.T11), integrate three times by parts in each Mellin variable. There are four variables. Allow five $x$-derivatives. This uses at most 17 derivatives in (2.7.T8). The chain rule uses
+$\partial_xc=-c/x,\partial_mc=c/(2m),\partial_nc=c/(2n)$,
+$\partial_rc=-c/(2r),\partial_sc=-c/s$.
+Thus (2.7.T10) and all ensuing integral interchanges are absolutely
+convergent. For fixed $\mathbf t$ set
+$\alpha_m=m^{it_1}1_{\mathcal I_j}(m)$ and
+$\beta_{n,r,s}=b_{n,r,s}n^{it_2}r^{it_3}s^{it_4}$.
+Estimate the following sum.
+\[
+\mathcal L_{\mathbf t}
+ =\sum_{r,s,m,n}\alpha_m\beta_{n,r,s}
+  \sum_{(c,r)=1}\gamma^{-1}\phi_{\mathbf t}
+       (4\pi\sqrt{mA_an}/\gamma)S(m\bar r,\varsigma A_an;sc).
+\tag{2.7.T12}\label{p1:eq:2.7.T12}
+\]
+
+\subsubsection{The cusp pair, both signs, and transform bounds}\label{p1:sec:t-cusp-pair}
+
+Use $\sigma_\infty=I$ and
+\[
+\sigma_{1/s}=
+ \begin{pmatrix}\sqrt r&0\\s\sqrt r&1/\sqrt r\end{pmatrix}.
+\tag{2.7.T13}\label{p1:eq:2.7.T13}
+\]
+Multiply $\begin{pmatrix}a&b\\rsc_0&d\end{pmatrix}$ by (2.7.T13). With $c=rc_0+d$, the positive cusp moduli are $\gamma=cs\sqrt r$, $(c,r)=1$, as in (2.13).
+Conversely choose $d\equiv c\ (r)$, $(d,sc)=1$, and
+$c_0=(c-d)/r$; this supplies every allowed modulus. Double cosets
+correspond to the reduced residues modulo $sc$. Insert their top and bottom entries in the cusp Kloosterman definition. This gives
+\[
+S_{\infty,1/s}(m,\nu;\gamma)
+ =e(\nu\bar s/r)S(m\bar r,\nu;sc),
+\qquad \nu\ne0.
+\tag{2.7.T14}\label{p1:eq:2.7.T14}
+\]
+The numerator modulo $r$ is $\nu c$. Modulo $sc$ it is $m\bar r\,u+\nu\bar u$, with $u=r\bar d$.
+This proves (2.7.T14) for either sign and for complex Fourier
+coefficients.
+
+We use the trace formula in DI's coefficient normalization, with the transforms $\widehat\phi,\check\phi,\widetilde\phi$ of (2.12).
+Let $m,\nu>0$ and $r>R\ge1$. Use the same-sign Drappeau formula of Section 2. Apply the exact dictionary below.
+\[
+\rho^{\rm Dr}_{u,\mathfrak a}(n)=\frac{\rho^{\rm DI}_{u,\mathfrak a}(n)}
+                                      {2\sqrt{|n|}},\quad
+\rho^{\rm Dr}_{\mathfrak c\mathfrak a}(n,t)=
+ \frac{\pi^{1/2+it}|n|^{it-1/2}}{\Gamma(1/2+it)}
+                    \varphi_{\mathfrak c\mathfrak a n}(1/2+it).
+\tag{2.7.T15}\label{p1:eq:2.7.T15}
+\]
+The holomorphic dictionary is
+$\rho^{\rm Dr}_{f,\mathfrak a}(n)=(4\pi n)^{-\ell/2}
+\psi_f(\mathfrak a,n)$.
+For signs $+,-$, the Maass weights are as follows.
+\[
+h_+(\kappa)=-\widehat\phi(\kappa)/\cosh\pi\kappa,\quad
+h_-(\kappa)=\frac\pi2\check\phi(\kappa)/\cosh\pi\kappa;
+\tag{2.7.T16}\label{p1:eq:2.7.T16}
+\]
+For measure $dt$, the continuous weights are as follows.
+\[
+e_+(t)=-\widehat\phi(t)/\pi,\qquad e_-(t)=\check\phi(t)/2.
+\tag{2.7.T17}\label{p1:eq:2.7.T17}
+\]
+Only sign $+$ has a holomorphic coefficient. It is
+\[
+\frac{i^\ell(\ell-1)!}{\pi(4\pi)^{\ell-1}}\,
+                                 \widetilde\phi(\ell-1).
+\tag{2.7.T18}\label{p1:eq:2.7.T18}
+\]
+There is no $1/\cosh(\pi t)$ in (2.7.T17).
+
+For the opposite sign the normalization follows from the following derivation. Take a width-one scaling matrix $\sigma_{\mathfrak a}$. Let $\Gamma_{\mathfrak a}$ stabilize $\mathfrak a$ in $\Gamma=\Gamma_0(q)$, including $-I$. Then
+$\sigma_{\mathfrak a}^{-1}\Gamma_{\mathfrak a}\sigma_{\mathfrak a}
+=\{\pm T^k:k\in\mathbb Z\}$. Define, for $m>0$,
+\[
+ U_{\mathfrak a m}(z,s)=
+ \sum_{\delta\in\Gamma_{\mathfrak a}\backslash\Gamma}
+ (\Im\sigma_{\mathfrak a}^{-1}\delta z)^s
+ e(m\sigma_{\mathfrak a}^{-1}\delta z),\qquad
+ \langle F,G\rangle=\int_{\Gamma\backslash\mathbb H}
+ F(z)\overline{G(z)}\,\frac{dx\,dy}{y^2}.
+\]
+Each coset enters once, with weight one. The series and
+unfolding converge absolutely for $\Re s>1$.
+Unfold the first series and decompose the second into cusp double
+cosets of positive lower-left entry $\gamma$. Translation in the
+real variable leaves the Kloosterman factor
+$S_{\mathfrak a\mathfrak b}(m,-\nu;\gamma)$, with the
+cusp convention of (2.7.T14). Explicitly, a matrix
+$\sigma_{\mathfrak b}^{-1}\delta\sigma_{\mathfrak a}
+=(\begin{smallmatrix}a&b\\\gamma&d\end{smallmatrix})$
+gives phase $e((\nu a-md)/\gamma)$; its negative inverse
+has entries $(-d,b;\gamma,-a)$, giving the same phase in
+$S_{\mathfrak a\mathfrak b}(m,-\nu;\gamma)$.
+The remaining integral is
+\[
+ I_\gamma=\gamma^{-2s_2}\int_{\mathbb H}
+ y^{s_1+s_2-2}|z|^{-2s_2}
+ \exp\!\left(2\pi i\{mz-\nu/(\gamma^2z)\}\right)dx\,dy.
+\]
+The zero-lower-left coset, if present for equivalent cusps,
+vanishes by the integral of $e((m+\nu)x)$ over $[0,1]$.
+Put $s_-=s_1-s_2$, $s_+=s_1+s_2$,
+$z=i\varrho e^{i\alpha}$, $-\pi/2<\alpha<\pi/2$, and
+$\varrho=(\sqrt{\nu/m}/\gamma)e^u$. Then
+\[
+ I_\gamma=\gamma^{-s_+}(\nu/m)^{s_-/2}
+ \int_{-\pi/2}^{\pi/2}\cos^{s_+-2}\alpha
+ \int_{\mathbb R}e^{s_-u}
+ e^{-(4\pi\sqrt{m\nu}/\gamma)\cosh(u+i\alpha)}du\,d\alpha.
+\]
+For each interior $\alpha$, shift $u+i\alpha$ to the real
+line. The vertical sides vanish exponentially, and the inner integral
+is $2e^{-is_-\alpha}K_{s_-}(4\pi\sqrt{m\nu}/\gamma)$.
+Let $\Re s_i>1$. At either angular endpoint the radial growth is of order $\cos^{- |\Re s_-|}\alpha$. For $\Re s_-=0$, a logarithm may also occur. The remaining exponent is $\Re s_+-2-|\Re s_-|=2\min\Re s_i-2>0$. Hence the original absolute integral is finite.
+Hence Fubini and the endpoint limits are legitimate. Applying (2.7.T20) gives the following identity for $\Re s_1,\Re s_2>1$:
+\[
+\begin{aligned}
+\langle U_{\mathfrak a m}(s_1),
+             \overline{U_{\mathfrak b\nu}(s_2)}\rangle
+={}&\pi2^{3-s_1-s_2}
+ \frac{\Gamma(s_1+s_2-1)}{\Gamma(s_1)\Gamma(s_2)}
+ (\nu/m)^{(s_1-s_2)/2}\\
+&\times\sum_\gamma\gamma^{-s_1-s_2}
+ S_{\mathfrak a\mathfrak b}(m,-\nu;\gamma)
+ K_{s_1-s_2}(4\pi\sqrt{m\nu}/\gamma).
+\end{aligned}
+\tag{2.7.T19}\label{p1:eq:2.7.T19}
+\]
+The polar substitution and contour shift above give
+the factor $2K_{s_1-s_2}$. The remaining angular integral is
+\[
+\int_{-\pi/2}^{\pi/2}\cos^{s_1+s_2-2}\alpha\,
+ e^{-i(s_1-s_2)\alpha}\,d\alpha
+ =\pi2^{2-s_1-s_2}
+   \frac{\Gamma(s_1+s_2-1)}{\Gamma(s_1)\Gamma(s_2)}.
+\tag{2.7.T20}\label{p1:eq:2.7.T20}
+\]
+For an independent normalization, unfold once and use (2.2). This gives
+\[
+\langle U_{\mathfrak a m}(s),u_j\rangle
+ =\overline{\rho_{j\mathfrak a}(m)}
+ \frac{\sqrt\pi(4\pi m)^{1/2-s}}{\Gamma(s)}
+ \Gamma(s-\tfrac12-i\kappa_j)\Gamma(s-\tfrac12+i\kappa_j).
+\]
+This is the integral of $y^{s-3/2}e^{-2\pi my}K_{i\kappa_j}(2\pi my)$. Use the standard integral representation of $K$ and a beta integral. The second factor
+$\langle u_j,\overline{U_{\mathfrak b\nu}(s_2)}\rangle$
+is the same expression with $\rho_{j\mathfrak b}(-\nu)$,
+$\nu,s_2$ in place of $\overline{\rho_{j\mathfrak a}(m)}$,
+$m,s$. There is no conjugation of $s_2$ in this bilinear
+pairing. Multiplication gives exactly (2.7.T21). Applying the same
+unfolding to the Eisenstein expansion (2.4), with its standard
+Parseval measure, gives (2.7.T22). Thus Parseval gives the spectral side with
+\[
+\begin{aligned}
+P&=\frac{\pi m^{1/2-s_1}\nu^{1/2-s_2}(4\pi)^{1-s_1-s_2}}
+          {\Gamma(s_1)\Gamma(s_2)},\\
+\Lambda(s_1,s_2;t)&=
+ \prod_{j=1}^2\Gamma(s_j-\tfrac12-it)\Gamma(s_j-\tfrac12+it).
+\end{aligned}
+\tag{2.7.T21}\label{p1:eq:2.7.T21}
+\]
+Its Maass summand is
+$P\overline{\rho_{j\mathfrak a}(m)}
+\rho_{j\mathfrak b}(-\nu)\Lambda(s_1,s_2;\kappa_j)$.
+Its continuous integral is
+\[
+\begin{split}
+&P\sum_{\mathfrak c}\int
+ (\nu/m)^{it}\overline{\varphi_{\mathfrak c\mathfrak a m}(1/2+it)}
+ \varphi_{\mathfrak c\mathfrak b,-\nu}(1/2+it)\\
+&\qquad\times\Lambda(s_1,s_2;t)|\Gamma(1/2+it)|^{-2}\,dt.
+\end{split}
+\tag{2.7.T22}\label{p1:eq:2.7.T22}
+\]
+The factor at the second cusp has index $-\nu$. It arises because
+the second Eisenstein parameter in Parseval is conjugated:
+$\overline{E(z,1/2+it)}=E(z,1/2-it)$. So the continuous
+product pairs a conjugated coefficient at $1/2+it$ with an unconjugated one at $1/2+it$.
+
+For the unscaled Eisenstein series the continuous Parseval measure is
+$dt/(4\pi)$. Its coefficient of
+$\sqrt yK_{it}(2\pi|n|y)e(nx)$ is
+\[
+b_{(\mathfrak c,\mathfrak a)}(n,t)=
+2\pi^{1/2+it}|n|^{it}\
+\frac{\varphi_{\mathfrak c,\mathfrak a,n}(1/2+it)}
+     {\Gamma(1/2+it)}.
+\]
+Hence $(4\pi)^{-1}\overline{b_{(\mathfrak c,\mathfrak a)}(m,t)}
+b_{(\mathfrak c,\mathfrak b)}(-\nu,t)$ equals
+\[
+(\nu/m)^{it}
+\overline{\varphi_{\mathfrak c,\mathfrak a,m}(1/2+it)}
+\varphi_{\mathfrak c,\mathfrak b,-\nu}(1/2+it)
+|\Gamma(1/2+it)|^{-2}.
+\]
+The coefficient product contributes $4\pi$, canceling the
+Parseval denominator. Thus (2.7.T22) has plain $dt$ and no hyperbolic-cosine denominator. The second $\varphi$ is unconjugated at the same $t$.
+
+Write $\sigma_i=\Re s_i>1$,
+$\delta=|\sigma_1-\sigma_2|$,
+$\sigma_*=\min(\sigma_1,\sigma_2)$, and
+$x=4\pi\sqrt{m\nu}/\gamma$, with fixed $m,\nu\ge1$. Replace both Poincaré summands by their moduli. For one double coset with positive lower-left entry, the absolute integral is
+\[
+\ll_{\sigma_1,\sigma_2,m,\nu}
+\gamma^{-\sigma_1-\sigma_2}
+\bigl(1+\gamma^\delta+\log(2+\gamma)\bigr).
+\tag{2.7.T23}\label{p1:eq:2.7.T23}
+\]
+The radial integral is a fixed positive factor times
+$K_\delta(x\cos\alpha)$. For $\delta>0$, its small-argument
+bound is $O_\delta((x\cos\alpha)^{-\delta})$; for $\delta=0$,
+it is $O(1+|\log(x\cos\alpha)|)$. The angular weight is
+$\cos^{\sigma_1+\sigma_2-2}\alpha$. Thus the power endpoint has
+exponent $2\sigma_*-2>0$, while the logarithmic endpoint is
+integrable and contributes $O(1+\log(2+\gamma))$ after angular
+integration. The implied constant depends on the fixed spectral parameters and
+on $m,\nu$, and is uniform in $\gamma$.
+
+Consequently the controlling absolute-sum majorant is
+\[
+\sum_\gamma N_{\mathfrak a\mathfrak b}(\gamma)
+\gamma^{-2\sigma_*}\bigl(1+\log(2+\gamma)\bigr)<\infty.
+\tag{2.7.T24}\label{p1:eq:2.7.T24}
+\]
+For the cusp pair $(\infty,1/s)$, (2.7.T14) gives
+$\gamma=cs\sqrt r$, $(c,r)=1$, and
+$N(\gamma)=\varphi(sc)\le sc$. The sum is bounded by a constant
+times
+$\sum_{c\ge1}c^{1-2\sigma_*}(1+\log(2+c))$, which converges
+because $\sigma_*>1$. For a general fixed cusp pair, the cited
+cumulative count
+$\sum_{\gamma\le T}N_{\mathfrak a\mathfrak b}(\gamma)
+\ll_{\mathfrak a,\mathfrak b}T^2$ and dyadic decomposition bound
+the tail by
+$\sum_{k\ge0}(1+k)2^{-2(\sigma_*-1)k}<\infty$. Any bounded
+initial range is finite.
+
+The logarithm in (2.7.T23) is attained: for $\sigma_1=\sigma_2=2$, $m=\nu=1$ and the admissible moduli $\gamma=\sqrt2 c$, $c$ odd, the absolute cell integral is $\pi\gamma^{-4}\log\gamma+O(\gamma^{-4})$. The summable majorant (2.7.T24) supplies the uniform step beyond the fixed-$\gamma$ angular endpoint estimate.
+
+Both sides continue to the connected domain
+$\Re s_i>3/4,\ |\Re(s_1-s_2)|<1/2$. For the geometric side,
+Weil's bound and $K_\mu(x)\ll x^{-|\Re\mu|}(1+|\log x|)$
+give locally uniform absolute convergence. For the spectral side, apply Stirling and DI's positive large sieves. These give locally uniform absolute convergence. Since $i\kappa_j\le7/64$, the exceptional gamma factors have no poles here. Equality therefore
+holds at $s_1=1+iu,s_2=1-iu$. With
+\[
+\mathcal H(t,u)=\frac{\cosh\pi t}
+                 {\cosh\pi(t-u)\cosh\pi(t+u)},
+\tag{2.7.T25}\label{p1:eq:2.7.T25}
+\]
+this gives
+\[
+\begin{aligned}
+&\sum_\gamma\frac{4\pi\sqrt{m\nu}}{\gamma^2}
+ S(m,-\nu;\gamma)K_{2iu}(4\pi\sqrt{m\nu}/\gamma)\\
+&\qquad=\frac{\pi^2}2\sum_j\frac{\bar\rho_j(m)\rho_j(-\nu)\mathcal H(\kappa_j,u)}
+                      {\cosh\pi\kappa_j}
+ +\frac\pi2\sum_{\mathfrak c}\int E_{\mathfrak c}(t)\mathcal H(t,u)\,dt,
+\end{aligned}
+\tag{2.7.T26}\label{p1:eq:2.7.T26}
+\]
+where
+\[
+ E_{\mathfrak c}(t)
+ :=(\nu/m)^{it}
+   \overline{\varphi_{\mathfrak c\mathfrak a m}(1/2+it)}
+   \varphi_{\mathfrak c\mathfrak b,-\nu}(1/2+it).
+\]
+The factor $|\Gamma(1/2+it)|^{-2}$ of (2.7.T22) is part of the
+spectral kernel; $E_{\mathfrak c}$ excludes it.
+The constant eigenfunction contributes $0$ to the sum over $j$: its
+Fourier coefficients vanish at the nonzero frequencies $m$ and $-\nu$.
+
+To integrate (2.7.T26) against a test function, set
+\[
+\mathcal R(u)=\int_0^\infty K_{2iu}(x)\phi(x)x^{-2}\,dx,\qquad
+k(u)=\frac4{\pi^2}u\sinh(2\pi u)\mathcal R(u).
+\tag{2.7.T27}\label{p1:eq:2.7.T27}
+\]
+Kontorovich--Lebedev inversion gives
+$\int_\mathbb R k(u)K_{2iu}(x)\,du=\phi(x)/x$;
+see \cite[\S10.43(v), (10.43.30)--(10.43.31)]{DLMF}.
+Use the following kernel identity.
+\[
+\int_\mathbb R u\sinh(2\pi u)\mathcal H(t,u)K_{2iu}(x)\,du
+       =\cosh(\pi t)xK_{2it}(x).
+\tag{2.7.T28}\label{p1:eq:2.7.T28}
+\]
+For $|\Re\mu|+|\Re\nu|<1$, the absolutely convergent product integral is
+\[
+\int_0^\infty K_\mu(x)K_\nu(x)\,dx
+ =\frac{\pi^2}
+ {4\cos(\pi(\mu+\nu)/2)\cos(\pi(\mu-\nu)/2)}.
+\tag{2.7.T29}\label{p1:eq:2.7.T29}
+\]
+Use the Bessel product representation
+$K_\mu K_\nu(x)=2\int_0^\infty K_{\mu+\nu}(2x\cosh v)
+\cosh((\mu-\nu)v)\,dv$. Integrate in $x$. For $|\Re b|<1$, use
+$\int_0^\infty\cosh(bv)/\cosh v\,dv=(\pi/2)\sec(\pi b/2)$.
+The latter follows by expanding $1/\cosh v$ and the partial
+fractions of secant. In the subsequent KL application,
+$(\mu,\nu)=(2it,2iu)$ with $u\in\mathbb R$; here $t\in\mathbb R$ on
+the regular and continuous spectrum, while an exceptional parameter
+satisfies $|\Im t|\le 7/64$. Thus $|\Re\mu|+|\Re\nu|\le 7/32<1$ and
+$|\Re(\mu-\nu)|<1$. Apply KL inversion to
+$xK_{2it}(x)$, whose KL transform is, by (2.7.T29),
+$(\pi^2/4)\mathcal H(t,u)/\cosh\pi t$. This proves (2.7.T28).
+
+All interchanges here are justified as follows. Split the integral representation of $K_{iv}$ at $\sinh U=\max(1,1/x)$. Integrate by parts on its tail. This gives
+\[
+|K_{iv}(x)|\ll e^{-\pi|v|/2}
+                    (1+|v|+\log(2+1/x)).
+\tag{2.7.T30}\label{p1:eq:2.7.T30}
+\]
+Apply the self-adjoint operator $(x\partial_x)^2-x^2$ repeatedly to $\phi(x)/x$. Then
+$\mathcal R(u)\ll_{\phi,j}e^{-\pi|u|}(1+|u|)^{1-2j}$.
+On real $t$, $|\mathcal H(t,u)|\le
+4\cosh(\pi t)e^{-2\pi\max\{|t|,|u|\}}$; exceptional parameters
+give an exponentially decaying function of $u$ as well.
+DI's positive quadratic estimates imply convergence after the
+remaining $(1+|t|)^{-4}$ bound. The geometric side is absolutely
+summable by Weil. These bounds justify Fubini on both sides of
+(2.7.T26). Equations (2.7.T27)--(2.7.T28) now give exactly
+(2.7.T16)--(2.7.T17) for sign $-$. For sign $+$, let $r>R\ge1$. Insert (2.7.T15) in the classical same-sign formula. This gives the minus signs in (2.7.T16)--(2.7.T17) and the coefficient (2.7.T18). These are the
+normalizations of Section 2, (2.14).
+
+Let $\phi$ be supported in $[Z/21,9Z]$. With $\mathfrak B=\max_{j\le5}\sup x^j|\phi^{(j)}(x)|$, the transform bounds are
+\[
+|\widehat\phi(t)|+|\check\phi(t)|
+ \ll\mathfrak B(1+|\log Z|)(1+Z)^{-1}
+       \min\{1,((1+Z)/|t|)^3\}\quad(t\in\mathbb R),
+\tag{2.7.T31}\label{p1:eq:2.7.T31}
+\]
+\[
+|\widehat\phi(i\nu)|+|\check\phi(i\nu)|
+ \ll\mathfrak B(1+|\log Z|)(1+Z^{-{2\nu}})/(1+Z),
+\quad0<\nu\le1/4,
+\tag{2.7.T32}\label{p1:eq:2.7.T32}
+\]
+and the same bound as (2.7.T31) for $\widetilde\phi(\ell)$ with
+$|t|$ replaced by $\ell$. To prove them, put
+$\Phi(y)=\int\cos(xy)\phi(x)\,dx/x$ and
+$\Phi_c(y)=\int e^{-ixy}\phi(x)\,dx/x$.
+Five integrations by parts give
+$|\Phi^{(j)}(y)|+|\Phi_c^{(j)}(y)|
+\ll\mathfrak B Z^j\min(1,(Z|y|)^{-5})$, $j\le3$.
+The exact Bessel representations are
+\[
+\begin{aligned}
+\check\phi(t)&=\frac4\pi\int_0^\infty
+  \cos(2tu)\Phi(\sinh u)\,du,\\
+\widehat\phi(t)&=-2\int_0^\infty
+  \cos(2tu)\Phi(\cosh u)\,du,\\
+\widetilde\phi(\ell)&=\frac1{2\pi}\int_{-\pi}^{\pi}
+  e^{i\ell u}\Phi_c(\sin u)\,du.
+\end{aligned}
+\]
+Their absolute bounds follow by splitting at $\sinh u=1/Z$;
+three integrations by parts give the cubic decay. The periodic
+holomorphic integral has no boundary terms. Replacing cosine by
+$\cosh(2\nu u)$ and splitting at the same point gives (2.7.T32).
+Truncate the oscillatory representations first. For real $t$, the
+tails are $O((1+|t|)/(x\sinh U))$. For $t=i\nu$, they are
+$O((1+\nu)e^{2\nu U}/(x\sinh U))$. Since $2\nu\le1/2$, these
+tails tend to zero and justify the interchanges.
+
+\subsubsection{Cusp transport and all Hecke factors}\label{p1:sec:t-cusp-transport}
+
+Choose integers $w,y$ with $rw-sy=1$, and let
+\[
+W=r^{-1/2}\begin{pmatrix}r&y\\rs&rw\end{pmatrix}.
+\tag{2.7.T33}\label{p1:eq:2.7.T33}
+\]
+Then
+$\sigma_{1/s}^{-1}W=\begin{pmatrix}1&y/r\\0&1\end{pmatrix}$,
+with $y/r\equiv-\bar s/r(1)$. Also $W\Gamma_0(rs)W^{-1}
+=\Gamma_0(rs)$. Here is an integer computation of the latter fact.
+For
+$A=r^{-1/2}\begin{pmatrix}r\alpha&\beta\\rs\gamma&r\delta\end{pmatrix}$,
+$r\alpha\delta-s\beta\gamma=1$, conjugating
+$\begin{pmatrix}a&b\\rsc&d\end{pmatrix}$ gives entries
+\[
+\begin{pmatrix}
+ a\alpha\delta r-\alpha b\gamma rs+\beta c\delta rs-\beta d\gamma s&
+ -a\alpha\beta+\alpha^2br+\alpha\beta d-\beta^2cs\\
+ rs(a\delta\gamma-b\gamma^2s+c\delta^2r-d\delta\gamma)&
+ -a\beta\gamma s+\alpha b\gamma rs+\alpha d\delta r-\beta c\delta rs
+\end{pmatrix}.
+\tag{2.7.T34}\label{p1:eq:2.7.T34}
+\]
+Both $W=A(1,y,1,w)$ and $W^{-1}=A(w,-y,-1,1)$ have this
+form, proving both inclusions. Thus composition by $W$ is unitary,
+commutes with the Laplacian, and preserves each eigenspace. The
+weight-$\ell$ slash action has the same properties.
+
+Comparison of Fourier series after the translation $y/r$ gives
+\[
+\rho_{F,1/s}(\nu)=e(\nu\bar s/r)c_{F\circ W}(\nu),\quad
+\psi_F(1/s,\nu)=e(\nu\bar s/r)\psi_{F|_\ell W}(\infty,\nu).
+\tag{2.7.T35}\label{p1:eq:2.7.T35}
+\]
+For Eisenstein series, substitute $W\gamma W^{-1}$ in the
+defining coset series for $\Re z>1$. It gives
+$E_{\mathfrak c}(Wz,u)=E_{W^{-1}\mathfrak c}(z,u)$, using
+$W^{-1}\sigma_{\mathfrak c}$ as a width-one scaling matrix.
+Changing the source-cusp representative or translating its scaling
+matrix does not change the Fourier coefficient at the fixed
+observation cusp $\infty$.
+Meromorphic continuation therefore gives
+\[
+\varphi_{\mathfrak c,1/s,\nu}(u)
+ =e(\nu\bar s/r)\varphi_{W^{-1}\mathfrak c,\infty,\nu}(u).
+\tag{2.7.T36}\label{p1:eq:2.7.T36}
+\]
+In (2.7.T12), (2.7.T14) contributes
+$e(-\varsigma A_an\bar s/r)$. Equations (2.7.T35)--(2.7.T36)
+cancel this phase exactly for both signs, in every spectrum.
+
+For $(k,q)=1$, define the normalized Hecke operator below.
+\[
+T_kF(z)=k^{-1/2}\sum_{ad=k}\sum_{b\bmod d}F((az+b)/d).
+\tag{2.7.T37}\label{p1:eq:2.7.T37}
+\]
+Sum each Fourier term, of index $\nu'$, over $b$. This forces
+$d\mid\nu'$, and the term moves to index $\nu=a\nu'/d$. The
+coefficient at $\nu\ne0$ is
+\[
+c_{T_kF}(\nu)=\sum_{a\mid(k,\nu)}c_F(k\nu/a^2).
+\tag{2.7.T38}\label{p1:eq:2.7.T38}
+\]
+The prefactor is 1 because, in the normalization (2.2) of
+\cite[(1.15)]{DI82}, the factor $\sqrt y$ contributes $\sqrt{a/d}$,
+and $k^{-1/2}d\sqrt{a/d}=1$.
+For weight $\ell$, use
+$T_k=k^{(\ell-1)/2}\sum_{ad=k}d^{-\ell}\sum_b(\cdot)$;
+the normalized coefficients
+$a_F(\nu)=\nu^{-(\ell-1)/2}\psi_F(\infty,\nu)$
+satisfy the same identity at coprime $(k,\nu)$.
+
+Split $n=n'n''$, $n''\mid a_T^\infty$, $(n',a_T)=1$,
+and put $k=A_an''$. Then $(k,q)=(k,n')=1$.
+The number of pieces is
+\[
+\mathcal D\le(2N_1)^\epsilon
+                  \prod_{p\mid a_T}(1-p^{-\epsilon})^{-1}
+ \ll_\epsilon\mathcal X^{2\epsilon},
+\quad \tau(k)^2\ll_\epsilon\mathcal X^\epsilon.
+\tag{2.7.T39}\label{p1:eq:2.7.T39}
+\]
+The product bound is uniform in $a_T$. Choose $p_\epsilon$ so that $(1-p^{-\epsilon})^{-1}\leq p^\epsilon$ for $p>p_\epsilon$. The smaller primes contribute a constant depending only on $\epsilon$. The remaining product is at most $|a_T|^\epsilon$.
+On a Maass eigenspace $V$, the transported $n''$-functional is
+$Y\circ T_k\circ W$, where
+$Y(v)=\sum_{n'}\beta_{n'n''}c_v(\varsigma n')$.
+By Riesz representation and unitarity,
+\[
+\sum_{u_j\in V}|\ell_{2,n''}(u_j)|^2
+ \le\tau(k)^2k^{\theta_{\mathrm{KS}}}\sum_{u_j\in V}|Y(u_j)|^2.
+\tag{2.7.T40}\label{p1:eq:2.7.T40}
+\]
+The self-adjoint unramified $T_k$ diagonalizes on the full
+level space. By Kim--Sarnak its norm is at most
+$\tau(k)k^{\theta_{\mathrm{KS}}/2}$. For holomorphic forms replace $k^{\theta_{\mathrm{KS}}}$
+by 1, by Deligne. For negative index, $c_v(-n')=\overline{c_{\bar v}(n')}$. Conjugation permutes an orthonormal basis. Hence the positive-index quadratic bound holds with conjugated coefficients. The argument allows complex
+coefficients and any orthonormal basis of each eigenspace.
+
+The continuous spectrum requires its own proof. Represent a cusp by
+$u/w$, $w\mid q$, put $w'=(w,q/w)$. The orbit conditions in
+\cite[Lemma~3.6, (3.9)--(3.11)]{DI82}
+$(c_1,d_1)=1,(c_1,q)=w,c_1d_1\equiv uw\pmod{ww'}$, with $c_1=w\gamma$,
+give exactly
+\[
+\begin{aligned}
+\varphi_{u/w,\infty,n}(z)&=
+ (w'/(wq))^z
+ \sum_{\gamma\ge1,(\gamma,q/w)=1}\gamma^{-2z}\\
+&\qquad
+ \sum_{\substack{d_1\bmod\gamma w\\(d_1,\gamma w)=1,\ \gamma d_1\equiv u(w')}}
+                         e(-nd_1/(\gamma w)).
+\end{aligned}
+\tag{2.7.T41}\label{p1:eq:2.7.T41}
+\]
+For a character $\chi\bmod w'$, let
+$\mathcal V_\chi(n;z)=\sum_{u\bmod w'}^*\chi(u)\varphi_{u/w,\infty,n}(z)$.
+For $(k,q)=(k,n')=1$, either sign of $n'$, the identity is
+\[
+\mathcal V_\chi(kn';z)=\bar\chi(k)
+          \left(\sum_{d\mid k}\chi^2(d)d^{1-2z}\right)\mathcal V_\chi(n';z).
+\tag{2.7.T42}\label{p1:eq:2.7.T42}
+\]
+To prove it, sum (2.7.T41) over $u$. Write $c_1=c_1'c_1''$, where
+$c_1''$ is supported on primes of $q$ and $(c_1',q)=1$.
+CRT factors the inner sum as
+$\chi(c_1')G_\chi(-n;c_1'')c_{c_1'}(n)$.
+The outer character supplies another $\chi(c_1')$.
+Replacing the Gauss-sum variable by $\bar kd_1$ gives
+$\bar\chi(k)$ on $c_1''$. The other factor is
+\[
+L^{(q)}(2z,\chi^2)^{-1}
+     \sum_{d\mid|n|,(d,q)=1}\chi^2(d)d^{1-2z},
+\]
+by $c_{c_1'}(n)=\sum_{d\mid(c_1',n)}d\mu(c_1'/d)$; this divisor sum
+factors at $kn'$. All manipulations converge absolutely for
+$\Re z>1$. Both sides are meromorphic Fourier coefficients,
+so (2.7.T42) holds meromorphically, hence at $z=1/2+it$ outside
+a discrete set. There are finitely many cusp characters.
+Orthogonality in $u\bmod w'$ gives
+\[
+\begin{split}
+&\sum_{\mathfrak c}\left|\sum_{n'}v_{n'}|kn'|^{it}
+            \varphi_{\mathfrak c,\infty,kn'}(1/2+it)\right|^2\\
+&\qquad\le\tau(k)^2\sum_{\mathfrak c}\left|\sum_{n'}v_{n'}|n'|^{it}
+            \varphi_{\mathfrak c,\infty,n'}(1/2+it)\right|^2.
+\end{split}
+\tag{2.7.T43}\label{p1:eq:2.7.T43}
+\]
+Here the character eigenvalue is
+$\bar\chi(k)\sum_{d\mid k}\chi^2(d)(k/d^2)^{it}$,
+of modulus at most $\tau(k)$. Transport (2.7.T36) permutes the
+complete cusp set. For negative indices,
+$\varphi_{\mathfrak c\infty,-n'}(1/2+it)
+=\overline{\varphi_{\mathfrak c\infty,n'}(1/2-it)}$.
+Changing $t$ to $-t$ and conjugating coefficients converts
+each symmetric integration window to DI's positive-index
+continuous quadratic form. The discrete exceptional set is null
+for the $dt$-integral.
+
+\subsubsection{Regular, continuous, and holomorphic estimates}
+
+Put $Q_T=RS$, $L_{n''}=N'/n''\ge1/2$. Include $|t|<1$ among the spectral windows $K$. By (2.7.T31), the undivided transform satisfies the following bound.
+\[
+\mathfrak h(K)\ll\mathfrak B(\mathbf t)\mathcal X^{o(1)}
+ (1+Z)^{-1}\min\{1,((1+Z)/K)^3\}.
+\tag{2.7.T44}\label{p1:eq:2.7.T44}
+\]
+For Maass forms use the positive DI weights $1/\cosh\pi\kappa_j$. For holomorphic forms use the positive weights $(\ell-1)!/(4\pi)^{\ell-1}$. These weights are split equally
+between the two Cauchy--Schwarz factors. For the continuous spectrum use plain $dt$. Take the supremum of $e_\varsigma(t)$ outside the positive quadratic form.
+By (2.7.T17), $|e_\varsigma|\le|\Phi_\varsigma|/2$, with
+$\Phi_+=\widehat\phi,\Phi_-=\check\phi$. Thus every norm uses a
+positive measure.
+
+\cite[Theorem~2]{DI82} at $\infty$ gives the $m$-side
+\[
+\sum_{q\asymp Q_T}\tau(q)(K^2+M^{1+\epsilon}/q)M
+ \ll\mathcal X^{3\epsilon}(Q_TK^2+M)M.
+\tag{2.7.T45}\label{p1:eq:2.7.T45}
+\]
+For the $n$-side, Cauchy--Schwarz over $n''$ costs $\mathcal D$. Apply (2.7.T40) or (2.7.T43). Then use \cite[Theorem~2]{DI82} at scale $L_{n''}$. The bound is
+\[
+\ll\mathcal D\sum_{n''}\tau(k)^2k^{\theta_{\mathrm{KS}}}
+             (K^2+L_{n''}^{1+\epsilon}/Q_T)\|b^\flat(n'')\|_2^2.
+\tag{2.7.T46}\label{p1:eq:2.7.T46}
+\]
+On continuous and holomorphic parts (2.7.T46) holds with $k^{\theta_{\mathrm{KS}}}$
+replaced by 1. \cite[Theorem~2]{DI82} allows the endpoint $M=1/2$
+in (2.7.T45).
+
+Use $K^2+U\le((1+Z)^2+U)\max(1,K/(1+Z))^2$.
+The sum over dyadic $K$ of the latter factor times the cubic
+decay in (2.7.T44) is $O(1+\log(2+Z))$. The cubic decay also absorbs a factor $K^\epsilon$: with it the sum is $O((1+Z)^\epsilon\log(2+Z))$. Thus the bound (2.6) in the form $(K^2+N/q)(KN)^\epsilon$ gives the same estimate. Cauchy--Schwarz and
+(2.7.T39) therefore yield
+\[
+\begin{aligned}
+|\mathcal L_{\mathbf t}^{\rm reg}|
+\ll{}&\mathcal X^{4\epsilon}\mathfrak B(\mathbf t)(1+Z)^{-1}
+ [(Q_T(1+Z)^2+M)M]^{1/2}\\
+&\times\left[\sum_{n''}(A_an'')^{\theta_{\mathrm{KS}}}
+ ((1+Z)^2+L_{n''}/Q_T)\|b^\flat(n'')\|_2^2\right]^{1/2}.
+\end{aligned}
+\tag{2.7.T47}\label{p1:eq:2.7.T47}
+\]
+The same calculation with plain $dt$ proves (2.7.T47) for
+the continuous part. It uses the symmetry shown after
+(2.7.T43). The same cubic summation proves absolute convergence
+of its integral, justifying the window partition. Thus the
+continuous part uses the measure $dt$ throughout.
+
+\subsubsection{Exceptional spectrum and the one-integer block}\label{p1:sec:t-exceptional}
+
+Write $L=L_{n''}$, $\Xi=1/Z$, $\Omega=1+Q_T/L$.
+Since $0<\vartheta_j\le\theta_{\mathrm{KS}}$,
+\[
+1+\Xi^{\vartheta_j}
+ \le2(1+\Xi/\sqrt{\Omega})^{\vartheta_j}\Omega^{\vartheta_j/2}.
+\tag{2.7.T48}\label{p1:eq:2.7.T48}
+\]
+Fix $n''$. Apply Cauchy--Schwarz, assigning
+$Y=(1+\Xi/\sqrt{\Omega})^2$ to the $m$-side and
+$\Omega$ to the $n$-side. With $\ell_{2,n''}$ as in (2.7.T40), the two exceptional quadratic forms are
+\[
+\begin{aligned}
+\mathcal M_{n''}&=\sum_{r,s}\sum_{\rm exc}^{(rs)}Y^{\vartheta_j}
+ \Bigl|\sum_m\alpha_m\rho_{j\infty}(m)\Bigr|^2,\\
+\mathcal N_{n''}&=\sum_{r,s}\sum_{\rm exc}^{(rs)}\Omega^{\vartheta_j}
+ |\ell_{2,n''}(u_j)|^2,
+\end{aligned}
+\]
+with $r,s$ over the support of $b$. Let $L\ge1/2$. Apply (2.7.T40) and Theorem 2.2 at level $rs>Q_T$, length $L$ and $Y=\Omega$. Since $L\Omega/(rs)\le1+L/Q_T$, the factor in (2.8) is $\ll\max(1,L)^\epsilon(1+L/Q_T)$. Summing over $r,s$ gives
+\[
+\mathcal N_{n''}\ll\mathcal X^{2\epsilon}(A_an'')^{\theta_{\mathrm{KS}}}
+                 (1+L/Q_T)\|b^\flat(n'')\|_2^2.
+\tag{2.7.T49}\label{p1:eq:2.7.T49}
+\]
+Put $Q'=4Q_T$, $Y_0(M)=(Q'+M)^2/M$, and
+\[
+Z_{n''}=\frac{C^2S^2R}{(Q_T+M)^2(L+Q_T)}.
+\tag{2.7.T50}\label{p1:eq:2.7.T50}
+\]
+The identity
+$\Xi^2/\Omega=(16\pi^2A_an'')^{-1}
+C^2S^2R/[M(L+Q_T)]$ gives
+\[
+\max(1,Y/Y_0(M))^{\theta_{\mathrm{KS}}}
+ \le1+(A_an'')^{-\theta_{\mathrm{KS}}}Z_{n''}^{\theta_{\mathrm{KS}}}.
+\tag{2.7.T51}\label{p1:eq:2.7.T51}
+\]
+Let $M\ge1$. Then (2.9) applies to every integer interval
+inside $(M,2M]$. Use the positive Hilbert space with weights $Y^{\vartheta_j}$. Apply Abel summation to $m^{it_1}$. The norm is at most $1+|t_1|\log2$ times the maximum interval norm. Take the maximum after the norm. It remains outside the spectral sum. Apply (2.9) at $Y_0(M)$. Then use monotonicity
+\[
+Y^{\vartheta_j}\le\max(1,Y/Y_0)^{\theta_{\mathrm{KS}}} Y_0^{\vartheta_j},
+\tag{2.7.T52}\label{p1:eq:2.7.T52}
+\]
+For fixed $q$, the coefficient $\alpha_m$ is independent of the
+factorization $q=rs$. Put
+$w(q)=\#\{(r,s)\text{ in the current support}:rs=q\}$ and
+$\Delta=\max_{2\le q\le Q'}w(q)$, and let $\omega_0(q)$
+count the distinct prime factors of $q$. Since $(r,s)=1$,
+$w(q)\le2^{\omega_0(q)}\le\tau(q)\ll_\eta q^\eta$.
+In the Hilbert space over all levels $2\le q\le Q'$ and their exceptional
+forms, vector-valued Abel summation gives
+$\mathcal M_{n''}^{1/2}\le\Delta^{1/2}
+(1+|t_1|\log2)\sup_{I\subset(M,2M]}
+F_Y(I)^{1/2}$, where
+$F_Y(I)=\sum_{2\le q\le Q'}\sum_{\rm exc}^{(q)}Y^{\vartheta_j}
+|\sum_{m\in I}\rho_{j\infty}(m)|^2$ and $I$ ranges over integer
+intervals. Thus the supremum is outside the whole quadratic form.
+Apply (2.9) with exponent $\eta=\epsilon/2$ at $Y_0(M)$.
+By (2.7.T4), $M\le H\le4\mathcal X^2$ when $\epsilon_1\le1$;
+also $Q'=4Q_T\le4\mathcal X$. Consequently
+$\Delta(Q'M)^\eta\ll_\epsilon\mathcal X^{2\epsilon}$.
+Together with (2.7.T51)--(2.7.T52), this is absorbed in
+$\mathcal X^{3\epsilon}$ and gives
+\[
+\mathcal M_{n''}\ll\mathcal X^{3\epsilon}(1+t_1^2)
+ [1+(A_an'')^{-\theta_{\mathrm{KS}}}Z_{n''}^{\theta_{\mathrm{KS}}}](Q_T+M)M.
+\tag{2.7.T53}\label{p1:eq:2.7.T53}
+\]
+
+\cite[(8.17)]{DI82} excludes $M=1/2$. We prove that endpoint here.
+Let $p(q)$ be the least prime not dividing $q$. Every smaller
+prime divides $q$. The classical Chebyshev lower bound
+$\Theta(x):=\sum_{\ell\le x}\log\ell\gg x$ for $x\ge2$
+(see \cite{IK04}) gives
+\[
+p(q)\ll1+\log q.
+\tag{2.7.T54}\label{p1:eq:2.7.T54}
+\]
+Here $\Theta(p(q)-1)\le\log q$, because the product of all
+smaller primes divides $q$; the case $p(q)=2$ is immediate.
+The implied constant in (2.7.T54) is absolute and independent of $a_T$.
+
+On an exceptional eigenspace $V$, let $v$ represent
+$u\mapsto c_u(1)$. Self-adjointness and (2.7.T38) show that
+$T_pv,T_{p^2}v$ represent $c_u(p),c_u(p^2)$.
+The Hecke identity $T_p^2=T_{p^2}+I$, with
+$\|T_p\|\le2p^{\theta_{\mathrm{KS}}/2}$, gives
+\[
+\sum_{u_j\in V}|c_{u_j}(1)|^2
+ \le8p^{\theta_{\mathrm{KS}}}\sum_{u_j\in V}|c_{u_j}(p)|^2
+       +2\sum_{u_j\in V}|c_{u_j}(p^2)|^2.
+\tag{2.7.T55}\label{p1:eq:2.7.T55}
+\]
+Multiply by $Y^{\vartheta_j}$, which is constant on $V$. Group
+levels by $p(q)\le P:=C_0(1+\log(4Q_T))$, where $C_0$ is an
+absolute constant supplied by (2.7.T54). Positivity permits
+enlarging each group to all $2\le q\le Q'$. For $k=p,p^2$, the singleton $\{k\}$ is an integer interval in $(k/2,k]$, with $k/2\ge1$, so (2.9) applies at $N=k/2$. In DI's terms, subtract the initial intervals $(k/2,k]$ and $(k/2,k-1]$. The resulting factor 4 is included in $c_\epsilon$.
+
+For the endpoint, the same factorization count multiplies the
+level-$q$ quadratic form by at most $\tau(q)$. The following bound
+holds for any positive exponent. In its use in (2.7.T57), take
+$\eta=\min(\epsilon/2,1/4)$ and use
+$\tau(q)\ll_\epsilon Q_T^{\epsilon/2}$ for
+$Q_T<q\le4Q_T$. This keeps their combined loss within the
+displayed $\epsilon$-power after adjustment of its constant. At
+$Y_k=(Q'+k/2)^2/(k/2)$ it gives
+\[
+\sum_{2\le q\le Q'}\sum_{\rm exc}^{(q)}
+ Y^{\vartheta_j}|c_{u_j}(k)|^2
+ \ll_\epsilon (Q'k)^\epsilon(Q'+k/2)k
+                          \max(1,Y/Y_k)^{\theta_{\mathrm{KS}}}.
+\tag{2.7.T56}\label{p1:eq:2.7.T56}
+\]
+Since $Y_0(1/2)/Y_k=k(Q'+1/2)^2/(Q'+k/2)^2\le k\le9k/4$, insert (2.7.T56), with its
+exponent taken as $\eta$, in (2.7.T55).
+Sum over the at most $P$ possible primes:
+\[
+\begin{aligned}
+&\sum_{Q_T<q\le4Q_T}\tau(q)\sum_{\rm exc}^{(q)}
+ Y^{\vartheta_j}|c_{u_j}(1)|^2\\
+&\qquad\ll_\epsilon Q_T^\epsilon P^6
+ (Q_T+\tfrac12)\tfrac12\,
+ \max(1,Y/Y_0(1/2))^{\theta_{\mathrm{KS}}},
+\end{aligned}
+\tag{2.7.T57}\label{p1:eq:2.7.T57}
+\]
+for $0<\epsilon\le1/4$, with the implied constant including
+the divisor bound and the change from $\epsilon$ to $\eta$.
+Before simplification, the sum is at most a constant times
+\[
+c_\epsilon(9/4)^{\theta_{\mathrm{KS}}} Q'^{1+\epsilon}
+ \sum_{p\le P}(8p^{2+2\theta_{\mathrm{KS}}+\epsilon}
+                         +2p^{4+2\theta_{\mathrm{KS}}+2\epsilon});
+\]
+this is $\ll_\epsilon Q_T^{1+\epsilon}P^6$, because
+$5+2\theta_{\mathrm{KS}}+2\epsilon\le6$.
+The loss $P^6$ is logarithmic and uniform in $a_T$.
+In particular $P^6\ll_\epsilon\mathcal X^\epsilon$; together
+with the factorization loss already included in (2.7.T57), this
+fits the $\mathcal X^{3\epsilon}$ allowance of (2.7.T53).
+Together with (2.7.T51), this proves (2.7.T53) also for $M=1/2$.
+Since $\alpha_1=1$, Abel summation costs nothing here.
+
+Apply the triangle inequality over $n''$ before Cauchy--Schwarz.
+Then (2.7.T49), (2.7.T53), and (2.7.T32) give
+\[
+\begin{aligned}
+|\mathcal L_{\mathbf t}^{\rm exc}|
+\ll{}&\mathcal X^{6\epsilon}\mathfrak B(\mathbf t)(1+|t_1|)
+ (1+Z)^{-1}\sqrt{M(Q_T+M)}\\
+&\times\sum_{n''}\big[(A_an'')^{\theta_{\mathrm{KS}}/2}
+                 +Z_{n''}^{\theta_{\mathrm{KS}}/2}\big]
+        ((L+Q_T)/Q_T)^{1/2}\|b^\flat(n'')\|_2.
+\end{aligned}
+\tag{2.7.T58}\label{p1:eq:2.7.T58}
+\]
+There is no exceptional continuous or holomorphic spectrum.
+
+\subsubsection{The four terms and completion of the proof}
+
+Put
+\[
+\mathfrak T=A_aMN'/(C^2S),\quad M_0=CS/D,\quad
+\varpi=4\mathcal X^{\epsilon_2}.
+\tag{2.7.T59}\label{p1:eq:2.7.T59}
+\]
+The quantity $\mathfrak T$ is unrelated to the cell endpoint $T$ of
+Section~3. Then $M\le\varpi M_0$,
+$Z^2Q_T=16\pi^2\mathfrak T$, so
+$(1+Z)^{-2}Q_T^{-1}\asymp(Q_T+\mathfrak T)^{-1}$.
+Square (2.7.T47) and multiply by $D^2R$. Apart from the stated auxiliary powers, sum the following over $n''$.
+\[
+(A_an'')^{\theta_{\mathrm{KS}}} D^2R
+ \frac{M(M+Q_T+\mathfrak T)(L+Q_T+\mathfrak T)}
+                       {Q_T+\mathfrak T}\|b^\flat(n'')\|_2^2.
+\tag{2.7.T60}\label{p1:eq:2.7.T60}
+\]
+The first, noncancelling branch of (2.7.T58) has the same bound. Termwise, use
+\[
+(Q_T+M)(L+Q_T)/Q_T
+ \le[Q_T(1+Z)^2+M][(1+Z)^2+L/Q_T].
+\tag{2.7.T61}\label{p1:eq:2.7.T61}
+\]
+To obtain (2.42), use the following identity.
+\[
+\frac{Q_T(M+Q_T+\mathfrak T)(L+Q_T+\mathfrak T)}
+                            {Q_T+\mathfrak T}
+=(L+Q_T)(M+Q_T)+Q_T\mathfrak T
+                         -\frac{LM\mathfrak T}{Q_T+\mathfrak T}.
+\tag{2.7.T62}\label{p1:eq:2.7.T62}
+\]
+Multiply (2.7.T62) by $M/Q_T$, then drop the last (nonpositive) term:
+\[
+\frac{M(M+Q_T+\mathfrak T)(L+Q_T+\mathfrak T)}{Q_T+\mathfrak T}
+\le\frac{M(L+Q_T)(M+Q_T)}{Q_T}+M\mathfrak T.
+\]
+Since
+$D^2M/S\le\varpi CD$ and
+$M+Q_T\le\varpi S(C+DR)/D$, it follows that
+\[
+\begin{aligned}
+&D^2R\frac{M(M+Q_T+\mathfrak T)(L+Q_T+\mathfrak T)}
+                            {Q_T+\mathfrak T}\\
+&\qquad\le\varpi^2
+ \{CS(L+RS)(C+DR)+A_aN'RS\}.
+\end{aligned}
+\tag{2.7.T63}\label{p1:eq:2.7.T63}
+\]
+The last term follows from
+$D^2RM\mathfrak T=A_aN'RS(DM/(CS))^2$.
+Using $L\le N_1/n''$, $N'\le N_1$, $A_a\le A$ proves
+the first two terms of (2.42), with
+$A^{\theta_{\mathrm{KS}}}(n'')^{\theta_{\mathrm{KS}}}$ kept explicit.
+
+For the cancelling branch of (2.7.T58), use
+\[
+Z_{n''}^{\theta_{\mathrm{KS}}}(L+Q_T)
+ \le(C^2S^2R)^{\theta_{\mathrm{KS}}}(Q_T+M)^{-2\theta_{\mathrm{KS}}}(N_1+Q_T)^{1-\theta_{\mathrm{KS}}},
+\tag{2.7.T64}\label{p1:eq:2.7.T64}
+\]
+and $\sum_{n''}\|b^\flat(n'')\|_2
+\le\mathcal D^{1/2}\|b\|_2$. Since
+$M\mapsto M(Q_T+M)^{1-2\theta_{\mathrm{KS}}}$ is increasing,
+substitute $M_0$, paying at most $\varpi^{2-2\theta_{\mathrm{KS}}}$.
+The resulting identity is
+\[
+\begin{aligned}
+&\frac{D^2RM_0(Q_T+M_0)^{1-2\theta_{\mathrm{KS}}}
+                  (C^2S^2R)^{\theta_{\mathrm{KS}}}(N_1+Q_T)^{1-\theta_{\mathrm{KS}}}}{Q_T}\\
+&\qquad=CS(CD\sqrt R)^{2\theta_{\mathrm{KS}}}
+             (N_1+RS)^{1-\theta_{\mathrm{KS}}}(C+DR)^{1-2\theta_{\mathrm{KS}}}.
+\end{aligned}
+\tag{2.7.T65}\label{p1:eq:2.7.T65}
+\]
+This is the third term of (2.42). The fourth was (2.7.T3).
+The truncated tail is smaller than it.
+
+To account for all losses, reconstruct the block sum as
+$D\sqrt R(2\pi)^{-4}\int\mathcal L_{\mathbf t}\,d\mathbf t$.
+Equation (2.7.T11) gives
+$\int\mathfrak B(\mathbf t)(1+|t_1|)\,d\mathbf t
+\ll\mathcal X^{17\epsilon_2}$.
+The amplitude's $\varpi$ loss in (2.7.T63) is at most
+$\mathcal X^{\epsilon_2}$ after taking its square root.
+The log partitions and divisor factors cost $\mathcal X^{O(\epsilon_1)}$. This includes the DI small $\epsilon$ losses, $\mathcal D$, and the one-integer $P^6$ loss. The bound is uniform in $a_T$.
+Consequently the final loss is
+\[
+\mathcal X^{O(\epsilon_1)+18\epsilon_0}.
+\tag{2.7.T66}\label{p1:eq:2.7.T66}
+\]
+Choose the freely available $\epsilon_1$ small enough relative
+to the requested $\epsilon$. Equations (2.7.T63), (2.7.T65), and (2.7.T3)
+then prove (2.41)--(2.43), with loss
+$\mathcal X^{\epsilon+18\epsilon_0}$, for both signs and
+including the $M=1/2$ block. This proves Theorem 2.8 in the form used in Section~3, (3.14)--(3.15).
+

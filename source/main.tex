@@ -1,0 +1,533 @@
+\documentclass{amsart}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amssymb,mathtools,array,longtable,tabularx,booktabs}
+\usepackage{mathrsfs,enumitem,graphicx}
+\usepackage[hidelinks]{hyperref}
+\hypersetup{pdftitle={Shifted primes in arithmetic progressions to large moduli with linear sieve remainder weights},pdfauthor={Ruiyi Zhang}}
+\allowdisplaybreaks[3]
+\setlength{\emergencystretch}{3em}
+\setcounter{tocdepth}{2}
+\providecommand{\tightlist}{\setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\providecommand{\passthrough}[1]{#1}
+\providecommand{\texorpdfstring}[2]{#1}
+\providecommand{\PP}{\mathbb P}
+\providecommand{\UC}{U_C}
+\providecommand{\NN}{\mathbb N}
+\providecommand{\ZZ}{\mathbb Z}
+\providecommand{\QQ}{\mathbb Q}
+\providecommand{\RR}{\mathbb R}
+\providecommand{\CC}{\mathbb C}
+\DeclareMathOperator{\Li}{Li}
+\DeclareMathOperator{\lcm}{lcm}
+\DeclareMathOperator{\rad}{rad}
+\DeclareMathOperator{\supp}{supp}
+\DeclareUnicodeCharacter{2212}{\ensuremath{-}}
+\DeclareUnicodeCharacter{2264}{\ensuremath{\le}}
+\DeclareUnicodeCharacter{2265}{\ensuremath{\ge}}
+\DeclareUnicodeCharacter{2260}{\ensuremath{\ne}}
+\DeclareUnicodeCharacter{221E}{\ensuremath{\infty}}
+\DeclareUnicodeCharacter{2208}{\ensuremath{\in}}
+\DeclareUnicodeCharacter{2286}{\ensuremath{\subseteq}}
+\DeclareUnicodeCharacter{00D7}{\ensuremath{\times}}
+\DeclareUnicodeCharacter{2211}{\ensuremath{\sum}}
+\DeclareUnicodeCharacter{220F}{\ensuremath{\prod}}
+\DeclareUnicodeCharacter{220E}{\ensuremath{\square}}
+\DeclareUnicodeCharacter{2032}{\ensuremath{\prime}}
+\DeclareUnicodeCharacter{2011}{-}
+\DeclareUnicodeCharacter{2013}{--}
+\DeclareUnicodeCharacter{2014}{---}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{corollary}[theorem]{Corollary}
+\numberwithin{equation}{section}
+\theoremstyle{definition}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\theoremstyle{plain}
+\newtheorem*{introproposition}{Proposition}
+\title[Shifted primes with linear sieve remainder weights]{Shifted primes in arithmetic progressions to large moduli with linear sieve remainder weights}
+\author{Ruiyi Zhang}
+\address{Independent Researcher, Columbia, Maryland, USA}
+\email{ryzfsu@gmail.com}
+\subjclass[2020]{Primary 11N13; Secondary 11N36, 11L05, 11P32}
+\keywords{shifted primes, linear sieve, level of distribution, dispersion method, Kloosterman sums, primes in arithmetic progressions}
+\begin{document}
+\begin{abstract}
+Let $N$ be a sufficiently large even integer, and fix $B>0$ and
+$0<\varepsilon\le10^{-4}$. Take Iwaniec's upper or lower
+linear-sieve remainder weights. We estimate a signed sum of
+prime-counting discrepancies on $N/(\log N)^B<p<(1-\varepsilon)N$. Fix $0<u\le1/500$ and a sieve exponent
+$1/2<\theta<(5-7/32-3u)/8$. Choose
+$0<\sigma\le\min\{10^{-10},((5-7/32-3u)/8-\theta)/200,
+\sqrt{u/(2\theta)}\}$. Then the complete modulus support lies below
+$N^{(5-7/32-3u)/8}$. For every fixed saving exponent $A>0$, the error
+is $O(N(\log N)^{-A})$. For each of the two signs $\nu\in\{+,-\}$, the
+result holds uniformly for integers $a\in[N,N\log N/3]$ satisfying
+$(a,q)=1$ for every modulus
+$q$ in the support of the corresponding coefficient $w_N^\nu$. Call these shifts
+admissible; they form a subset of the interval that includes $a=N$.
+When $u=1/500$ and $\theta=19101/32000-10^{-4}$, the ratio
+$\log D/\log z$ is $298.403125$.
+The proof keeps the smooth-divisor and prime-tuple factors of the
+linear-sieve weights. It combines dispersion with a Heath--Brown
+decomposition. The boundary, Type-I and Type-II terms are estimated
+separately.
+\end{abstract}
+\maketitle
+
+\section{Introduction}
+The Bombieri--Vinogradov theorem \cite{Bombieri65,Vinogradov65}
+gives level $1/2$ for primes in arithmetic progressions on average.
+Related early weighted work includes Fouvry--Iwaniec
+\cite{FouvryIwaniec80,FouvryIwaniec83}.
+Consider weighted sums with a fixed residue.
+Bombieri--Friedlander--Iwaniec reached level $4/7$ with well-factorable
+weights \cite[Theorem~10]{BFI86}.
+With a fixed residue, Maynard \cite[Theorems~1.1--1.2]{MaynardII}
+proved level $3/5$ for triply well-factorable weights and level $7/12$
+for the upper linear-sieve weights. Parts I--III address fixed residue
+classes, well-factorable estimates, and uniform residue classes, respectively
+\cite{MaynardI,MaynardII,MaynardIII}.
+Lichtman \cite[Theorem~1.7, (1.6)]{Lichtman23} obtained level $66/107$ for
+triply well-factorable weights with a fixed residue. For such weights
+he also obtained level $153/256-\delta$, uniformly over residues
+$|a|<N^{1+\delta}$ for each fixed $\delta>0$
+\cite[Theorem~1.7, (1.7)]{Lichtman23}. His Proposition~6.6 treats
+Iwaniec's modified upper and lower linear-sieve weights. There the
+largest prime factors are restricted to prescribed short intervals.
+Its admissible level is
+$\vartheta\le\boldsymbol{\vartheta}(t_1)-\delta$ with
+$\boldsymbol{\vartheta}(t_1)$ defined in \cite[(6.2)]{Lichtman23}.
+Take at least three prescribed factors and $t_1$ below the threshold
+in that proposition. Then the level becomes
+$\vartheta\le\boldsymbol{\vartheta}(t_1,t_2,t_3)-\delta$, with the
+function of \cite[(6.4)]{Lichtman23} and fixed $\delta>0$.
+The error constant in that proposition depends on the
+fixed residue $a$ \cite[Proposition~6.6]{Lichtman23}. Lichtman's
+modified linear-sieve weights reach level $10/17$ \cite{Lichtman21}.
+
+\pagebreak
+Pascadi \cite[Theorem~1.3]{Pascadi25} gives levels approaching $5/8$
+for triply well-factorable weights, with a fixed residue. For suitable
+upper linear-sieve weights his levels approach $3/5$.
+Pascadi's Theorem~5.4 also treats both signs of the restricted
+well-factorable linear-sieve weights and refines Proposition~6.6
+\cite[Theorem~5.4]{Pascadi25}. His Lemma~5.6 records a correction to a
+small error in Section~6 of \cite{Lichtman23}
+\cite[Lemma~5.6]{Pascadi25}.
+
+Here $z=N^u$ with $u\le1/500$ and $\theta>1/2$, so
+$s=\theta/u>250$, in the fundamental-lemma range. The cited
+linear-sieve levels use sifting ranges with $s\approx1$--$2$ and are
+not directly comparable.
+
+The congruence $p\equiv a\pmod q$ says that $q$ divides the
+shifted prime $a-p$. So the sums below count shifted primes
+$a-p$ in the class $0$ modulo $q$.
+The modulus coefficients are Iwaniec's explicit lower and upper
+remainder weights \cite[Theorem~4]{AA37}.
+We retain their smooth-divisor factors, prime-tuple factors, and
+distinctness conditions. We estimate the complete signed sum for
+the admissible shifts in the stated interval. Theorem~\ref{thm:aa37-interior}
+covers the fixed parameters $u,\theta,A,B,\varepsilon$ below.
+Its support exponent tends to $153/256$ as $u\downarrow0$. This numerical
+endpoint matches Lichtman's moving-residue level for triply well-factorable
+weights \cite[Theorem~1.7, (1.7)]{Lichtman23}; the residue ranges differ.
+At $u=1/500$ the exponent is smaller.
+The coefficient family here is the full remainder in
+\cite[Theorem~4]{AA37}. It includes the smooth-only term and the
+distinctness masks. Lichtman's Proposition~6.6 estimates restricted
+factor-pattern components of different modified sieve weights. Its
+implied constant depends on the fixed residue. Here uniformity is only over
+the support-coprime shifts specified below, an admissible subset of
+$[N,N\log N/3]$ that includes $a=N$; no uniformity over the full interval
+is asserted.
+
+The local statement uses the hypotheses of Section~\ref{sec:pi-psdt}.
+Let $B$ be a Heath--Brown box at scale $X$. Write $w_B(n)$ for its
+finite source coefficient and $C_B(q)$ for its modulus coefficient.
+Set
+\[
+ \Delta_B(q;a)=\sum_{n}w_B(n)
+ \left(\mathbf1_{n\equiv a\, (q)}
+       -\frac{\mathbf1_{(n,q)=1}}{\varphi(q)}\right).
+\]
+In Section~\ref{sec:pi-psdt}, $w_B$ is written as a sum over the
+variables of $B$; this is the same discrepancy.
+
+\begin{introproposition}[Dispersion for a source box]
+Fix $0<\sigma\le10^{-10}$ and constants $K_{\rm scale}>0$ and
+$C_{\rm box}>0$. Here $K_{\rm scale}$ bounds the logarithmic
+difference between the prime scale $X$ and $N$. The source boxes have
+relative width $(\log X)^{-C_{\rm box}}$.
+Let $N$ be sufficiently large and even,
+$N/(\log N)^{K_{\rm scale}}\le X\le N$, and put
+$L=\log X$ and $A_0=X^{1+\sigma/20}$.
+Let $a$ be a positive integer with
+$a\le X(\log N)^{K_{\rm scale}}\le A_0$.
+Suppose every supported modulus is coprime to $2a$.
+Suppose $B$ and $C_B$ satisfy (H1)--(H5) of
+Section~\ref{sec:pi-psdt}. These include the support condition
+$q\le X^{\vartheta_0}$, where
+\[
+ \eta_L=10^{-4},\quad
+ \vartheta_0=\frac{19101}{32000}-\eta_L=0.59680625,
+ \quad \ell_0=\frac{53}{412}-\frac{\eta_L}2,
+ \quad c_\sigma=\frac{\ell_0\sigma^2}{4}>0.
+\]
+For each fixed $A'>0$ there is a finite
+$C=C(\sigma,K_{\rm scale},C_{\rm box},A',\mathcal C_{\rm src})$
+such that
+\begin{equation}\label{eq:intro-dispersion}
+ \left|\sum_{q\le X^{\vartheta_0}}
+       C_B(q)\Delta_B(q;a)\right|
+ \ll_{\sigma,K_{\rm scale},C_{\rm box},A',\mathcal C_{\rm src}}
+       XL^{-A'}+X^{1-c_\sigma}L^C.
+\end{equation}
+Here $\mathcal C_{\rm src}$ denotes the fixed uniform constants in
+(H1)--(H5). The estimate is uniform in $B$, $N$, and all $a$ as above.
+The implied constant and the threshold for $N$ are ineffective.
+\end{introproposition}
+
+Theorem~\ref{thm:standalone} in Section~\ref{sec:pi-psdt}
+is the abstract dispersion estimate under the support and packing
+hypotheses in (H3).
+Theorem~\ref{thm:main} is the dispersion engine used for
+Theorem~\ref{thm:aa37-interior}. It allows support up to $X^{0.6}$.
+
+\begin{theorem}[Signed shifted-prime mean value at $u=1/500$]
+\label{thm:aa37-fixed-u}
+Fix $A,B>0$, $0<\varepsilon\le10^{-4}$, and
+\[
+ \frac12<\theta<\Theta_*:=\frac{19101}{32000}.
+\]
+Set
+\[
+\begin{gathered}
+ u=\frac1{500},\qquad \eta_\Theta=\Theta_*-\theta,\qquad
+ 0<\sigma\le\min\left\{10^{-10},\frac{\eta_\Theta}{200},
+                         \sqrt{\frac1{1000\theta}}\right\},\\
+ \tau=\sigma^9,\quad D=N^\theta,\quad z=N^{1/500},
+ \quad Y=D^{\sigma^2},\quad K_{\rm scale}=B+1,
+\end{gathered}
+\]
+and choose an integer
+$C_{\rm box}\ge\lceil2A+32\rceil$; constants may depend on this choice,
+as in Theorem~\ref{thm:aa37-interior}.
+Let $N$ be sufficiently large and even. For either sign
+$\nu\in\{+,-\}$, let $w_N^\nu(q)$ be the complete Iwaniec remainder
+coefficient of formula~\textup{(W)} in
+Section~\ref{sec:linear-sieve-application}. Its prime set is
+$\mathcal P_N=\{p\text{ prime}:p\nmid2N\}$, with the grid and
+distinctness conditions there. Let $a$ be an integer with
+$N\le a\le N\log N/3$ and $(a,q)=1$ for every
+$q\in\operatorname{supp}w_N^\nu$.
+Call these shifts admissible; they form a subset of the interval that includes
+$a=N$.
+Put $I_N=(N/(\log N)^B,(1-\varepsilon)N)$. Let $\pi_{I_N}$ count
+its primes, and $\pi_{I_N}(q,a)$ those congruent to $a$ modulo $q$.
+Then
+\[
+ \operatorname{supp}w_N^\nu\subseteq
+ \{q<D^{1+\sigma+\tau}:(q,2N)=1\},\qquad
+ D^{1+\sigma+\tau}<N^{\Theta_*},
+ \qquad |w_N^\nu(q)|\ll_{\sigma,\theta}1,
+\]
+and
+\[
+ \left|\sum_q w_N^\nu(q)
+  \left\{\pi_{I_N}(q,a)-\frac{\pi_{I_N}}{\varphi(q)}\right\}\right|
+ \ll_{\sigma,A,\theta,B,\varepsilon,C_{\rm box}}N(\log N)^{-A}.
+\]
+The sum covers the complete support of formula~\textup{(W)}.
+For the admissible choice
+$\theta=19101/32000-10^{-4}$, the sieve ratio
+$\log D/\log z=500\theta$ equals $298.403125$.
+The implied constant and the threshold for $N$ are ineffective.
+\end{theorem}
+
+\medskip
+\noindent\textit{Remark (parameter conventions).}
+In Theorem~\ref{thm:aa37-fixed-u} one takes $A_{\rm agg}=A$ and
+$C_{\rm box}\ge\lceil2A+32\rceil$.  The shifted choice
+$A_{\rm agg}=A+3$ and the corresponding
+$C_{\rm box}\ge\lceil2A+38\rceil$ occur only in the auxiliary
+source-wide estimate (3.95), which is not used in the proofs of
+Theorems~\ref{thm:aa37-fixed-u}--\ref{thm:aa37-interior} or
+Corollary~\ref{cor:aa37-interior-li}, nor in Section~\ref{sec:linear-sieve-application}.
+
+\begin{theorem}[Signed shifted-prime mean value]
+\label{thm:aa37-interior}
+Fix $A>0$, $B>0$, $0<\varepsilon\le10^{-4}$, $0<u\le1/500$,
+and
+\[
+ \frac12<\theta<\Theta(u):=\frac{5-7/32-3u}{8}.
+\]
+Put
+\[
+ \begin{gathered}
+ \eta_\Theta=\Theta(u)-\theta,\\
+ 0<\sigma\le\min\{10^{-10},\eta_\Theta/200,
+                   \sqrt{u/(2\theta)}\},\\
+ \tau=\sigma^9,\quad D=N^\theta,\quad z=N^u,
+ \quad Y=D^{\sigma^2}.
+ \end{gathered}
+\]
+Set $K_{\rm scale}=B+1$. Choose an integer box-width exponent
+\[
+ C_{\rm box}\ge\lceil2A+32\rceil.
+\]
+The implied constant and the threshold for $N$ below may also depend
+on the chosen $C_{\rm box}$. For the canonical choice
+$C_{\rm box}=\lceil2A+32\rceil$ this is a dependence on $A$ alone.
+Equivalently $C_{\rm box}\ge2(A+c_R)$, with the boundary exponent
+$c_R=16$ of (3.24) and (B.19). This also gives the logarithm-freezing
+condition $C_{\rm box}\ge A+18$ from (B.18).
+Let $N$ be sufficiently large and even. For each sign
+$\nu\in\{+,-\}$, let $w_N^\nu(q)$ be the complete Iwaniec
+remainder coefficient defined by formula~\textup{(W)} in
+Section~\ref{sec:linear-sieve-application}. Its prime set is
+$\mathcal P_N=\{p\text{ prime}:p\nmid2N\}$, with the
+grid and distinctness conditions specified there. Let $a$ be any
+integer satisfying
+\[
+ N\le a\le N\log N/3,\qquad
+ (a,q)=1\quad\text{for every }q\in\operatorname{supp}w_N^\nu.
+\]
+Call these shifts admissible; they form a subset of the interval that includes
+$a=N$.
+Put
+\[
+ I_N=\left(\frac{N}{(\log N)^B},(1-\varepsilon)N\right).
+\]
+Write $\pi_{I_N}$ for the number of primes in $I_N$.
+Write $\pi_{I_N}(q,a)$ for the number of these primes with
+$p\equiv a\pmod q$.
+For every fixed $\sigma$ in the displayed range, these coefficients
+satisfy
+\[
+ \begin{gathered}
+ \operatorname{supp}w_N^\nu\subseteq
+ \{q<D^{1+\sigma+\tau}:(q,2N)=1\},
+ \\ D^{1+\sigma+\tau}<N^{\Theta(u)},
+ \qquad |w_N^\nu(q)|\ll_{\sigma,u,\theta}1,
+ \end{gathered}
+\]
+and
+\begin{equation}\label{eq:aa37-interior-mean}
+ \left|\sum_q w_N^\nu(q)
+  \left\{\pi_{I_N}(q,a)-\frac{\pi_{I_N}}{\varphi(q)}\right\}\right|
+ \ll_{\sigma,A,u,\theta,B,\varepsilon,C_{\rm box}} N(\log N)^{-A}.
+\end{equation}
+The sum includes the entire support of formula~\textup{(W)}.
+The sieve ratio is $\log D/\log z=\theta/u$. The condition on
+$\sigma$ gives $Y=D^{\sigma^2}=N^{\theta\sigma^2}\le N^{u/2}<z$,
+as required for the rough-factor bounds.
+The implied constant and the threshold for $N$ are ineffective.
+The proof uses the Siegel--Walfisz theorem.
+\end{theorem}
+
+\begin{proof}[Proof of Theorem~\ref{thm:aa37-fixed-u}]
+Apply Theorem~\ref{thm:aa37-interior} with $u=1/500$.
+Then $\Theta(u)=19101/32000$, and its condition on $\sigma$ becomes
+the displayed condition above. All the support, coefficient,
+and discrepancy bounds specialize as stated. The numerical sieve
+ratio follows from $\log D/\log z=\theta/u$.
+At $\theta=19101/32000-10^{-4}$ the proof uses Theorem~\ref{thm:main}
+through Theorem~\ref{thm:aa37-interior}. That theorem allows support
+up to $X^{0.6}$.
+It does not use the introductory proposition. At $\theta=\vartheta_0$
+the support bound $D^{1+\sigma+\tau}$ of \textup{(W)} exceeds $X^{\vartheta_0}$.
+\end{proof}
+
+In Theorem~\ref{thm:aa37-interior}, $D=N^\theta$ and
+$D^{1+\sigma+\tau}<N^{\Theta(u)}$ by the choice of $\sigma$.
+The introductory source-box estimate has the fixed local level
+$\vartheta_0=19101/32000-10^{-4}$. It assumes its support hypothesis. The packing ceiling for Theorem~\ref{thm:aa37-interior}
+is $\Theta(u)$. The latter applies the $X^{0.6}$
+dispersion theorem~\ref{thm:main} together with the source estimates
+below. Here $\Theta(u)<153/256<0.6$. Fix $B>0$. Each source shell has
+$X>N/(2(\log N)^B)$. So, for sufficiently large $N$,
+\[
+ N^{\Theta(u)}\le\left(\frac{N}{2(\log N)^B}\right)^{0.6}<X^{0.6}.
+\]
+Thus the full support of Iwaniec's remainder weights lies in the range of
+Theorem~\ref{thm:main}. Section~\ref{sec:pack} proves the modulus
+packing. Appendix~\ref{app:proof-aa37} estimates the Heath--Brown,
+boundary, and other source terms. Section~\ref{sec:linear-sieve-application}
+assembles these estimates.
+
+\begin{corollary}[Logarithmic-integral comparator]
+\label{cor:aa37-interior-li}
+Under the hypotheses of Theorem~\ref{thm:aa37-interior}, for each
+$\nu\in\{+,-\}$,
+\[
+ \begin{aligned}
+ &\left|\sum_q w_N^\nu(q)
+  \left\{\pi_{I_N}(q,a)-
+  \frac{\substack{\Li((1-\varepsilon)N)\\
+                   {}-\Li(N/(\log N)^B)}}
+       {\varphi(q)}\right\}\right|\\
+ &\ll_{\sigma,A,u,\theta,B,\varepsilon,C_{\rm box}} N(\log N)^{-A}.
+ \end{aligned}
+\]
+The implied constant and the threshold for $N$ are ineffective.
+\end{corollary}
+
+The proof uses the spectral large sieves of Deshouillers and Iwaniec
+\cite{DI82}. It uses the Kim--Sarnak exponent $7/64$ \cite{KS03}.
+It also uses Deligne's bound for holomorphic coefficients
+\cite{Deligne74}. Section~\ref{p1:sec:classical-inputs} states these
+inputs. The dispersion argument and its application are in
+Sections~\ref{sec:pi-psdt}--\ref{sec:linear-sieve-application}.
+
+\input{02-classical-inputs-theorem-t.tex}
+\input{03-psdt.tex}
+\input{04-pack-actual.tex}
+\input{07-standalone-application.tex}
+\appendix
+\input{06-finite-source-checks.tex}
+\input{05-hb-own-sw.tex}
+
+\section*{Use of AI tools}
+The author devised the method of proof.
+Codex (OpenAI) and Claude Code (Anthropic) are the AI tools used.
+They assisted with derivation checks, code, typesetting, and review.
+The author checked every proof step, table, and reference.
+The author takes full responsibility for the content of the paper.
+
+\section*{Statements and declarations}
+\textbf{Competing interests.} The author declares no competing interests.
+
+\textbf{Funding.} No external funding was received.
+
+\textbf{Data availability.} No external data or numerical computations are used in the proof. Appendix~A records analytic source checks and their scope.
+
+\begin{thebibliography}{99}
+\bibitem{Lichtman23} J. D. Lichtman,
+Primes in arithmetic progressions to large moduli, and Goldbach beyond
+the square-root barrier,
+\href{https://arxiv.org/abs/2309.08522v1}{arXiv:2309.08522v1}, 2023
+(with an appendix by S. Drappeau and J. D. Lichtman).
+\bibitem{Bombieri65} E. Bombieri, On the large sieve,
+\emph{Mathematika} \textbf{12} (1965), no.~2, 201--225.
+DOI: \href{https://doi.org/10.1112/S0025579300005313}{10.1112/S0025579300005313}.
+\bibitem{Vinogradov65} A. I. Vinogradov,
+The density hypothesis for Dirichlet $L$-series (in Russian),
+\emph{Izv. Akad. Nauk SSSR Ser. Mat.} \textbf{29} (1965), no.~4,
+903--934.
+MR0197414.
+\bibitem{Shiu80} P. Shiu,
+A Brun--Titchmarsh theorem for multiplicative functions,
+\emph{J. Reine Angew. Math.} \textbf{313} (1980), 161--170.
+DOI: \href{https://doi.org/10.1515/crll.1980.313.161}{10.1515/crll.1980.313.161}.
+\bibitem{DI82} J.-M. Deshouillers and H. Iwaniec,
+Kloosterman sums and Fourier coefficients of cusp forms,
+\emph{Invent. Math.} \textbf{70} (1982), no.~2, 219--288.
+DOI: \href{https://doi.org/10.1007/BF01390728}{10.1007/BF01390728}.
+\bibitem{BFI86} E. Bombieri, J. B. Friedlander and H. Iwaniec,
+Primes in arithmetic progressions to large moduli,
+\emph{Acta Math.} \textbf{156} (1986), 203--251.
+DOI: \href{https://doi.org/10.1007/BF02399204}{10.1007/BF02399204}.
+\bibitem{MaynardII} J. Maynard,
+Primes in arithmetic progressions to large moduli II: Well-factorable estimates,
+\emph{Mem. Amer. Math. Soc.} \textbf{306} (2025), no.~1543.
+DOI: \href{https://doi.org/10.1090/memo/1543}{10.1090/memo/1543};
+the theorem numbering cited here is from
+\href{https://arxiv.org/abs/2006.07088v1}{arXiv:2006.07088v1}.
+\bibitem{Pascadi25} A. Pascadi,
+On the exponents of distribution of primes and smooth numbers,
+\href{https://arxiv.org/abs/2505.00653v2}{arXiv:2505.00653v2}, 2025.
+\bibitem{Drappeau} S. Drappeau,
+Sums of Kloosterman sums in arithmetic progressions, and the error term
+in the dispersion method,
+\emph{Proc. Lond. Math. Soc.} \textbf{114} (2017), no.~4, 684--732.
+DOI: \href{https://doi.org/10.1112/plms.12022}{10.1112/plms.12022};
+\href{https://arxiv.org/abs/1504.05549v4}{arXiv:1504.05549v4}.
+\bibitem{AA37} H. Iwaniec, A new form of the error term in the linear sieve,
+\emph{Acta Arith.} \textbf{37} (1980), 307--320.
+DOI: \href{https://doi.org/10.4064/aa-37-1-307-320}{10.4064/aa-37-1-307-320}.
+\bibitem{AA36} H. Iwaniec, Rosser's sieve,
+\emph{Acta Arith.} \textbf{36} (1980), no.~2, 171--202.
+DOI: \href{https://doi.org/10.4064/aa-36-2-171-202}{10.4064/aa-36-2-171-202}.
+\bibitem{HB82} D. R. Heath-Brown,
+Prime numbers in short intervals and a generalized Vaughan identity,
+\emph{Canad. J. Math.} \textbf{34} (1982), no.~6, 1365--1377.
+DOI: \href{https://doi.org/10.4153/CJM-1982-095-9}{10.4153/CJM-1982-095-9}.
+\bibitem{KS03} H. H. Kim,
+Functoriality for the exterior square of $GL_4$ and the symmetric fourth of $GL_2$,
+\emph{J. Amer. Math. Soc.} \textbf{16} (2003), 139--183;
+Appendix~2 by H. H. Kim and P. Sarnak, pp.~175--181.
+DOI: \href{https://doi.org/10.1090/S0894-0347-02-00410-1}{10.1090/S0894-0347-02-00410-1}.
+\bibitem{Deligne74} P. Deligne, La conjecture de Weil.~I,
+\emph{Publ. Math. IH\'ES} \textbf{43} (1974), 273--307.
+DOI: \href{https://doi.org/10.1007/BF02684373}{10.1007/BF02684373}.
+\bibitem{Weil48} A. Weil, On some exponential sums,
+\emph{Proc. Nat. Acad. Sci. USA} \textbf{34} (1948), 204--207.
+DOI: \href{https://doi.org/10.1073/pnas.34.5.204}{10.1073/pnas.34.5.204}.
+\bibitem{Estermann61} T. Estermann,
+On Kloosterman's sum,
+\emph{Mathematika} \textbf{8} (1961), no.~1, 83--86.
+DOI: \href{https://doi.org/10.1112/S0025579300002187}{10.1112/S0025579300002187}.
+\bibitem{IK04} H. Iwaniec and E. Kowalski,
+\emph{Analytic Number Theory}, AMS Colloquium Publications \textbf{53},
+AMS, Providence, RI, 2004.
+DOI: \href{https://doi.org/10.1090/coll/053}{10.1090/coll/053}.
+\bibitem{FI78} J. Friedlander and H. Iwaniec,
+On Bombieri's asymptotic sieve,
+\emph{Ann. Scuola Norm. Sup. Pisa Cl. Sci. (4)} \textbf{5} (1978), 719--756.
+\bibitem{FouvryIwaniec80} E. Fouvry and H. Iwaniec,
+On a theorem of Bombieri--Vinogradov type,
+\emph{Mathematika} \textbf{27} (1980), no.~2, 135--152.
+DOI: \href{https://doi.org/10.1112/S0025579300010032}{10.1112/S0025579300010032}.
+\bibitem{FouvryIwaniec83} E. Fouvry and H. Iwaniec,
+Primes in arithmetic progressions,
+\emph{Acta Arith.} \textbf{42} (1983), no.~2, 197--218.
+DOI: \href{https://doi.org/10.4064/aa-42-2-197-218}{10.4064/aa-42-2-197-218}.
+\bibitem{MaynardI} J. Maynard,
+Primes in arithmetic progressions to large moduli I: Fixed residue classes,
+\emph{Mem. Amer. Math. Soc.} \textbf{306} (2025), no.~1542.
+DOI: \href{https://doi.org/10.1090/memo/1542}{10.1090/memo/1542}.
+\bibitem{MaynardIII} J. Maynard,
+Primes in arithmetic progressions to large moduli III: Uniform residue classes,
+\emph{Mem. Amer. Math. Soc.} \textbf{306} (2025), no.~1544.
+DOI: \href{https://doi.org/10.1090/memo/1544}{10.1090/memo/1544}.
+\bibitem{DPR23} S. Drappeau, K. Pratt and M. Radziwi{\l}{\l},
+One-level density estimates for Dirichlet $L$-functions with extended support,
+\emph{Algebra Number Theory} \textbf{17} (2023), no.~4, 805--830.
+DOI: \href{https://doi.org/10.2140/ant.2023.17.805}{10.2140/ant.2023.17.805}.
+\bibitem{ABL21} E. Assing, V. Blomer and J. Li,
+Uniform Titchmarsh divisor problems,
+\emph{Adv. Math.} \textbf{393} (2021), article 108076.
+DOI: \href{https://doi.org/10.1016/j.aim.2021.108076}{10.1016/j.aim.2021.108076}.
+\bibitem{Lichtman21} J. D. Lichtman,
+A modification of the linear sieve, and the count of twin primes,
+\emph{Algebra Number Theory} \textbf{19} (2025), no.~1, 1--38.
+DOI: \href{https://doi.org/10.2140/ant.2025.19.1}{10.2140/ant.2025.19.1};
+\href{https://arxiv.org/abs/2109.02851v2}{arXiv:2109.02851v2}.
+\bibitem{Kuznetsov81} N. V. Kuznetsov,
+Petersson's conjecture for cusp forms of weight zero and Linnik's conjecture.
+Sums of Kloosterman sums,
+Original Russian version: \emph{Mat. Sb. (N.S.)} \textbf{111(153)}
+(1980), no.~3, 334--383.
+English transl., \emph{Math. USSR-Sb.} \textbf{39} (1981), no.~3, 299--342.
+DOI: \href{https://doi.org/10.1070/SM1981v039n03ABEH001518}{10.1070/SM1981v039n03ABEH001518}.
+\bibitem{Bruggeman78} R. W. Bruggeman,
+Fourier coefficients of cusp forms,
+\emph{Invent. Math.} \textbf{45} (1978), no.~1, 1--18.
+DOI: \href{https://doi.org/10.1007/BF01406220}{10.1007/BF01406220}.
+\bibitem{Linnik63} Yu. V. Linnik,
+The dispersion method in binary additive problems,
+translated by S. Schuur, Translations of Mathematical Monographs \textbf{4},
+American Mathematical Society, Providence, RI, 1963.
+Reprint record, DOI: \href{https://doi.org/10.1090/mmono/004}{10.1090/mmono/004}.
+\bibitem{DLMF} NIST Digital Library of Mathematical Functions,
+\S10.43(v), equations (10.43.30)--(10.43.31),
+\url{https://dlmf.nist.gov/10.43.v}.
+\bibitem{OperaCribro} J. Friedlander and H. Iwaniec,
+\emph{Opera de Cribro}, AMS Colloquium Publications \textbf{57}, 2010.
+DOI: \href{https://doi.org/10.1090/coll/057}{10.1090/coll/057}.
+\end{thebibliography}
+\end{document}

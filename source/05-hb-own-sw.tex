@@ -1,0 +1,748 @@
+\section{Prime-source estimate for Iwaniec's remainder weights}
+\label{app:proof-aa37}
+\begingroup
+\setcounter{lemma}{0}
+\renewcommand{\thelemma}{B.\arabic{lemma}}
+
+This section proves the source estimate used in Section~5. Equations
+(B.2)--(B.6) control the coefficients and distinctness masks.
+Equations (B.7)--(B.19) treat prime detection, logarithm freezing and
+boundary boxes. Equations (B.20)--(B.32) bound the retained boxes.
+
+Fix the parameters in Theorem~\ref{thm:aa37-interior} and put
+\[
+ \begin{gathered}
+ \tau=\sigma^9,\quad
+ e_Q=(1+\sigma+\tau)\theta<\Theta(u)\le\frac{153}{256},\\
+ D=N^{\theta},\quad Y=D^{\sigma^2}.
+ \end{gathered}
+\]
+Put $s=\log D/\log z=\theta/u$, $z=N^u$, $L=\log N$,
+$H=N/L^B$, and use the width $C_{\rm box}$ in
+Theorem~\ref{thm:aa37-interior}. Write
+$\mathcal S_n(q;a)=\mathbf1_{n\equiv a\ (q)}
+-\mathbf1_{(n,q)=1}/\varphi(q)$.
+All thresholds below may depend on the fixed parameters. For a product
+shell $[X,2X)$, set $L_X=\log X$. The source measure is
+\[
+ \begin{aligned}
+ \mu_D(n)&=\mathbf1_{\mathbb P}(n)
+          \mathbf1_{H<n<(1-\varepsilon)N},\\
+ \Delta_D(q;a)&=\sum_n\mu_D(n)
+ \left(\mathbf1_{n\equiv a\ (q)}
+       -\frac{\mathbf1_{(n,q)=1}}{\varphi(q)}\right).
+ \end{aligned}
+ \tag{B.1}
+\]
+
+\begin{lemma}[Modulus support and coefficient size]\label{lem:aa37-support}
+For either sign in \textup{(W)},
+\[
+ \operatorname{supp}w_N^\nu\subset
+ \{q<N^{e_Q}:(q,2N)=1\},\qquad
+ \sup_q|w_N^\nu(q)|\le C_{\sigma,u,\theta}.
+ \tag{B.2}
+\]
+If $[X,2X)$ meets $(H,(1-\varepsilon)N)$, then, for all sufficiently large $N$,
+\[
+ q<N^{e_Q}\le X^{3/5}
+ \quad(q\in\operatorname{supp}w_N^\nu),\qquad H>N^{e_Q}.
+ \tag{B.3}
+\]
+\end{lemma}
+
+\emph{Proof.} By the definition of $\mathcal D^\nu(D)$ in \eqref{p1:eq:2.29},
+every label vector in (W) satisfies the cubic label conditions of Iwaniec's
+sieve remainder \cite[Theorem~4]{AA37}. Write
+$s_i=\log_ND_i$ for a label vector
+$\mathbf D=(D_1,\ldots,D_k)$. The cubic conditions in Iwaniec imply
+$\sum_i s_i<\theta$. For the plus sign and odd $k$, use the last odd-rank condition.
+For even $k$, use the condition at rank $k-1$
+and $s_k\le s_{k-1}$. For the minus sign, if $k=1$ then
+$s_1<\theta/2$. If $k$ is even, use the last even-rank condition.
+If $k\ge3$ is odd, use rank $k-1$ and $s_k\le s_{k-1}$. Thus every
+term of (W) satisfies
+\[
+ q<N^{\sigma \theta+(1+\tau)\sum_i s_i}
+   <N^{\theta(1+\sigma+\tau)}=N^{e_Q}.
+\]
+All prime factors in $d$ and in the tail avoid $2N$.
+
+Each grid coordinate has the form $D^{\sigma^2(1+\tau)^h}$ and is
+less than $D^{1/2}$. Thus there are at most
+$1+2\tau^{-1}\log(\sigma^{-2})$ choices per position, since
+$\log(1+\tau)\ge\tau/2$. Also $k<\sigma^{-2}$ by the
+last-rank cubic condition and $s_i\ge\sigma^2\theta$. With
+$\tau=\sigma^9$ and $0<\sigma\le10^{-10}$, the total number of
+vectors of all lengths is at most
+\[
+ \sum_{0\le k<\sigma^{-2}}
+  \bigl(1+2\sigma^{-9}\log(\sigma^{-2})\bigr)^k
+ <\exp(8\sigma^{-3}).
+\]
+The logarithm of the left side is at most
+$\log(1+\sigma^{-2})+
+\sigma^{-2}\log(1+4\sigma^{-9}\log(1/\sigma))$.
+With $t=1/\sigma\ge10^{10}$, this is at most
+$(3+11t^2)\log t<8t^3$, using $\log t\le t/2$.
+For fixed $q$, the primes below $Y$
+determine the smooth divisor $d$ uniquely. The remaining prime factors
+can be assigned to the $k$ labelled positions in at most $k!$ ways.
+The Iwaniec coefficients have absolute value at most $1$.
+Summing over the displayed finite vector family proves the
+multiplicity bound, including the empty-tail term.
+
+If the shell meets the source interval, then $X>H/2$ and
+$\log X>L-B\log L-\log2$. Impose
+\[
+ (3/5-e_Q)L\ge(3/5)(B\log L+\log2).
+ \tag{B.4}
+\]
+It gives $e_QL\le(3/5)\log X$, proving the first claim
+of (B.3). The second follows from $N^{1-e_Q}/L^B\to\infty$.
+\hfill$\square$
+
+Here $p>H>N^{e_Q}$, and the theorem assumes $(a,q)=1$ on the
+coefficient support. So the natural comparator in (B.1) is
+$\pi_{I_N}/\varphi(q)$. Thus (B.1) is the exact prime-source
+discrepancy for this source.
+
+\subsection*{Removing the distinctness masks}
+
+Let $\widetilde w_N^\nu$ be obtained from (W) by replacing each
+$K_{\mathbf D}$ by $1$, and put
+$\widehat w_N^\nu(q)=\mathbf1_{(q,a)=1}\widetilde w_N^\nu(q)$.
+The counting argument in Lemma~\ref{lem:aa37-support} also gives
+$\sup_q|\widetilde w_N^\nu(q)|+\sup_q|\widehat w_N^\nu(q)|
+\ll_{\sigma,u,\theta}1$. Its termwise product bound applies to every
+unmasked term. So $\widetilde w_N^\nu$ and $\widehat w_N^\nu$ are
+also supported on $\{q<N^{e_Q}:(q,2N)=1\}$, and (B.3) applies to them.
+Their support need not lie in $\operatorname{supp}w_N^\nu$.
+The theorem assumes $w_N^\nu(q)=0$ when $(q,a)>1$. Hence
+$w_N^\nu-\widehat w_N^\nu$ is supported on the terms removed by a
+distinctness mask. This holds even when an unrestricted collision
+modulus is not coprime to $a$. Every such modulus is divisible by
+$p^2$ for some tail prime $p\ge Y$. The coefficient difference is
+$O_\sigma(1)$. Put $Q_{\rm supp}=N^{e_Q}$.
+\[
+ \sum_{\substack{q\le Q_{\rm supp}\\p^2\mid q\text{ for some prime }p\ge Y}}
+ \left(\frac Nq+1+\frac N{\varphi(q)}\right)
+ \ll \frac{N\log(2Q_{\rm supp})}{Y-1}.
+ \tag{B.5}
+\]
+For the proof, write $q=kp^2$, use
+$\varphi(kp^2)\ge\varphi(k)\varphi(p^2)$, and sum
+$1/k$ and $1/\varphi(k)$ up to $Q_{\rm supp}$. Then use
+$\sum_{p\ge Y}1/(p(p-1))\ll1/(Y-1)$. The left side bounds the
+discrepancy of each removed term. Its progression count is at
+most $N/q+1$. Consequently
+\[
+ \sum_q w_N^\nu(q)\Delta_D(q;a)
+ =\sum_q\widehat w_N^\nu(q)\Delta_D(q;a)
+   +O_\sigma(NL/Y).
+ \tag{B.6}
+\]
+As $Y=N^{\theta\sigma^2}$, this error has a fixed power saving for each
+fixed $\sigma>0$.
+For a fixed Iwaniec vector, the exact factorization (4.13) survives
+the projection. Replace each slot factor $\gamma_i(m)$ by
+$\gamma_i(m)\mathbf1_{(m,a)=1}$. Here
+$(m_1m_2m_3,a)=1$ if and only if each $(m_i,a)=1$.
+The bounds $|\gamma_i|\le1$ are unchanged. Equivalently, the smooth
+divisor and each tail prime are restricted to avoid $a$ within their
+existing summation ranges. Thus the projected coefficient still has
+the labelled form (3.4). Every modulus to which the dispersion
+theorem is applied is coprime to $2a$.
+
+\subsection*{Prime detection and the rough Heath--Brown identity}
+
+The shells meeting the source satisfy $H/2<X<N$. Set
+\[
+ z_0=z_0(X)=X^{1/(\log\log X)^3},\qquad U=2X^{1/3}.
+\]
+For sufficiently large $N$, every $n\in[H,(1-\varepsilon)N]$ has $n\ge z_0$.
+Write $\Lambda_{z_0}(n)=\Lambda(n)\mathbf1_{P^-(n)\ge z_0}$.
+For every integer $n\ge z_0$, and so on the whole source range,
+\[
+ \mathbf1_{\mathbb P}(n)=\frac{\Lambda_{z_0}(n)}{\log n}
+ -\sum_{k\ge2}\frac1k\mathbf1_{n=p^k,\ p\ge z_0}.
+ \tag{B.7}
+\]
+The identity follows by checking primes, prime powers, and all other
+integers $n\ge z_0$. It fails for primes below $z_0$, which lie
+outside the source range. The proper powers contribute to the weighted discrepancy
+\[
+ O_\sigma(N^{1/2+o(1)}),
+ \tag{B.8}
+\]
+in total. There are $O(N^{1/2}\log N)$ such integers in the source
+range $H<n<(1-\varepsilon)N$. The theorem's range
+$N\le a\le NL/3$ gives $a\ne n$ there. Each contributes
+at most $O_\sigma(d(a-n)+L)$, where $d(m)$ is the divisor function.
+
+For $n\le 8X$, the order-three rough Heath--Brown identity is
+\[
+ \Lambda_{z_0}(n)=\sum_{j=1}^3(-1)^{j-1}\binom3j
+ \sum_{\substack{m_1\cdots m_jn_1\cdots n_j=n\\
+                   m_i\le U,\ m_i,n_i\in\mathcal R_{z_0}}}
+ \mu_{z_0}(m_1)\cdots\mu_{z_0}(m_j)\log n_1.
+ \tag{B.9}
+\]
+Here $\mathcal R_{z_0}$ consists of $1$ and the $z_0$-rough integers,
+and $\mu_z(m)=\mu(m)\mathbf1_{P^-(m)\ge z}$.
+To verify (B.9), put
+\[
+ \zeta_z(s)=\sum_{r\in\mathcal R_z}r^{-s},\qquad
+ M_U(s)=\sum_{m\le U}\mu_z(m)m^{-s}.
+\]
+The coefficients of $\zeta_zM_U$ vanish except at $1$ through degree
+$U$. Thus all coefficients of $(1-\zeta_zM_U)^3$ at $n\le U^3$ vanish. Multiply the expansion of $1-(1-\zeta_zM_U)^3$ by
+$-\zeta_z'/\zeta_z$ to obtain (B.9). Every variable is rough; this
+includes the logarithmic variable $n_1$.
+
+The tested indices for shell $X$ and pattern $j$ are
+\[
+ T_{X,j}=\left\{
+ \begin{aligned}
+ \mathbf v&=(m_1,\ldots,m_j,n_1,\ldots,n_j)
+             \in\mathcal R_{z_0}^{2j}:\\
+ &X\le\prod_i v_i<2X,\quad
+   H<\prod_i v_i<(1-\varepsilon)N,\\
+ &m_i\le U
+ \end{aligned}\right\}.
+ \tag{B.10}
+\]
+There are at most six variables. Their coefficient is
+\[
+ c_j(\mathbf v)=(-1)^{j-1}\binom3j
+ \mu_{z_0}(m_1)\cdots\mu_{z_0}(m_j)\log n_1.
+\]
+The shell, pattern, and tuple are part of the index. The identity's
+range $n\le8X$ is automatic on $T_{X,j}$.
+
+For every nonnegative $G$ and each $j\in\{1,2,3\}$,
+\[
+ \sum_X\sum_{\mathbf v\in T_{X,j}}G\!\left(\prod_i v_i\right)
+ \le\sum_{n<N}\tau_{2j}(n)G(n)
+ \le\sum_{n<N}\tau_6(n)G(n).
+ \tag{B.11}
+\]
+The product determines its shell. Roughness restrictions can be
+dropped in this upper bound. Consequently the sum over all three
+patterns is at most $3\sum_{n<N}\tau_6(n)G(n)$. The factor $3$
+is absorbed in later implied constants.
+
+For $n<N$, (B.2) and its extension to $\widehat w_N^\nu$ after (B.5)
+give the pointwise majorant
+\[
+\left|\sum_q\widehat w_N^\nu(q)\mathcal S_n(q;a)\right|
+ \le C_\sigma F_a(n),\qquad
+ F_a(n)=d(a-n)+2(1+L).
+ \tag*{}
+\]
+The congruence term counts $q\mid a-n$. The natural-comparator term
+uses $\sum_{q\le N^{e_Q}}1/\varphi(q)\ll L$. On the prime source,
+(B.1) equals $\sum_n\mu_D(n)\mathcal S_n(q;a)$. Apply (B.7) to this
+identity while keeping $\mathcal S_n(q;a)$ attached to the tested
+integer. Each HB tuple then contributes the natural PSDT discrepancy
+$\mathcal S_{\prod_i v_i}(q;a)$. This holds also when its product
+shares factors with $q$. The proper-power terms use the same discrepancy and
+obey (B.8).
+
+\subsection*{Equal-ratio boxes and faces}
+
+For each product shell put
+\[
+ \delta_X=L_X^{-C_{\rm box}},\qquad
+ J_X=\left\lceil\frac{\log2}{\log(1+\delta_X)}\right\rceil,
+ \qquad \Delta_X=2^{1/J_X}-1.
+\]
+For sufficiently large $N$, $\delta_X\le1/3$. The equal-ratio
+partition divides every dyadic coordinate interval $[2^a,2^{a+1})$
+into the $J_X$ cells
+\[
+ [2^a(1+\Delta_X)^h,\ 2^a(1+\Delta_X)^{h+1}),
+ \qquad 0\le h<J_X.
+\]
+It covers the full interval, including its last cell. Also
+\[
+ \frac{\delta_X}{3}\le\delta_X(1-2\delta_X)
+ \le\Delta_X\le\delta_X.
+ \tag{B.12}
+\]
+For the lower bound, set $\ell=\log(1+\delta_X)$. Since
+$J_X<\log2/\ell+1$,
+\[
+ \log(1+\Delta_X)>\frac{\ell}{1+\ell/\log2}
+ \ge\ell(1-\ell/\log2).
+\]
+Use $\delta_X-\delta_X^2/2\le\ell\le\delta_X$ and
+$1/2+1/\log2<2$. This proves (B.12).
+
+The mesh is imposed on the ambient integer axes before roughness is
+tested. Keep $\{1\}$ as an atom. A product box is a Cartesian product
+of at most six cells. Let $V_i$ be its lower endpoints and put
+$e_i=\log_N V_i$; the atom has $V_i=1$. Define
+$\lambda_{\mathcal B}=\sum_i\log V_i$. Its tested-side faces are
+\[
+ n=H,\quad n=(1-\varepsilon)N,\quad n=X,\quad n=2X,\quad m_i=2X^{1/3},
+ \tag{B.13}
+\]
+where $n=\prod_i v_i$ and $m_i$ ranges over the Möbius variables.
+The first two are the source cuts. The next two are product-shell
+edges, and the last are the HB caps. Roughness is part of the
+coefficient, not a face. A box is called boundary if one predicate in
+(B.13) is not constant on it. Every other box is either empty or a
+full Cartesian sum.
+
+\begin{lemma}[Lattice thin-shell count]\label{lem:aa37-thin-shell}
+Let $s\ge2$,
+$a\in\mathbb Z^s\setminus\{0\}$ with $|a_i|\le2$, and
+$J=\{i:a_i\ne0\}$. Let $1\le Y_0\le N$, $0<\eta_{\rm dist}\le1/4$, and let
+$\mathcal L$ be $\gamma$-separated. Put
+$K_\gamma=(1-e^{-\gamma/2})^{-1}$. Then
+\[
+\begin{split}
+ \#\{\mathbf v\in\mathbb Z_{\ge1}^s:&\ \prod_i v_i\le N,
+   \operatorname{dist}(\sum_i a_i\log v_i,\mathcal L)\le\eta_{\rm dist},
+   \max_{i\in J}v_i\ge Y_0\}\\
+ &\le s\left[4\eta_{\rm dist} K_\gamma N(1+L)^{s-1}
+   +\left(\frac{4L}{\gamma}+2\right)
+      \frac N{Y_0}(1+L)^{s-2}\right].
+\end{split}
+ \tag{B.14}
+\]
+For a single face, take $K_\gamma=1$ and replace
+$4L/\gamma+2$ by $1$.
+\end{lemma}
+
+\emph{Proof.} Assign a tuple to the least active coordinate $i$ with
+$v_i\ge Y_0$. Fix the other coordinates, with product $P$, and put
+$Z=N/P$. The nonempty fibre has $P\le N/Y_0$. Let $q=|a_i|\in\{1,2\}$. The admissible values of $v_i$ lie in
+intervals of relative length at most $e^{2\eta_{\rm dist}/q}-1\le4\eta_{\rm dist}$.
+Their logarithmic left endpoints have spacing at least $\gamma/q$.
+After clipping to $[Y_0,Z]$ and merging overlaps, there are at most
+$2L/\gamma+2$ components. The separated left endpoints give total
+length at most $4\eta_{\rm dist} K_\gamma Z$. Counting integer endpoints adds
+at most $2L/\gamma+2$. For a singleton face there is one component.
+Since $2L/\gamma+2\le4L/\gamma+2$, this gives the coefficient
+$4L/\gamma+2$ in (B.14).
+Sum over the fixed coordinates using
+\[
+ \sum_{P\le N}\frac{\tau_{s-1}(P)}P\le(1+L)^{s-1},\qquad
+ \sum_{P\le N/Y_0}\tau_{s-1}(P)
+ \le\frac N{Y_0}(1+L)^{s-2}.
+\]
+This proves (B.14). \hfill$\square$
+
+\subsection*{Boundary and logarithm-freezing estimates}
+
+For every shell meeting the source,
+\[
+ L-B\log L-\log2<\log X<L.
+ \tag{B.15}
+\]
+Thus, since $C_{\rm box}$ is fixed, for every $\epsilon>0$,
+$(\log X)^{-C_{\rm box}}\le(1+\epsilon)L^{-C_{\rm box}}$
+once $N$ is large. Also $\log n$ and each nonempty box lower-corner
+logarithm are $(1+o(1))L$ on the source.
+
+A boundary box lies within $6\delta_X$ in logarithmic distance of a
+face in (B.13). The source and product-shell faces give two singleton
+families and the lattice $(\log2)\mathbb Z$. The cap faces give
+$\log2+(\log2/3)\mathbb Z$. In each boundary tuple, an active
+coordinate is at least $N^{1/7}$ for large $N$. For a product face,
+the largest of at most six factors is at least
+$(H/2)^{1/6}$. On a cap face the capped factor is at least
+$(H/4)^{1/3}$. Apply Lemma~\ref{lem:aa37-thin-shell} with
+$s\le6$, $Y_0=N^{1/7}$, and
+$\eta_{\rm dist}\ll L^{-C_{\rm box}}$. The number of face families is
+finite and independent of the number of boxes. Let $\mathcal U$ be the
+set of boundary indices $(X,j,\mathbf v)$ across shells and patterns
+for which $\mathbf v\in T_{X,j}$ lies in a boundary box. It excludes
+ambient Cartesian points outside the source-restricted set (B.10).
+The number of boundary indices is therefore
+\[
+ \#\mathcal U\ll N L^{5-C_{\rm box}}+N^{6/7}L^5
+ \ll N L^{5-C_{\rm box}}.
+ \tag{B.16}
+\]
+
+The elementary divisor estimates
+\[
+ \begin{aligned}
+ \sum_{n<N}\tau_6(n)&\le N(1+L)^5,\\
+ \sum_{n<N}\tau_6(n)F_a(n)^2&\ll N(1+L)^{26},\\
+ \sum_{n<N}\tau_6(n)F_a(n)&\ll N(1+L)^{19}
+ \end{aligned}
+ \tag{B.17}
+\]
+follow from $\tau_6^2\le\tau_{36}$,
+$d^2\le\tau_4$, $d^4\le\tau_{16}$, the divisor-sum bound
+$\sum_{n\le x}\tau_k(n)\le x(1+\log x)^{k-1}$, and
+Cauchy--Schwarz. For the last bound, apply Shiu's short-interval
+estimate \cite{Shiu80} to $d(m)^2\le\tau_4(m)$:
+$\sum_{a-N<m\le a}d(m)^2\ll N(1+L)^3$ uniformly for
+$N\le a\le NL/3$. For $a\le2N$ the global divisor-sum bound
+suffices. For $a>2N$ the interval length $N$ exceeds $a^{2/3}$
+for all sufficiently large $N$. Combining this with
+$\sum_{n<N}\tau_6(n)^2\ll N(1+L)^{35}$ gives the exponent $19$.
+The bound for $F_a^2$ follows by summing $d(m)^4$ up to $a\le NL/3$.
+In particular, the LOG part from
+replacing
+$1/\log n$ by the lower-corner value $1/\lambda_{\mathcal B}$ on a
+box satisfies
+\[
+ \left|E_{\rm LOG}\right|\ll_\sigma NL^{18-C_{\rm box}}.
+ \tag{B.18}
+\]
+Here $0\le\log n-\lambda_{\mathcal B}\le6\delta_X$,
+$|c_j(\mathbf v)|\le3L$, and
+$|1/\log n-1/\lambda_{\mathcal B}|\ll L^{-C_{\rm box}-2}$.
+Sum the resulting $O(L^{-C_{\rm box}-1})F_a(n)$ over the tuples using
+(B.17). A tuple belongs to exactly one box, so there is no box-count
+factor.
+
+For the boundary part, $|c_j(\mathbf v)|/\lambda_{\mathcal B}
+\le3+o(1)$. Cauchy--Schwarz, (B.16), and the second estimate in (B.17)
+give
+\[
+ |E_{\rm boundary}|\ll_\sigma NL^{16-C_{\rm box}/2}.
+ \tag{B.19}
+\]
+
+\subsection*{Classification and interval lengths}
+
+The thresholds in (B.4), together with
+\[
+ \sigma L\ge202(B\log L+\log2),\qquad
+ \sigma L\ge202(\log2+6),
+ \tag{B.20}
+\]
+ensure $\omega_X:=\log_N(N/X)\le\sigma/202$ and
+$\kappa_X:=(\log2+6\log(1+\Delta_X))/L\le\sigma/202$. In this
+appendix $\kappa_X$ plays the role of the $\kappa$ in (3.98).
+For a box meeting $T_{X,j}$,
+\[
+ \begin{gathered}
+ 1-\omega_X-\kappa_X\le\sum_i e_i\le1-\omega_X+\kappa_X,\\
+ e_i\le\frac{1-\omega_X}{3}+\kappa_X
+ \quad\text{on each M\"obius variable}.
+ \end{gathered}
+ \tag{B.21}
+\]
+Here $\prod_i V_i\ge(\prod_i v_i)/(1+\Delta_X)^6$ and
+$\prod_i V_i\le\prod_i v_i<2X$. The M\"obius bound follows from
+$V_i\le m_i\le2X^{1/3}$. The corner error is independent of
+the lower-cut exponent $B$.
+
+Use the window
+\[
+ \mathcal W=[60\sigma,\,1/3+14\sigma].
+\]
+A box is Type II if some $e_i\in\mathcal W$. Select the largest such
+$e_i$, with ties broken by the fixed variable order. Suppose no exponent
+lies in $\mathcal W$. A box is Type I-1 when it has exactly one large
+variable and that variable is not a M\"obius variable. It is Type I-2
+when it has exactly two large variables and neither is a M\"obius
+variable. There are no other nonboundary boxes. In fact, a large
+M\"obius variable would imply
+ $14\sigma\le\kappa_X-\omega_X/3\le\sigma/202$. If all variables were
+small, (B.21) would give
+ $1-\sigma/101\le360\sigma$. If three were large, it
+would give $1+42\sigma\le1+\sigma/202$. Each is impossible.
+
+\begin{lemma}[Lengths on retained Type-II boxes]
+\label{lem:aa37-typeII-lengths}
+Let $\mathcal B$
+be a nonboundary Type-II box. Its selected cell is
+\[
+ [T,r_XT),\qquad r_X=1+\Delta_X,
+\]
+Let $M$ be the product of the other lower endpoints. At least one
+complementary cell is nonunit, since the source product exceeds
+$H>N^{1/3+15\sigma}$ eventually. There are $1\le r\le5$ such cells.
+Set
+\[
+ I_T=(T,r_XT],\quad
+ N_I=\lfloor r_XT\rfloor-\lfloor T\rfloor,\quad
+ M_I=M(r_X^r-1).
+ \tag{B.22}
+\]
+Then, for sufficiently large $N$,
+\[
+ N_I\asymp T L_X^{-C_{\rm box}},\qquad
+ M_I\asymp (X/T)L_X^{-C_{\rm box}},
+ \tag{B.23}
+\]
+The PSDT interval $I_T$ is contained in $(T,2T]$. It has exactly
+the same selected integer coefficients as the half-open cell
+$[T,r_XT)$.
+\end{lemma}
+
+\emph{Proof.} The real length of the selected cell is
+$h_N=T\Delta_X$. Both
+\[
+ \lceil r_XT\rceil-\lceil T\rceil
+ \quad\hbox{and}\quad
+ N_I
+\]
+differ from $h_N$ by less than $1$. The only integer endpoints at
+which the half-open cell and $I_T$ can differ are powers of two.
+Every internal mesh endpoint is $2^a2^{h/J_X}$ with
+$0<h<J_X$, and is irrational. Write $h/J_X=u/v$ in lowest terms with
+$v>1$. If $2^{u/v}$ were rational, its $2$-adic valuation would give
+$u=v\,v_2(2^{u/v})$, contradicting $(u,v)=1$. At powers of two the
+selected rough coefficient vanishes, since $z_0>2$. Thus the two
+integer conventions agree after multiplication by the coefficient.
+
+Put
+\[
+ \sigma L\ge2^{130}(C_{\rm box}+1)(\log L+1).
+ \tag{B.24}
+\]
+Then $h_N\ge T/(3L_X^{C_{\rm box}})>2$, so
+$N_I\ge T/(6L_X^{C_{\rm box}})$ and
+$T/N_I\le6L_X^{C_{\rm box}}\le6L^{C_{\rm box}}$. Also
+$\prod_i V_i\asymp X$, hence $M\asymp X/T$ and
+$M_I\asymp L_X^{-C_{\rm box}}M$, proving (B.23).
+Write $x=\log_NX=1-\omega_X$, $\xi=\log_NT$, and
+$\Sigma_2=\log_NS$, $\Sigma_3=\log_NR$ for the slot scales in
+Lemma~\ref{lem:aa37-pack}. The scale $Q_{\rm slot}$ is the first-slot
+scale in that lemma; $Q_{\rm supp}$ is the modulus cutoff in (B.5).
+The inequalities in (4.9) and $M_I\asymp XT^{-1}L_X^{-C_{\rm box}}$
+give
+\[
+\begin{aligned}
+ \log_N(Q_{\rm slot}/T)
+ &\le-\left(1+\frac{7271}{256}\right)\sigma<-29\sigma x,\\
+ 2\xi+\Sigma_2+2\Sigma_3&\le1-60\sigma,\\
+ \log_N\frac{M_I X^{-89\sigma}}{Q_{\rm slot}RS}
+ &\ge x-2\xi-\Sigma_2-\Sigma_3
+   +\left(1+\frac{7271}{256}\right)\sigma
+   -89\sigma x-o(1)\\
+ &\ge \left(\frac{7271}{256}-28\right)\sigma
+   -\omega_X+\Sigma_3+89\sigma\omega_X-o(1)>0.
+\end{aligned}
+\tag{B.25}
+\]
+Here $x=1-\omega_X$, $\omega_X\le\sigma/202$, and
+$\log L_X/L=o(1)$ as $N\to\infty$ for fixed $\sigma,C_{\rm box}$.
+The terms $o(1)$ in (B.25) are taken in this sense. For fixed $\sigma$
+they are eventually smaller than $\sigma/1000$. Thus
+$Q_{\rm slot}<TX^{-29\sigma}$ and
+$Q_{\rm slot}RS<M_IX^{-89\sigma}$.
+It follows that
+\[
+ N_I\ge Q_{\rm slot}X^{\sigma/3},\qquad M_I\ge X^{1/2}
+ \tag{B.26}
+\]
+for all sufficiently large $N$. For the first inequality, the ratio
+is at least
+\[
+ (6L_X^{C_{\rm box}})^{-1}X^{(29-1/3)\sigma};
+\]
+for the second, use the bound $T\le X^{1/3+15\sigma}$ of (B.30) in (B.23).
+
+Let $m_0=M(1+r_X^r)/2$, and let $\phi_0$ be the fixed smooth cutoff in
+(3.9). Then
+\[
+ \psi_I(m)=\phi_0\!\left(\frac{m-m_0}{M_I}\right)
+\]
+equals $1$ on $[M,Mr_X^r]$ and is supported on
+$[M-M_I/2,Mr_X^r+M_I/2]$. It majorizes the full complementary
+interval without changing its length parameter.
+
+Since $T\ge N^{60\sigma}$ and $L_X\le L$, (B.24) gives
+\[
+ T^{2^{-126}}\ge12L_X^{C_{\rm box}}.
+\]
+Together with $N_I\ge T/(6L_X^{C_{\rm box}})$ this proves the
+integer-length condition
+\[
+ N_I\ge(2T)^{1-2^{-126}}.
+ \tag{B.27}
+\]
+This is the selected interval length hypothesis (LEN) in Section~3.2.
+\hfill$\square$
+
+The source cuts are constant on each retained box by the definition
+of a nonboundary box. Let $n_0$ be a tested product in a retained
+Type-II box, and let $T,M,r$ be as in
+Lemma~\ref{lem:aa37-typeII-lengths}. Every selected integer is at most
+$r_XT$. The complementary cutoff $\psi_I$ is supported below
+$M[1+\tfrac32(r_X^r-1)]$. As $TM\le n_0$ and $1\le r\le5$,
+their product is at most
+\[
+ n_0r_X[1+\tfrac32(r_X^r-1)]
+ \le n_0(1+11\delta_X)
+ \le(1-\varepsilon/2)N
+\]
+for sufficiently large $N$, using $\Delta_X\le\delta_X\to0$.
+Thus on this enlarged support the upper cut leaves
+\[
+ a-mn\ge\varepsilon N/2\ge X(\log X)^{-C_{\rm box}}.
+ \tag{B.28}
+\]
+The final inequality follows from $X<N$ and
+$\delta_X=(\log X)^{-C_{\rm box}}<\varepsilon/2$.
+Thus the resonant class is absent. Also
+$a\le X^{1+\sigma/20}$ for all sufficiently large $N$.
+
+For each fixed Iwaniec vector, Lemma~\ref{lem:aa37-pack} and the exact slot identity
+(4.13) give the three-factor coefficient required by (3.5).
+The smooth-only term has all three prime slots empty. Every tail factor
+is at least $Y=N^{\theta\sigma^2}>N^{\ell_0\sigma^2}=u_0$.
+This is the roughness threshold $u_0$ of (3.2), which bounds the tail
+cutoff $u_L$ in C1. The smooth divisor is attached to the first
+slot. The Section~4 packing lemma verifies the spectral inequality
+(3.7) directly, as displayed in (4.9). Separately, (B.25)--(B.26)
+verify the modulus and interval inequalities in (3.6); (B.27) gives
+the integer-length condition (LEN), and (B.30) gives the selected-window
+bounds used below. Also
+\[
+ \log_XN=\frac1{1-\omega_X}\le1+\frac{\sigma}{20},
+\]
+and $\log_XT\le1/3+15\sigma$ by the first inequality in (B.30) below.
+The selected window also gives $X^{60\sigma}\le T$.
+
+\subsection*{The interior estimate}
+
+Let $E_{\rm int}$ be the sum of the HB contributions on retained
+Type-I-1, Type-I-2, and Type-II boxes. It is taken after the finite
+Iwaniec vector sum.
+The arguments above prove
+\begin{multline*}
+ \left|\sum_qw_N^\nu(q)\Delta_D(q;a)\right|
+ \\
+ \le C_\sigma\bigl(
+ NL/Y+N^{1/2+o(1)}+NL^{18-C_{\rm box}}\\
+       +NL^{16-C_{\rm box}/2}\bigr)+|E_{\rm int}|.
+ \tag{B.29}
+\end{multline*}
+The first two errors in (B.29) have fixed power savings. The choice
+$C_{\rm box}\ge\lceil2A+32\rceil$ in Theorem~\ref{thm:aa37-interior}
+makes the last two
+$O(NL^{-A})$. Both estimates are over the union of tuples.
+
+The tested measure $\mu_D$ is the prime indicator on the interval
+of (B.1). It does not depend on the Iwaniec vector. The sieve factors
+belong to the modulus coefficient in (W). The prime-detection and
+rough Heath--Brown identities are (B.7)--(B.10). Every
+variable, including the logarithmic one, is $z_0$-rough. The
+prime-power terms are estimated before the box partition.
+
+The exponent constraints (B.20)--(B.21) imply that the residual cells
+are empty by the three contradictions above. The Type-II selected exponent
+obeys
+\[
+ \begin{aligned}
+ \log_XT&\le\frac{1/3+14\sigma}{1-\omega_X}
+ \le1/3+15\sigma,\\
+ \frac{1-\omega_X}{2}-\log_NT
+ &\ge\frac16-(15+1/202)\sigma>0.
+ \end{aligned}
+ \tag{B.30}
+\]
+The second line records $T<X^{1/2}$, the Type-II upper-length condition;
+the first line supplies the sharper bound used in (B.23).
+By (B.2), its extension to $\widetilde w_N^\nu$ and $\widehat w_N^\nu$
+after (B.5), and the parameter choice in Theorem~\ref{thm:aa37-interior},
+$q<N^{e_Q}$ with $e_Q<\Theta(u)\le\Theta(0)=153/256<0.6$.
+For a Type-I-1 box, (3.100) with $e_Q<153/256$ gives
+$e_*-e_Q-(1-\omega_X)/10>0.3023$.
+Take a Type-I-2 box. At most four of its at most six variables are
+small, each with $e_i<60\sigma$. Their product $m$ has upper endpoint at
+most $N^{240\sigma}(1+\Delta_X)^4\le N^{240\sigma+\kappa_X}$, so
+$\log_NM\le240\sigma+\kappa_X$. Since $\log_NX=1-\omega_X$, $q<N^{e_Q}$,
+$\kappa_X,\omega_X\le\sigma/202$ by (B.20), and
+$0<\sigma\le10^{-10}$,
+\[
+ \begin{aligned}
+ \log_XM&\le\frac{240\sigma+\kappa_X}{1-\omega_X}
+ \le\frac{(240+1/202)\sigma}{1-\sigma/202}
+ <2.401\cdot10^{-8},\\
+ \log_Xq&<\frac{e_Q}{1-\omega_X}
+ <\frac{153/256}{1-\sigma/202}<0.5977.
+ \end{aligned}
+\]
+Also $N_1,N_2\ge X^{1/3}$ by the
+large-variable definition, and $N_1N_2M\le2^{30}X$ by the
+Heath--Brown product support and its dyadic scale convention.
+Hence (3.101) holds, and with (B.30) and (3.100) the hypotheses
+(3.99)--(3.101) of the Type-I lemmas hold.
+
+The packing lemmas give, for each Iwaniec vector, the exact
+three-slot coefficient and the packing inequalities (3.6)--(3.7).
+They include the empty-tail term and retain repeated-prime
+multiplicity before the mask error (B.6). The selected rough unit,
+M\"obius and normalized-log coefficients are the three classes in
+(3.8). The proof of (3.25) in Section~3 applies to each class, with
+every auxiliary coprimality parameter $d$ and every subinterval.
+Its bound is $T\tau(d)L^{-A_{\rm SW}}$ for every fixed
+$A_{\rm SW}>0$. Its application to $\alpha^{(r)}$ and the small-norm
+case in (3.47)--(3.48) give the norm-normalized BFI passage. The
+complementary short-interval second moment and the remaining
+dispersion steps are those of Theorem~\ref{thm:main}. On these boxes,
+(B.22)--(B.28) verify their interval, smoothing and nonresonance data.
+In the local theorem take $K_{\rm scale}=B+1$. In particular
+$X>N/(2L^B)$ and $a\le NL/3$ imply
+$a\le(2/3)XL^{B+1}\le X^{1+\sigma/20}$ for large $N$. The
+comparator is the natural PSDT comparator on every HB product. No
+coprimality of a composite product is asserted.
+
+For the chosen width, the global box count in (3.91) has
+$K_0=24C_{\rm box}+26$. The source labels, Iwaniec vectors and prefix
+cells number $O_\sigma(1)$, and the HB coefficients are $O(1)$. There
+are at most six variables. So there are $O(L^6)$ dyadic tuples, within
+the $O(L^{24})$ of \S\ref{sec:pi-global}, and each dyadic tuple contains
+$O(L^{6C_{\rm box}})$ short boxes, within the $O(L^{24C_{\rm box}})$ there.
+This verifies (H7) for the prime source. Choose the local Type-II precision
+$A'=K_0+A+5=A+24C_{\rm box}+31$ and
+$A_{\rm work}=A'+4$, as in (3.92).
+Then Theorem~\ref{thm:main} with (H7), that is (3.92), bounds the sum
+over all Type-II boxes. The bound is $O(NL^{-A-5})$ plus a fixed
+power-saving term. Lemmas~\ref{lem:typeI1}
+and \ref{lem:typeI2} give $O(NL^{-A})$ for Type-I-1 and Type-I-2
+when requested with $A_i=K_I+A+5$ and
+$K_I=6(C_{\rm box}+1)+2$. Thus
+\[
+ |E_{\rm int}|\ll NL^{-A}
+       +N^{1-c_\sigma}L^{K_0+C},
+ \qquad c_\sigma=\ell_0\sigma^2/4>0.
+ \tag{B.31}
+\]
+Here $C=C(\sigma,C_{\rm box},A',K_{\rm scale},\mathcal C_{\rm src})$
+is the logarithmic exponent from (3.13).
+Here the local spectral, restoration, endpoint and slot-localization
+costs are included once in Theorem~\ref{thm:main}.
+
+\begin{proposition}[Iwaniec prime-source estimate]\label{prop:aa37-prime-source}
+Take the parameters of Theorem~\ref{thm:aa37-interior}, either Iwaniec
+sign $\nu$, and a sufficiently large even $N$. Let $w_N^\nu$ be
+the exact coefficient (W). Let $a$ satisfy the residue conditions of
+Theorem~\ref{thm:aa37-interior}, and let $\Delta_D$ be (B.1).
+First split off the LOG correction algebraically. Then every remaining
+source summand is assigned exactly once to one class. The classes are
+mask, proper-power, boundary, Type-II, Type-I-1 and Type-I-2.
+Every retained box has the scale and coefficient properties stated
+above, and
+\[
+ \left|\sum_qw_N^\nu(q)\Delta_D(q;a)\right|
+ \ll_{\sigma,A,u,\theta,B,\varepsilon,C_{\rm box}} NL^{-A}.
+ \tag{B.32}
+\]
+\end{proposition}
+
+\emph{Proof.} The Iwaniec mask partition and support are (B.2)--(B.6).
+The explicit identities (B.7)--(B.11) partition the remaining
+tested measure into proper powers and HB tuples. The equal-ratio mesh
+puts each tuple in exactly one box. A face-straddling box belongs to
+the boundary class. On every other box both source predicates are constant. The
+exponent-polytope argument above puts every nonempty such box in
+exactly one of II, I-1 and I-2. The displayed tie rule selects
+one II factor. LOG is split off algebraically before that assignment.
+The errors are (B.6), (B.8), (B.18), (B.19) and (B.31). Their sum is
+$O_{\sigma,A,u,\theta,B,\varepsilon,C_{\rm box}}(NL^{-A})$. \hfill$\square$
+
+\endgroup

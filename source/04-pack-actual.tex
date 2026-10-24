@@ -1,0 +1,710 @@
+\section{Three-slot packing for Iwaniec's remainder coefficients}\label{sec:pack}
+
+This section proves a general packing theorem. It then verifies the
+hypotheses for the remainder coefficients of Iwaniec's linear sieve
+\cite[Theorem~4]{AA37}. The packing and coefficient identities provide
+the modulus factorization used in the prime-discrepancy estimates below.
+The functions below specialize Lichtman's optimization
+\cite[Proposition~6.1, (6.2), (6.4)]{Lichtman23} to spectral exponent
+$7/32$ and moving-residue exponent $1$. We prove the labelled-atom
+statement here; its two-bin step is related to the corrected argument
+in Pascadi's Lemma~5.6 \cite{Pascadi25}.
+
+\subsection{A combinatorial packing theorem}
+
+Put
+\[
+ \overline H=\frac{153}{256},\qquad \mu=\frac{25}{128},
+ \qquad \vartheta=\frac7{32}.
+\]
+Here $\vartheta$ is the fixed spectral exponent $2\theta_{\rm RP}$.
+Later in this section $\theta$ denotes the sieve level.
+For $x\ge0$, define
+\[
+ v(x)=\min\left\{\frac{1+x}{2},\frac{32-34x}{39},
+                         \frac{57}{64}-\frac32x\right\}.
+\]
+For real $x$ and $y\ge0$, put $\psi(x,y)=x\mathbf 1_{x\ge y}$.
+Also put
+\[
+ w(a,b,c)=\psi\left(\min\left\{
+       \frac{132-68c}{214},\frac{153-96c}{256},1-2b\right\},
+       \frac{1+a}{2}\right).
+\]
+For an ordered triple $a\ge b\ge c\ge0$, set
+\[
+\begin{split}
+ H(a,b,c)=\max\{&v(a),v(b),v(a+b),v(a+b+c),w(a,b,c),w(a,c,b),\\
+                 &\psi(v(a+c),a+2b+c),
+                   \psi(v(b+c),2a+b+c)\},
+\end{split}
+\]
+Define $\widetilde H(a,b,c)=H(a,b,c)$ if $a\le\mu$.
+If $a>\mu$, put $\widetilde H(a,b,c)=v(a)$. For a finite non-increasing
+list $e_1\ge\cdots\ge e_m\ge0$, let $\bar e_i=e_i$ for $i\le m$
+and $\bar e_i=0$ for $i>m$. Repeated values are distinct labelled
+atoms. The empty list is allowed.
+
+A list $f_1\ge\cdots\ge f_m\ge0$ satisfies $\mathrm{WF}(y)$ if
+\[
+ f_1+\cdots+f_{j-1}+2f_j\le y\qquad(1\le j\le m).
+ \tag{4.1}\label{eq:pack-wf}
+\]
+Write
+\[
+ b_-=2h-1,\qquad b_A=\frac{32-39h}{34},\qquad
+ b_B=\frac{2-\vartheta-2h}{3},\qquad b_+=\min(b_A,b_B).
+\]
+
+\refstepcounter{theorem}\textbf{Theorem~\thetheorem\ (three-slot packing).}\label{thm:pack-a}
+Let $0<\delta\le3\cdot10^{-9}$,
+$1/2\le h\le\overline H$, $d_*=h-2\delta$, and
+$\delta\le g\le1/3-\delta/2$. Suppose the labelled list
+$e_1\ge\cdots\ge e_m\ge0$ satisfies
+\[
+ \mathrm{WF}(d_*)\quad\hbox{and}\quad
+ h\le\widetilde H(\bar e_1,\bar e_2,\bar e_3).
+ \tag{4.2}\label{eq:pack-hypotheses}
+\]
+Then the deterministic rule $\mathcal R$ below partitions the labels
+into $J_1\sqcup J_2\sqcup J_3$. If
+$\Sigma_s=\sum_{i\in J_s}e_i$, then
+\[
+\begin{aligned}
+ \Sigma_1&\le g,\\
+ 2g+\Sigma_2+2\Sigma_3&\le1-4\delta,\\
+ \vartheta+g+\Sigma_1+5\Sigma_2+2\Sigma_3&\le2-4\delta,\\
+ (1+2\vartheta)g+\Sigma_1+(5-2\vartheta)\Sigma_2
+       +(2+2\vartheta)\Sigma_3&\le2-4(1+\vartheta)\delta.
+\end{aligned}
+ \tag{4.3}\label{eq:pack-loads}
+\]
+The output depends only on the labelled list and on $h,\delta,g$.
+
+\refstepcounter{theorem}\label{lem:pack-1}\textbf{Lemma~\thetheorem.} For $x\ge0$,
+$v(x)=\min\{(1+x)/2,57/64-3x/2\}$. Thus $v$ is concave,
+$v\le\overline H$, and $\widetilde H\le\overline H$.
+
+\emph{Proof.} Consider the middle affine function in the definition
+of $v$. Its difference with $(1+x)/2$ is $(25-107x)/78$, which is
+nonnegative for $x\le25/107$. Its difference with $57/64-3x/2$ is
+$(1568x-175)/2496$, nonnegative for $x\ge175/1568$.
+As $175/1568<25/107$, it is never the strict minimum of all three.
+The minimum of the remaining two affine functions is concave and has
+maximum $(1+\mu)/2=\overline H$. Each $w$ is zero or at most
+$(153-96c)/256\le\overline H$. Every $\psi$ branch is zero or a value
+of $v$. This proves both upper bounds. \hfill$\square$
+
+\refstepcounter{theorem}\label{lem:pack-2}\textbf{Lemma~\thetheorem.} For $1/2\le h\le\overline H$ and
+$0<\delta\le3\cdot10^{-9}$:
+\begin{enumerate}
+\item $h\le v(b)$ for $b\ge0$ exactly when $b_-\le b\le b_+$.
+\item $b_+=b_B$, and $b_A>b_B$.
+\item $b_+-b_-=(153-256h)/96\ge0$ and
+      $b_+-\mu=(153/128-2h)/3\ge0$.
+\item $d_*-b_+-2b_-\ge3/256-2\delta>0$ and
+      $d_*-3b_-\ge3/256-2\delta>0$.
+\item $\vartheta+2(d_*+2\delta)+3b_B=2$ and
+      $(2+2\vartheta)(d_*+2\delta)+(3-4\vartheta)b_A=2$.
+\end{enumerate}
+
+\emph{Proof.} The three affine branches of $v$ give
+$b\ge2h-1$, $b\le b_A$, and $b\le b_B$.
+These are closed inequalities. The difference
+$b_A-b_B=(567/16-49h)/102$ decreases with $h$ and at
+$h=\overline H$ is $525/8704>0$, proving (2). The formulas in
+(3) and the first bound in (4) follow by expansion. Their minima occur
+at $h=\overline H$. For the second bound in (4), use
+$d_*-b_-=1-h-2\delta$ and $3-5\overline H=3/256$.
+For (5), use $2+2\vartheta=39/16$,
+$3-4\vartheta=17/8$, and
+$(3-4\vartheta)b_A=2-39h/16$. Finally
+$3/256>6\cdot10^{-9}\ge2\delta$. \hfill$\square$
+
+\refstepcounter{theorem}\label{lem:pack-3}\textbf{Lemma~\thetheorem.} If $h>0$ and $w(x,y,z)\ge h$, then
+$z\le b_+-b_-$.
+
+\emph{Proof.} Since $h>0$, the activation in $\psi$ is on. Hence
+$(132-68z)/214\ge h$ and $(153-96z)/256\ge h$. These give
+$z\le b_A-b_-$ and $z\le b_B-b_-$, respectively. \hfill$\square$
+
+\refstepcounter{theorem}\label{lem:pack-4}\textbf{Lemma~\thetheorem\ (two bins).} Let $c_1,c_3\ge0$ and initial loads
+$u_0\le c_1$, $w_0\le c_3$. Suppose a finite list
+$f_1,\ldots,f_k\ge0$ satisfies
+\[
+ u_0+w_0+\sum_{i<j}f_i+2f_j\le c_1+c_3\qquad(1\le j\le k).
+ \tag{4.4}\label{eq:pack-two-bin}
+\]
+Process the atoms in order. Place each in bin 1 if it fits, and
+otherwise in bin 3 if it fits. Every atom is placed, and the final loads
+are at most $c_1,c_3$.
+
+\emph{Proof.} Suppose $f_j$ is the first atom fitting neither bin.
+Then the current loads $U,W$ satisfy
+$U+W=u_0+w_0+\sum_{i<j}f_i$, $U+f_j>c_1$, and
+$W+f_j>c_3$. Adding the last two inequalities contradicts
+\eqref{eq:pack-two-bin}. \hfill$\square$
+
+The rule permits zero atoms and repeated values. Its three cases are:
+\begin{enumerate}
+\item If $g+b_+\ge d_*$, apply Lemma~\ref{lem:pack-4} to the whole list.
+      Use bin caps $g,d_*-g$ for slots 1 and 2, and leave slot 3 empty.
+\item If $g+b_+<d_*$, test in order
+      $K=\{1\},\{1,2\},\{1,2,3\},\{1,3\},\{2,3\}$. Put
+      $K'=K\cap\{1,\ldots,m\}$ and $b=\sum_{i\in K'}e_i$.
+      Call $K$ legal if $b_-\le b\le b_+$ and the remaining atoms,
+      in their original order, satisfy $\mathrm{WF}(d_*-b)$. For
+      the first legal $K$, place $K'$ in slot 2. Apply Lemma~\ref{lem:pack-4}
+      to the rest in slots 1 and 3, with caps $g,d_*-g-b$.
+\item If no $K$ is legal, use caps $g,b_-,d_*-g-b_-$ for slots
+      1, 2, 3. Put atom 1 in slot 2 if it exists. Process subsequent
+      atoms in order, placing each in the first slot in which it fits.
+      Put the first atom fitting no slot in slot 2. Call the
+      resulting slot-2 load $b$. Apply Lemma~\ref{lem:pack-4} to the remaining
+      atoms in slots 1 and 3, with caps $g,d_*-g-b$.
+\end{enumerate}
+
+\textbf{Proof of Theorem~\ref{thm:pack-a}.} Write $\mathcal R$ for the rule just
+defined. Since $h\ge1/2$, $b_-\ge0$; also
+$d_*=h-2\delta\ge1/2-6\cdot10^{-9}>1/3\ge g$.
+It is enough to prove one of the following envelopes:
+\[
+\begin{split}
+ (E_{\rm glob}):&\quad g\ge d_*-b_+,\quad
+ \Sigma_1\le g,\quad\Sigma_2\le d_*-g,\quad\Sigma_3=0;\\
+ (E_{\rm crit}(b)):&\quad b_-\le b\le b_+,\quad
+ \Sigma_1\le g,\quad\Sigma_2\le b,\quad
+ \Sigma_3\le d_*-g-b.
+\end{split}
+\]
+The second, third, and fourth left sides in \eqref{eq:pack-loads}
+have nonnegative load coefficients. Under $E_{\rm crit}(b)$,
+Lemma~\ref{lem:pack-2}(5) gives
+\[
+\begin{aligned}
+2g+\Sigma_2+2\Sigma_3&\le2d_*-b\le2d_*-b_-=1-4\delta,\\
+\vartheta+g+\Sigma_1+5\Sigma_2+2\Sigma_3
+ &\le\vartheta+2d_*+3b
+ \le\vartheta+2d_*+3b_B=2-4\delta.
+\end{aligned}
+\]
+For the fourth load, similarly,
+\[
+\begin{aligned}
+ &(1+2\vartheta)g+\Sigma_1+(5-2\vartheta)\Sigma_2
+       +(2+2\vartheta)\Sigma_3\\
+ &\qquad\le(2+2\vartheta)d_*+(3-4\vartheta)b\\
+ &\qquad\le(2+2\vartheta)d_*+(3-4\vartheta)b_A\\
+ &\qquad=2-4(1+\vartheta)\delta.
+\end{aligned}
+\]
+Here $3-4\vartheta=17/8>0$. Under $E_{\rm glob}$, use
+$g\ge d_*-b_+$ in the two expressions whose coefficient of $g$
+is negative. This gives
+\[
+\begin{aligned}
+2g+\Sigma_2&\le g+d_*
+ \le\tfrac13-\tfrac\delta2+\overline H-2\delta
+ =\tfrac{715}{768}-\tfrac52\delta\le1-4\delta,\\
+\vartheta+2g+5\Sigma_2&\le\vartheta+5d_*-3g
+ \le\vartheta+2d_*+3b_+=2-4\delta,\\
+(2+2\vartheta)g+(5-2\vartheta)\Sigma_2
+ &\le(5-2\vartheta)d_*-(3-4\vartheta)g\\
+ &\le(2+2\vartheta)d_*+(3-4\vartheta)b_+
+ \le2-4(1+\vartheta)\delta.
+\end{aligned}
+\]
+The first line uses $1-715/768=53/768>3\delta/2$.
+In both envelopes $\Sigma_1\le g$, proving the first inequality
+of \eqref{eq:pack-loads}. Equality at the case boundary belongs to
+case 1; all displayed endpoint inequalities are weak.
+
+Consider case 1. The clause $\mathrm{WF}(d_*)$ of
+\eqref{eq:pack-hypotheses} is exactly the hypothesis
+\eqref{eq:pack-two-bin} for the whole list. Here $u_0=w_0=0$ and the
+total cap is $d_*$.
+Lemma~\ref{lem:pack-4} gives $E_{\rm glob}$. Now suppose
+$g+b_+<d_*$. If a tested set $K$ is legal, the remaining list
+satisfies \eqref{eq:pack-two-bin} with total cap $d_*-b$. Lemma~\ref{lem:pack-4}
+then gives $E_{\rm crit}(b)$.
+
+We verify the rule when no tested set is legal. Two deletion facts
+will be used. First let $K'$ be a leading set $\{1,\ldots,k\}$. Subtract
+$b=\sum_{i\le k}e_i$ from every later inequality in
+$\mathrm{WF}(d_*)$. This proves $\mathrm{WF}(d_*-b)$ for the remaining
+list. Next let $K'$ be $\{1,3\}$, $\{2,3\}$, or, when $m=2$, the
+truncation $\{2\}$ of $K=\{2,3\}$. Let $b_-\le b\le b_+$.
+The only unselected atom among the first three has index $i_0=2$ or $1$.
+If it is below $b_-$, it is first in the remaining list, and
+\[
+ 2e_{i_0}+b<2b_-+b_+\le d_*
+\]
+by Lemma~\ref{lem:pack-2}(4). When $m=2$ this is the whole remaining list.
+Now take a remaining rank at least four. Its original
+prefix sum contains both selected atoms. Subtracting $b$ proves the
+reduced mask. Thus the nonconsecutive set is legal whenever these
+conditions hold.
+
+Assume now that no tested set is legal. First, $\bar e_1\le\mu$. Otherwise the definition of $\widetilde H$ and
+\eqref{eq:pack-hypotheses} give $h\le v(e_1)$. Then
+$b_-\le e_1\le b_+$ by Lemma~\ref{lem:pack-2}(1), and $\{1\}$ is legal.
+The same lemma and $b_+\ge\mu$ show $\bar e_1<b_-$; otherwise
+$\{1\}$ is legal. Hence every padded coordinate is below $b_-$.
+Since $\bar e_1\le\mu$, the branch condition gives
+$\widetilde H=H$. A branch in its maximum is at least $h$.
+Neither $v(\bar e_1)$ nor $v(\bar e_2)$ can be that branch.
+Each would put the corresponding coordinate at least $b_-$. A branch
+$v(\bar e_1+\bar e_2)$ or
+$v(\bar e_1+\bar e_2+\bar e_3)$ would make a leading set legal.
+If
+\[
+ \psi(v(\bar e_1+\bar e_3),\bar e_1+2\bar e_2+\bar e_3)\ge h,
+\]
+then $v(\bar e_1+\bar e_3)\ge h$, and
+$b=\bar e_1+\bar e_3\in[b_-,b_+]$. The only unselected atom among
+the first three is $e_2<b_-$. So the deletion fact makes $\{1,3\}$
+legal, a contradiction. The other $\psi$ branch similarly makes
+$\{2,3\}$ legal. Therefore either
+$w(\bar e_1,\bar e_2,\bar e_3)\ge h$ or
+$w(\bar e_1,\bar e_3,\bar e_2)\ge h$. Lemma~\ref{lem:pack-3} gives, respectively,
+\[
+ \bar e_3\le b_+-b_-,\qquad\hbox{or}\qquad
+ \bar e_2\le b_+-b_-.
+ \tag{4.5}\label{eq:pack-w-tail}
+\]
+
+In case 3, the slot-3 cap is
+\[
+d_*-g-b_-=1-h-g-2\delta\ge
+1-\overline H-\frac13-\frac32\delta
+=\frac{53}{768}-\frac32\delta>0.
+\]
+Thus all three caps are nonnegative. Atom 1 fits slot 2 because
+$e_1<b_-$. In the first $w$ case, atom 2 cannot
+be a stopping atom. Slots 1 and 3 are empty. If $e_2$ fit neither,
+then $2e_2>d_*-b_-\ge2b_-$ by Lemma~\ref{lem:pack-2}(4), contrary to
+$e_2<b_-$. Thus any stopping atom has index $j\ge3$ and
+$e_j\le e_3\le b_+-b_-$. In the second $w$ case, a stopping atom
+has $j\ge2$ and $e_j\le e_2\le b_+-b_-$. If there is no stop,
+the final loads are bounded by $(g,b_-,d_*-g-b_-)$. This is
+$E_{\rm crit}(b_-)$, also when $m=0$.
+
+If the stop is at $j$, let $(u_0,v_0,w_0)$ be the loads before
+$e_j$. After placing $e_j$ in slot 2, its load $b=v_0+e_j$ satisfies
+\[
+ b_-<b\le b_-+(b_+-b_-)=b_+.
+\]
+The lower bound holds because $e_j$ did not fit slot 2. The upper
+bound follows from \eqref{eq:pack-w-tail}. The $j$-th inequality in
+$\mathrm{WF}(d_*)$ gives
+$u_0+w_0+e_j\le d_*-b$. Since $e_j$ did not fit slot 1,
+$u_0+e_j>g$, so $w_0<d_*-g-b$. For every later rank, the original
+mask is exactly the two-bin condition with total cap $d_*-b$.
+Lemma~\ref{lem:pack-4} completes the assignment and gives $E_{\rm crit}(b)$.
+The rule processes every atom once and has fixed tie priorities, so it
+is well defined. All cases imply \eqref{eq:pack-loads}. \hfill$\square$
+
+\subsection{A local ceiling and a small-atom criterion}
+
+In this subsection write $\theta_{\rm RP}$ for the exponent in the
+unramified Ramanujan bound and $\vartheta_{\rm RP}=2\theta_{\rm RP}$. The
+Kim--Sarnak bound \cite{KS03} gives $\theta_{\rm RP}=7/64$ and
+$\vartheta_{\rm RP}=7/32=\vartheta$.
+
+\refstepcounter{theorem}\textbf{Proposition~\thetheorem\ (local ceiling and small-atom packing).}\label{prop:pack-ceiling}
+Suppose
+$0\le\vartheta_{\rm RP}\le7/32$, that is $0\le\theta_{\rm RP}\le7/64$,
+and $0\le t\le1/3$. Let
+$x,y,z_3\ge0$ satisfy the zero-loss local slot constraints
+\[
+\begin{aligned}
+ x-t&\le0, &2t+y+2z_3&\le1,\\
+ \vartheta_{\rm RP}+t+x+5y+2z_3&\le2,
+ &(1+2\vartheta_{\rm RP})t+x+(5-2\vartheta_{\rm RP})y+(2+2\vartheta_{\rm RP})z_3&\le2,
+\end{aligned}
+\]
+and $x+y+z_3\le1-t$. Then their maximum total load is
+\[
+ H_{\vartheta_{\rm RP}}=\frac{5-\vartheta_{\rm RP}}{8}=\frac{5-2\theta_{\rm RP}}8.
+\]
+For fixed $t$, equality holds precisely at
+$x=t$, $y=(1-\vartheta_{\rm RP})/4$, $z_3=(3+\vartheta_{\rm RP})/8-t$.
+
+Suppose instead that $0\le e_j\le u$ with $u\ge0$. Let the
+non-increasing labelled atoms obey $\mathrm{WF}(h-2\delta)$, with
+\[
+ \frac12\le h\le H_{\rm small}(\vartheta_{\rm RP},u):=\frac{5-\vartheta_{\rm RP}-3u}{8},
+ \qquad 0<\delta\le\frac1{100},\qquad 0\le g\le\frac13.
+\]
+Then they admit a three-slot partition with the four load
+inequalities \eqref{eq:pack-loads}. Here $\vartheta_{\rm RP}$ replaces $\vartheta$.
+In particular, $H_{\rm small}(7/32,1/500)=19101/32000$ and
+$H_{7/32}=153/256$.
+
+\emph{Proof.} Seven times $x-t\le0$, three times
+$2t+y+2z_3\le1$, and once $\vartheta_{\rm RP}+t+x+5y+2z_3\le2$ give
+$8(x+y+z_3)+\vartheta_{\rm RP}\le5$. Equality forces equality in these three
+constraints, giving the stated point. Conversely, that point has
+$y\ge25/128$, $z_3\ge1/24$, and total load plus $t$ at most
+$23/24$. Substitution in the fourth constraint gives
+$2-3\vartheta_{\rm RP}(1-\vartheta_{\rm RP})/4\le2$, proving the maximum and its equality cases.
+
+For the small-atom assertion put
+\[
+\begin{aligned}
+ d&=h-2\delta,& b_-&=2h-1,&
+ b_B&=\frac{2-\vartheta_{\rm RP}-2h}{3},\\
+ b_A&=\frac{2-(2+2\vartheta_{\rm RP})h}{3-4\vartheta_{\rm RP}},&
+ b_+&=\min(b_A,b_B).
+\end{aligned}
+\]
+The denominators are positive, and direct subtraction gives
+\[
+ b_B-b_-=\frac{5-\vartheta_{\rm RP}-8h}{3},\qquad
+ b_A-b_-=\frac{5-4\vartheta_{\rm RP}-(8-6\vartheta_{\rm RP})h}{3-4\vartheta_{\rm RP}}.
+\]
+Hence $u\le b_+-b_-$ is equivalent to
+\[
+ h\le\frac{5-\vartheta_{\rm RP}-3u}{8},\qquad
+ h\le\frac{5-4\vartheta_{\rm RP}-(3-4\vartheta_{\rm RP})u}{8-6\vartheta_{\rm RP}}.
+\]
+The second upper bound exceeds the first by
+$[6\vartheta_{\rm RP}(1-\vartheta_{\rm RP})+14\vartheta_{\rm RP} u]/[8(8-6\vartheta_{\rm RP})]\ge0$.
+So the assumed bound on $h$ gives $u\le b_+-b_-$. Start with capacities
+$(g,b_-,d-g-b_-)$. They are nonnegative, since the last is at least
+$1-5/8-1/3-2\delta\ge1/24-1/50>0$. Place atoms in order in the
+first slot in which they fit. If all fit, take $b=b_-$. Otherwise, put the first failed atom $e_j$ in slot 2. Let $b$ be the
+new slot-2 load. Its failure there and $e_j\le u$ give
+$b_-<b\le b_-+u\le b_+$. Let $(U,V,W)$ be the previous loads.
+Then $\mathrm{WF}(d)$ gives $U+W+e_j\le d-b$. Failure in slot 1 gives
+$W<d-g-b$. For each later atom, subtract the fixed slot-2 load $b$
+from its original $\mathrm{WF}(d)$ inequality. Lemma~\ref{lem:pack-4} places the
+remaining atoms in slots 1 and 3 with capacities $g,d-g-b$.
+Both cases reach
+\[
+ \Sigma_1\le g,\qquad\Sigma_2\le b,\qquad
+ \Sigma_3\le d-g-b,\qquad b_-\le b\le b_+.
+\]
+The last three left sides of \eqref{eq:pack-loads}, with $\vartheta_{\rm RP}$ in
+place of $\vartheta$, are at most
+\[
+ \begin{gathered}
+ 2d-b_-=1-4\delta,\qquad
+ \vartheta_{\rm RP}+2d+3b_B=2-4\delta,\\
+ (2+2\vartheta_{\rm RP})d+(3-4\vartheta_{\rm RP})b_A=2-4(1+\vartheta_{\rm RP})\delta,
+ \end{gathered}
+\]
+respectively. This proves the partition claim. \hfill$\square$
+
+These are a relaxed local spectral ceiling and a sufficient uniform
+small-atom packing criterion. The actual local inequalities have
+positive losses, so the relaxed ceiling is a supremum. For example,
+take the losses $29\sigma$, $8\sigma$, and $15\sigma$ in the first
+three slot constraints. They give
+\[
+ x+y+z_3\le H_{\vartheta_{\rm RP}}-\frac{242\sigma}{8}
+                    -\frac{\vartheta_{\rm RP}\sigma}{160}
+\]
+when the moving-frequency factor is $X^{\vartheta_{\rm RP}(1+\sigma/20)}$.
+The small-atom bound also needs strict room in an actual source.
+If $h=\rho \theta+2\delta\le H_{\rm small}(\vartheta_{\rm RP},u)$ and
+$\delta>0$, then $\theta<H_{\rm small}(\vartheta_{\rm RP},u)$.
+The next subsection applies this criterion to the structured
+coefficient family of Iwaniec's construction.
+
+\subsection{Endpoint geometry for Iwaniec's coefficients}
+
+Fix the parameters in Theorem~\ref{thm:aa37-interior} and put
+\[
+\begin{gathered}
+ \tau=\sigma^9,\qquad \rho=1+\tau,\qquad
+ \Theta(u)=H_{\rm small}(\vartheta,u)=\frac{5-\vartheta-3u}{8},\\
+ \eta_\Theta=\Theta(u)-\theta,\\
+ \delta=30\sigma,\qquad d_*=\rho \theta,\qquad h=d_*+2\delta.
+\end{gathered}
+ \tag{4.6}\label{eq:pack-aa37-parameters}
+\]
+Proposition~\ref{prop:pack-ceiling} gives the sufficient packing threshold $\Theta(u)$.
+The relaxed local ceiling is $H_\vartheta=153/256$. The fixed
+support exponent for these coefficients is $\Theta(u)$, and
+$\Theta(u)<H_\vartheta$ because $u>0$. The margin
+$\eta_\Theta=\Theta(u)-\theta$ leaves room for the smooth divisor and tail-prime
+ranges. Since the theorem also imposes $D^{\sigma^2}\le z$, every
+nonempty tail has the required roughness floor. Lemma~\ref{lem:aa37-pack} verifies
+$\rho \theta+60\sigma<\Theta(u)$ and the hypotheses of
+Theorem~\ref{thm:pack-a}.
+Let $D=N^{\theta}$, $z=N^u$, and $Y=D^{\sigma^2}$. Write
+$\mathcal P_N=\{p\text{ prime}:p\nmid2N\}$ and
+$P_N(Y)=\prod_{p<Y,\ p\in\mathcal P_N}p$. Fix an Iwaniec
+sign. Write $\mathcal D^\nu(D)$ for its finite family of nonempty
+label vectors $\mathbf D=(D_1,\ldots,D_k)$. They have
+$D_k\le\cdots\le D_1<D^{1/2}$, grid coordinates in
+$\{D^{\sigma^2\rho^j}:j\ge0\}$, and the cubic conditions
+\[
+\begin{array}{ll}
+ \nu=+:&D_1\cdots D_{2j}D_{2j+1}^3<D
+                    \quad(2j+1\le k),\\
+ \nu=-:&D_1\cdots D_{2j-1}D_{2j}^3<D
+                    \quad(2j\le k).
+\end{array}
+ \tag{4.7}\label{eq:pack-aa37-cubic}
+\]
+The prime labels in a vector range over
+$D_j\le p_j<\min(D_j^\rho,z)$, with $p_j\nmid2N$. A vector with
+an empty coordinate interval contributes zero and may be omitted.
+
+\setcounter{lemma}{\value{theorem}}
+\refstepcounter{lemma}\textbf{Lemma~\thelemma\ (Iwaniec coefficient packing).}\label{lem:aa37-pack}
+For every contributing vector and
+every $\xi\in[60\sigma,1/3+14\sigma]$, let
+$e_j=\log_N\min(D_j^\rho,z)$, sorted in non-increasing order.
+Then $\mathrm{WF}(d_*)$ holds and
+\[
+ h\le\widetilde H(\bar e_1,\bar e_2,\bar e_3).
+ \tag{4.8}\label{eq:pack-aa37-hyp}
+\]
+Consequently Theorem~\ref{thm:pack-a} partitions the tail labels into three slots.
+Assign the Iwaniec smooth divisor $d_{AA}<D^\sigma$ to slot 1.
+Let $Q,S,R$ be the resulting lower dyadic slot scales. Then
+\[
+\begin{aligned}
+ \log_N Q&\le \xi-\left(1+\frac{7271}{256}\right)\sigma,\\
+ \log_N(T^2SR^2)&\le1-60\sigma,\\
+ \log_N(A_{\max}^{\vartheta}TQS^5R^2)
+   &\le2-\left(15+\frac{95221}{1280}\right)\sigma,\\
+ \log_N\left((TR/S)^{2\vartheta}TQS^5R^2\right)
+   &\le2-\left(15+\frac{22407}{256}\right)\sigma,
+\end{aligned}
+\tag{4.9}\label{eq:pack-scales}
+\]
+where $T=N^\xi$ and $A_{\max}=X^{1+\sigma/20}$ for $X\le N$.
+
+\emph{Proof.} Put $s_j=\log_ND_j$. The grid lower bound gives
+$s_j\ge\sigma^2\theta$. The cubic conditions in
+\eqref{eq:pack-aa37-cubic} imply $\sum_{i<j}s_i+2s_j<\theta$
+for every rank $j$. At a cubic rank this follows by dropping one
+nonnegative copy of $s_j$. At an intermediate rank,
+\[
+ \sum_{i<j}s_i+2s_j
+ =\sum_{i<j-1}s_i+s_{j-1}+2s_j
+ \le\sum_{i<j-1}s_i+3s_{j-1}<\theta,
+\]
+using $s_{j-1}\ge s_j$ and the cubic condition at rank $j-1$.
+For the first rank in the minus case use $2s_1<\theta$, which follows
+from $D_1<D^{1/2}$. Thus $\sum_{i<j}e_i+2e_j\le
+\rho(\sum_{i<j}s_i+2s_j)<\rho \theta=d_*$.
+Also $e_j\le u$, so $\bar e_1\le u<\mu$.
+For this range, the branch $w(\bar e_1,\bar e_2,\bar e_3)$ is active.
+Its activation threshold is at most $(1+u)/2\le0.501$, while
+\[
+ \min\left\{\frac{132-68u}{214},
+              \frac{153-96u}{256},1-2u\right\}
+ =\frac{153-96u}{256}
+ =H_{\rm small}(\vartheta,u)=\Theta(u).
+\]
+Each branch in the minimum decreases with its argument, and
+$\bar e_2,\bar e_3\le u$. Take $0\le u\le1/500$. Each other affine branch minus
+$(153-96u)/256$ is nonnegative at both endpoints. Hence it is
+nonnegative on the whole interval. In particular, the
+minimum defining $w(\bar e_1,\bar e_2,\bar e_3)$ is at least
+$\Theta(u)>0.501$, so its activation condition holds. Thus
+$\widetilde H\ge\Theta(u)$. Next,
+$\tau \theta+60\sigma<\eta_\Theta$, because
+$60\sigma\le0.3\eta_\Theta$ and
+$\tau \theta<0.6\sigma^9\le0.6\sigma<0.7\eta_\Theta$.
+Therefore
+\[
+ \frac12<h=\rho \theta+60\sigma
+ =\Theta(u)-\eta_\Theta+\tau \theta+60\sigma
+ <\Theta(u)<\overline H.
+\]
+Also $0<\delta\le3\cdot10^{-9}$. The range for $\xi$ gives
+$g=\xi-\delta\in[\delta,1/3-\delta/2]$.
+Theorem~\ref{thm:pack-a} applies.
+
+The smooth-only term is the empty-list case. Here
+$\widetilde H(0,0,0)=H(0,0,0)=\overline H$, since the $w$ branch
+equals $\min\{132/214,153/256,1\}=\overline H$ and its activation
+threshold is $1/2$. Thus Theorem~\ref{thm:pack-a} applies to the empty list as well.
+The smooth divisor remains in slot 1, and slots 2 and 3 are units.
+
+For the scale bounds, the slot-1 smooth divisor contributes at most
+$\sigma \theta<\sigma\overline H$ to the logarithmic load. The other
+slot loads are bounded by $\Sigma_2,\Sigma_3$. Thus
+\[
+\begin{aligned}
+ \log_NQ&\le\Sigma_1+\sigma\overline H,&
+ \log_NS&\le\Sigma_2,&
+ \log_NR&\le\Sigma_3,\\
+ \log_NT&=\xi=g+\delta,&
+ \log_NA_{\max}&\le1+\sigma/20.
+\end{aligned}
+\]
+The first line of \eqref{eq:pack-loads} gives
+\[
+ \log_NQ-\xi\le-(30-\overline H)\sigma
+ =-\left(1+\frac{7271}{256}\right)\sigma.
+\]
+The second gives
+\[
+ \log_N(T^2SR^2)\le1-2\delta=1-60\sigma.
+\]
+For the third scale, \eqref{eq:pack-loads} gives
+\[
+ \log_N(A_{\max}^{\vartheta}TQS^5R^2)
+ \le2-3\delta+\left(\frac{\vartheta}{20}+\overline H\right)\sigma
+ =2-\left(15+\frac{95221}{1280}\right)\sigma.
+\]
+For the fourth, it gives
+\[
+ \log_N((TR/S)^{2\vartheta}TQS^5R^2)
+ \le2-(3+2\vartheta)\delta+\overline H\sigma
+ =2-\left(15+\frac{22407}{256}\right)\sigma.
+\]
+The exact constants in \eqref{eq:pack-scales} hold for the lower scales.
+We round each of the three aggregate slot scales $Q,R,S$ once, to a
+dyadic representative within a factor two. Each monomial below has
+total degree at most $8$ in $Q,R,S$. So rounding multiplies it by at
+most $2^8$. Individual prime labels are not rounded.
+This adds at most
+$8\log 2/\log N$ to its base-$N$ exponent. Fix $\sigma>0$. For sufficiently large $N$, each positive margin
+absorbs this cost. The tightest margin, for $Q<TX^{-29\sigma}$, is
+$103\sigma/256-8\log 2/\log N>0$. \hfill$\square$
+
+For fixed $B>0$ and $N/(2(\log N)^B)\le X\le N$, put
+$\omega=\log_N(N/X)$. Then
+$\omega\le(B\log\log N+\log2)/\log N$, so eventually
+$\log_XN=(1-\omega)^{-1}<1+0.01\sigma$. The first exponent in
+\eqref{eq:pack-scales}, after dividing by $T$, is negative. So
+conversion from base $N$ to base $X$ improves that relative inequality.
+Each other exponent is at most $2$;
+conversion costs at most $0.02\sigma$. The displayed margins absorb
+this cost.
+
+For every contributing vector, the last-rank mask gives
+$\sum_js_j<\theta$. Since each $s_j\ge\sigma^2\theta$, it also gives
+$k<\sigma^{-2}$. Thus $\prod_jD_j<D$, and $p_j<D_j^\rho$ gives
+\[
+ d\prod_jp_j<D^\sigma D^\rho=D^{1+\sigma+\tau}
+ =N^{(1+\sigma+\tau)\theta}<N^{\Theta(u)},
+\]
+where $(\sigma+\tau)\theta<\eta_\Theta$.
+All prime factors avoid $2N$. Thus the full coefficient is supported
+on $q<N^{\Theta(u)}$ with $(q,2N)=1$. Its coefficients are
+$O_\sigma(1)$. The $Y$-smooth part of a supported modulus determines
+$d$. The remaining labelled prime assignments number at most $k!$,
+and $k<\sigma^{-2}$. For each sign the Iwaniec family has fewer than
+$e^{8\sigma^{-3}}$ vectors. So the sum over vectors keeps a bound
+depending only on $\sigma$. The smooth-only term satisfies the same
+support and coefficient bounds.
+
+The cubic-to-quadratic implication just proved is uniform in the vector
+length. We record the two bounds obtained above:
+\[
+ k<\sigma^{-2},\qquad \sum_{j=1}^k s_j<\theta.
+ \tag{4.10}\label{eq:pack-aa37-length}
+\]
+These bounds also control the coefficient regrouping below.
+
+\subsection{Three-slot coefficient identity}
+
+Fix a sign $\nu$ and a vector $\mathbf D$. The set of
+equal-label pairs in the Iwaniec grid is
+$I(\mathbf D)=\{(i,j):1\le i<j\le k,\ D_i=D_j\}$. Distinct grid labels have
+disjoint half-open prime intervals
+$[D_i,\min(D_i^\rho,z))$. Adjacent grid values differ by
+the power $\rho$. Thus repeated primes can occur only in
+$I(\mathbf D)$. Define
+\[
+ K_{\mathbf D}(\mathbf p)=
+   \prod_{(i,j)\in I(\mathbf D)}(1-\mathbf1_{p_i=p_j}).
+\]
+For the Iwaniec coefficients $\lambda_d^\nu(\mathbf D)$, define the
+unrestricted coefficient
+\[
+ C_{\mathbf D}^{\rm full}(q)=
+ \sum_{\substack{d<D^\sigma\\d\mid P_N(Y)}}
+ \lambda_d^\nu(\mathbf D)
+ \sum_{\substack{D_j\le p_j<\min(D_j^\rho,z)\\p_j\nmid2N}}
+ \mathbf1_{q=d\prod_{j=1}^k p_j}.
+ \tag{4.11}\label{eq:pack-aa37-vector}
+\]
+The masked coefficient $C_{\mathbf D}^{\rm mask}$ is defined by
+inserting $K_{\mathbf D}(\mathbf p)$ in the inner sum. The coefficient
+of the smooth-only term, the sole empty-tail term in the Iwaniec formula,
+is
+$C_{\emptyset}(q)=\sum_{d<D^\sigma,d\mid P_N(Y)}
+\phi_d^\nu\mathbf1_{q=d}$. Thus the full signed coefficient is
+\[
+ w_N^\nu(q)=C_{\emptyset}(q)+
+       \sum_{\mathbf D\in\mathcal D^\nu(D)}
+             C_{\mathbf D}^{\rm mask}(q).
+ \tag{4.12}\label{eq:pack-aa37-weight}
+\]
+
+\refstepcounter{lemma}\textbf{Lemma~\thelemma\ (slot factorization and collision support).}\label{lem:aa37-slot}
+Fix $\xi$ in
+the range of Lemma~\ref{lem:aa37-pack} and let $J_1\sqcup J_2\sqcup J_3$ be its
+packing partition. All $d$ and $p_j$ sums below use the ranges in
+\eqref{eq:pack-aa37-vector}. Define
+\[
+\begin{aligned}
+ \gamma_1(m)&=\frac1{|J_1|!}
+    \sum_{d,(p_j)_{j\in J_1}}
+       \lambda_d^\nu(\mathbf D)\mathbf1_{m=d\prod_{j\in J_1}p_j},\\
+ \gamma_s(m)&=\frac1{|J_s|!}
+    \sum_{(p_j)_{j\in J_s}}
+       \mathbf1_{m=\prod_{j\in J_s}p_j},\qquad s=2,3.
+\end{aligned}
+\]
+For $s=2,3$ set $\gamma_s=\mathbf1_{m=1}$ when $J_s$ is empty;
+$\gamma_1$ always retains the smooth-divisor sum. Then
+\[
+ C_{\mathbf D}^{\rm full}(q)=C_{\rm slot}
+       (\gamma_1*\gamma_2*\gamma_3)(q),\qquad
+ C_{\rm slot}=|J_1|!|J_2|!|J_3|!,
+ \tag{4.13}\label{eq:pack-aa37-slot-id}
+\]
+and $|\gamma_s(m)|\le1$. Consider the full Iwaniec family. The difference between the masked
+and unrestricted coefficients has pointwise size $O_\sigma(1)$. It is
+supported on moduli divisible by $p^2$ for some prime $p\ge Y$.
+
+\emph{Proof.} A labelled tuple $(d,(p_j)_{j\le k})$ splits uniquely
+into its three slot tuples. Multiplying the three normalized finite
+sum definitions by $C_{\rm slot}$ therefore gives
+\eqref{eq:pack-aa37-slot-id}. This regroups a finite sum and
+allows repeated primes. Fix a product $m$. Its prime factors
+below $Y$ determine $d$ uniquely: $d\mid P_N(Y)$, and every tail
+prime is at least $D_j\ge Y$. Once $d$ is fixed, the labelled prime
+assignments within a slot number at most $|J_s|!$. The Iwaniec bounds
+$|\lambda_d^\nu(\mathbf D)|\le1$ give $|\gamma_s(m)|\le1$;
+the same argument applies to $\gamma_1$. The smooth-only term has
+the corresponding bound from $|\phi_d^\nu|\le1$. Since
+$k<\sigma^{-2}$, the scalar
+$C_{\rm slot}=|J_1|!|J_2|!|J_3|!$ is $O_\sigma(1)$.
+
+Suppose the distinctness mask removes a tuple. Then some selected pair
+has $p_i=p_j\ge Y$, and its modulus is divisible by $p_i^2$. For fixed
+$\sigma$, \eqref{eq:pack-aa37-length} bounds the number of labels.
+The Iwaniec family has fewer than $e^{8\sigma^{-3}}$ vectors for each
+sign. The number of labelled
+assignments to a fixed modulus is at most $k!$. Hence the aggregate
+coefficient difference is $O_\sigma(1)$.
+
+The prime-source cost of this collision support is estimated in
+(B.5)--(B.6). \hfill$\square$
+
+The smooth-only term $C_{\emptyset}$ is already a one-slot coefficient.
+Take $J_1=J_2=J_3=\emptyset$, put
+$\gamma_1(m)=\sum_{d<D^\sigma,d\mid P_N(Y)}
+\phi_d^\nu\mathbf1_{m=d}$, and
+$\gamma_2=\gamma_3=\mathbf1_{m=1}$. Its coefficient identity and
+pointwise bound follow directly. The full coefficient $w_N^\nu$ in
+\eqref{eq:pack-aa37-weight} is the sum of this term and the vector
+terms above. Every partition is fixed
+before the prime realizations are summed.
+
+This section proves the packing inequalities and the slot identity for
+the unrestricted coefficient. It also gives the collision support
+needed in Appendix~B.
+The prime-source estimate is proved there.

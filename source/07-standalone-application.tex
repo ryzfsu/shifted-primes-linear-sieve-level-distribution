@@ -1,0 +1,147 @@
+\section{Application to Iwaniec's remainder weights}
+\label{sec:linear-sieve-application}
+
+The source is the prime interval
+$I_N=(N/(\log N)^B,(1-\varepsilon)N)$ from
+Theorem~\ref{thm:aa37-interior}. The residue satisfies
+$N\le a\le N\log N/3$ and is coprime to every supported modulus.
+The saving is $(\log N)^{-A}$ for each fixed $A>0$.
+
+\subsection{Iwaniec's remainder coefficients}
+
+All parameters are those in Theorem~\ref{thm:aa37-interior}; in
+particular $s=\log D/\log z=\theta/u$.
+Let $N>2$ be even. Let $\mathcal P_N$ be the set of primes not
+dividing $2N$, and write
+\[
+ P_N(t)=\prod_{\substack{p<t\\p\in\mathcal P_N}}p.
+\]
+Use the grid $\mathcal G(D)$ in \eqref{p1:eq:2.28}. The admissible
+vector sets $\mathcal D^\nu(D)$ are those in \eqref{p1:eq:2.29}.
+The parameter substitution is \eqref{p1:eq:2.33a}--\eqref{p1:eq:2.33b},
+with $\epsilon_s=\sigma$ and $\delta_s=\tau$. The distinctness set is
+$I(\mathbf D)=\{(i,j):1\le i<j\le k,\ D_i=D_j\}$, the equal-label
+tail-position pairs. For a vector $\mathbf p=(p_1,\ldots,p_k)$ define
+\[
+ K_{\mathbf D}(\mathbf p)
+   =\prod_{(i,j)\in I(\mathbf D)}
+       (1-\mathbf 1_{p_i=p_j}).
+\]
+Let $\phi_d^\nu$ and $\lambda_d^\nu(\mathbf D)$ be the coefficients of
+Iwaniec \cite[Theorem~4]{AA37}. Take $R=1$ and parameters
+$(\mathcal P_N,D,z,\sigma)$ at the cutoff $z=N^u$. The proof uses only
+their bound $|\cdot|\le1$ and their support. It never compares
+coefficient values at different cutoffs.
+The labelled-tail cutoff of C1 in Section~3, used in (H1), is
+$u_L=Y=D^{\sigma^2}$.
+Since $\theta>1/2>\ell_0$, this satisfies
+$u_L=N^{\theta\sigma^2}\ge N^{\ell_0\sigma^2}=u_0$.
+The smooth divisor has $d<D^\sigma$ and $d\mid P_N(Y)$. Every
+tail interval starts at $D_i\ge Y$.
+The exact structured remainder coefficients are
+\begin{equation*}\tag*{(W)}
+\begin{split}
+ w_N^\nu(q)
+ ={}&\sum_{\substack{d<D^\sigma\\d\mid P_N(Y)}}
+          \phi_d^\nu\mathbf1_{q=d}\\
+ &+\sum_{\mathbf D\in\mathcal D^\nu(D)}
+   \sum_{\substack{d<D^\sigma\\d\mid P_N(Y)}}
+       \lambda_d^\nu(\mathbf D)
+   \sum_{\substack{p_i\in\mathcal P_N\\
+             D_i\leq p_i<\min(D_i^{1+\tau},z)}}
+       K_{\mathbf D}(\mathbf p)\,
+       \mathbf1_{q=dp_1\cdots p_k}.
+\end{split}
+\end{equation*}
+In particular, $\nu\in\{+,-\}$ selects one of the two signed
+remainders. Each is the full remainder, not an arbitrary
+well-factorable sequence. Formula~\textup{(W)} includes the
+smooth-only term. Every prime-tuple term keeps its smooth divisor. The smooth-only term
+retains its divisor when there is no tail.
+The estimate below applies separately to either signed remainder.
+When the directed lower-sieve inequality of Iwaniec
+\cite[Theorem~4]{AA37} is used, it takes $\nu=-$.
+
+\subsection{Proof of the interior signed mean value}
+
+\begin{proof}[Proof of Theorem~\ref{thm:aa37-interior}]
+The support and coefficient bounds in the theorem are proved in
+(B.2), using Iwaniec's cubic label conditions for every vector in
+\textup{(W)}. In particular, with $e_Q=(1+\sigma+\tau)\theta$,
+\[
+ q<D^{1+\sigma+\tau}=N^{e_Q}<N^{\Theta(u)},
+ \qquad (q,2N)=1,
+\]
+including the smooth-only term. The choice
+$\sigma\le(\Theta(u)-\theta)/200$ gives the strict second inequality.
+Take the source $\mu_D=\mathbf1_{\mathbb P}\mathbf1_{I_N}$ of (B.1).
+By (B.3), $p>q$ for every source prime $p$ and every supported
+modulus $q$. The coprimality $(a,q)=1$ is assumed. So the natural
+comparator in (B.1) is exactly $\pi_{I_N}/\varphi(q)$, and
+\[
+ \Delta_D(q;a)=\pi_{I_N}(q,a)-\frac{\pi_{I_N}}{\varphi(q)}.
+\]
+Before applying the dispersion theorem, (B.5)--(B.6) replace
+$w_N^\nu$ by
+$\widehat w_N^\nu(q)=\mathbf1_{(q,a)=1}\widetilde w_N^\nu(q)$,
+where $\widetilde w_N^\nu$ has the distinctness masks removed.
+By the hypothesis on the support of $w_N^\nu$, the difference
+$w_N^\nu-\widehat w_N^\nu$ is a collision contribution. By (B.5),
+its complete signed discrepancy is $O_\sigma(N\log N/Y)$.
+The coprimality projection $\mathbf1_{(q,a)=1}$ factors across the
+three slots in (4.13), as shown after (B.6); this includes the
+smooth-only term. Thus the retained coefficient has the exact
+slot form (3.5). All its moduli are coprime to $a$.
+Appendix~\ref{app:proof-aa37} extends the support envelope
+$q<N^{e_Q}$ of (B.2) to $\widetilde w_N^\nu$ and $\widehat w_N^\nu$.
+For each source scale $X>N/(2(\log N)^B)$, (B.3) then places this entire
+retained support below $X^{0.6}$. The residue bound gives
+$a/X<(2/3)(\log N)^{B+1}$. Hence C4 holds with
+$K_{\rm scale}=B+1$. This includes $a\le X^{1+\sigma/20}$ for large
+$N$. On the doubled complementary support, (B.28) gives
+$a-mn\ge\varepsilon N/2$. It uses $a\ge N$ and the upper source cut. Since $a\ll N\log N$ and $mn\ll N$ there, also
+$|mn-a|\le X^3$ for large $N$. These are both parts of the
+nonresonance condition (3.10).
+
+After the collision projection, the prime-power contribution is
+(B.8). The logarithm-freezing error is (B.18). The source-boundary
+error is (B.19). Lemma~\ref{lem:aa37-typeII-lengths} proves
+the selected-interval lengths and integer endpoint convention in
+(B.22)--(B.27). Lemma~\ref{lem:aa37-pack} supplies the slot inequalities, while
+(B.20)--(B.21) classify every retained box. The internal Type-I and
+Type-II bounds, including the box and arithmetic costs, give (B.31).
+The integer choice
+$C_{\rm box}\ge\lceil2A+32\rceil$
+makes the
+logarithm-freezing and boundary errors in (B.18)--(B.19)
+$O(N(\log N)^{-A})$. The aggregate exponent
+$A_{\rm agg}=A$ here is the theorem convention; the separate
+$A_{\rm agg}=A+3$ bookkeeping used for (3.95) requires
+$C_{\rm box}\ge\lceil2A+38\rceil$ and is outside Theorem~\ref{thm:main}.
+$A'=A+24C_{\rm box}+31$ and $A_{\rm work}=A'+4$ absorb the box count.
+Appendix~\ref{app:proof-aa37} verifies the box-family bound (H7), that
+is (3.91) with $K_0=24C_{\rm box}+26$. The aggregate form of Theorem~\ref{thm:main}, namely (3.92),
+bounds the Type-II boxes. For each fixed admissible $\sigma>0$, the mask and proper-power
+terms have fixed power savings.
+Proposition~\ref{prop:aa37-prime-source} combines these terms over
+the complete support of \textup{(W)}. This gives the assertion for
+each fixed $A,B,\varepsilon,u,\theta,\sigma$ in the stated ranges.
+\end{proof}
+
+\subsection{Proof of the logarithmic-integral comparator}
+
+\begin{proof}[Proof of Corollary~\ref{cor:aa37-interior-li}]
+Put $L=\log N$. The coefficient bound in
+Theorem~\ref{thm:aa37-interior} and
+$\sum_{q\le x}1/\varphi(q)\ll\log(2x)$ give
+$\sum_q|w_N^\nu(q)|/\varphi(q)\ll_{\sigma,u,\theta} L$.
+The prime number theorem at the two endpoints of $I_N$ gives
+\[
+ \pi_{I_N}=\operatorname{Li}((1-\varepsilon)N)
+              -\operatorname{Li}(N/L^B)
+              +O_A(NL^{-A-1})
+\]
+for every fixed $A>0$. Strict endpoint conventions contribute at most
+two primes. Multiply this error by the reciprocal-totient sum and apply
+\eqref{eq:aa37-interior-mean}.
+\end{proof}
