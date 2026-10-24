@@ -2,6 +2,8 @@
 
 Ruiyi Zhang
 
+DOI: [10.5281/zenodo.23615525](https://doi.org/10.5281/zenodo.23615525)
+
 For Iwaniec's upper and lower linear-sieve remainder weights `w_N^±(q)` (the complete coefficients,
 keeping the smooth-divisor and prime-tuple factors), the manuscript proves a signed mean-value
 estimate for primes `p` in `(N/(log N)^B, (1-eps)N)` in residue classes `a mod q`:
@@ -33,3 +35,19 @@ Kloosterman sums and the Kim-Sarnak exponent `7/64`. The implied constants are i
     pdflatex main.tex
     pdflatex main.tex
     pdflatex main.tex
+
+## Citation
+
+Ruiyi Zhang, *Shifted primes in arithmetic progressions to large moduli with linear sieve remainder weights*, preprint, Zenodo, 2026. https://doi.org/10.5281/zenodo.23615525
+
+```bibtex
+@misc{zhang2026shiftedprimes,
+  author    = {Zhang, Ruiyi},
+  title     = {Shifted primes in arithmetic progressions to large moduli with linear sieve remainder weights},
+  year      = {2026},
+  publisher = {Zenodo},
+  note      = {Preprint},
+  doi       = {10.5281/zenodo.23615525},
+  url       = {https://doi.org/10.5281/zenodo.23615525}
+}
+```
